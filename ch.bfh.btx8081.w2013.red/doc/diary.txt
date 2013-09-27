@@ -24,4 +24,3 @@ at home and upload it to GitHub.
 Create PowerPoint Presentations for the Presentation of Task01 and Task02.
 
 27.09.2013: Upload document of Task02 and PowerPointPresentation of Task01 to Github; update diary
-test neu
