@@ -23,4 +23,6 @@ Team Meeting: end discussion and notes for Task02; finishing document of Task02
 at home and upload it to GitHub.
 Create PowerPoint Presentations for the Presentation of Task01 and Task02.
 
-27.09.2013: Upload document of Task02 and PowerPointPresentation of Task01 to Github; update diary
+27.09.2013: Upload Word document of task01 and pdf and Word document of Task02
+and also the PowerPoint presentations about both tasks to Github; update diary
+
