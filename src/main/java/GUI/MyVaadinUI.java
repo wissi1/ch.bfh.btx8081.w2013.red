@@ -1,4 +1,4 @@
-package ch.bfh.btx8081.w2013.red;
+package GUI;
 
 import javax.servlet.annotation.WebServlet;
 
