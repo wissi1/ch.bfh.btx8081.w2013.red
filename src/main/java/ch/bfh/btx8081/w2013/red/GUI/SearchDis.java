@@ -18,6 +18,8 @@ public class SearchDis extends VerticalLayout implements View {
 	}
 	private void createLayout()
 	{
+		Label diseaLabel = new Label("Disea");
+		diseaLabel.setSizeFull();
 		layout.setMargin(true);
 		layout.addComponent(new Label("SearchDis"));
 		Button button = new Button("Click Me");

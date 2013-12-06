@@ -1,5 +1,5 @@
 package ch.bfh.btx8081.w2013.red.Controller;
-// krankheit search!!
+
 
 import javax.servlet.annotation.WebServlet;
 
@@ -24,7 +24,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-@Theme("mytheme")
+@Theme("redtheme")
 @SuppressWarnings("serial")
 public class NavigatorUI extends UI
 {
@@ -54,9 +54,9 @@ public class NavigatorUI extends UI
         navigator.addView(SEARCHMEDVIEW, new SearchMed());
         
     }
-    public static Navigator getNavi()
+    public static void navigateTo(String view)
     {
-    	return navigator;
+    	navigator.navigateTo(view);
     }
     
 
