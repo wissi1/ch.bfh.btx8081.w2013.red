@@ -66,7 +66,7 @@ public class Comment extends VerticalLayout implements View {
 	}
 	private void editUpperVerticalLayout()
 	{
-		design.setTitleLabel("Comment");
+		design.setTitleLabel("Comments");
 	}
 	private void editLowerHorizontalLayout()
 	{
