@@ -35,9 +35,10 @@ import com.vaadin.ui.Button.ClickEvent;
  */
 public class Login extends VerticalLayout implements View {
 
-	final Login layout;
+	final VerticalLayout layout;
 	private AbsoluteLayout mainLayout;
 	private HorizontalLayout horizontalLayout_1;
+	private VerticalLayout upperVerticalLayout;
 	private Button HelpButton;
 	private Button HomeButton;
 	private VerticalLayout verticalLayout_1;
@@ -46,32 +47,27 @@ public class Login extends VerticalLayout implements View {
 	private Button button_1;
 	private PasswordField passwordField_1;
 	private TextField textField_1;
-
-	public Login() {
-		this.layout = this;
+	private MhcGuidDesign design;
+	public Login() 
+	
+	{
+		design = new MhcGuidDesign(this);
+		layout = design.getLayout();
+		mainLayout = design.getMainLayout();
+		horizontalLayout_1 = design.getLowerHorizontalLayout();
+		upperVerticalLayout = design.getUpperVerticalLayout();
+		buildHorizontalLayout_1();
 		createLayout();
 	}
 
 	private void createLayout() {
 
-		mainLayout = new AbsoluteLayout();
-		mainLayout.setImmediate(false);
-		mainLayout.setWidth("320px");
-		mainLayout.setHeight("480px");
-
-		// top-level component properties
-		setWidth("320px");
-		setHeight("480px");
-
+		design.setTitleLabel("Login");
 		// verticalLayout_1
 		verticalLayout_1 = buildVerticalLayout_1();
 		mainLayout.addComponent(verticalLayout_1, "top:60.0px;left:30.0px;");
 
-		// horizontalLayout_1
-		horizontalLayout_1 = buildHorizontalLayout_1();
-		mainLayout.addComponent(horizontalLayout_1, "top:380.0px;left:0.0px;");
 
-		layout.addComponent(mainLayout);
 	}
 
 	@Override
@@ -92,7 +88,7 @@ public class Login extends VerticalLayout implements View {
 
 		Embedded logo = new Embedded();
 		logo.setImmediate(false);
-		logo.setWidth("260px");
+		logo.setWidth("100%");
 		logo.setHeight("150px");
 		logo.setSource(new ThemeResource("Home.png"));
 		logo.setType(1);
@@ -105,7 +101,7 @@ public class Login extends VerticalLayout implements View {
 		textField_1.setWidth("80%");
 		textField_1.setHeight("-1px");
 		verticalLayout_1.addComponent(textField_1);
-		verticalLayout_1.setComponentAlignment(textField_1, new Alignment(24));
+		verticalLayout_1.setComponentAlignment(textField_1, Alignment.BOTTOM_CENTER);
 
 		// passwordField_1 for insert the Password
 		passwordField_1 = new PasswordField();
@@ -113,9 +109,7 @@ public class Login extends VerticalLayout implements View {
 		passwordField_1.setWidth("80%");
 		passwordField_1.setHeight("-1px");
 		verticalLayout_1.addComponent(passwordField_1);
-		verticalLayout_1.setComponentAlignment(passwordField_1, new Alignment(
-				48));
-
+		verticalLayout_1.setComponentAlignment(passwordField_1, Alignment.MIDDLE_CENTER);
 		// button_1 to which start the Event 'Login' and change the LoginView
 		// with the'Home'-View.
 		button_1 = new Button();
@@ -124,18 +118,13 @@ public class Login extends VerticalLayout implements View {
 		button_1.setWidth("80%");
 		button_1.setHeight("-1px");
 		verticalLayout_1.addComponent(button_1);
-		verticalLayout_1.setComponentAlignment(button_1, new Alignment(20));
+		verticalLayout_1.setComponentAlignment(button_1, Alignment.TOP_CENTER);
 
 		return verticalLayout_1;
 	}
 
-	private HorizontalLayout buildHorizontalLayout_1() {
+	private void buildHorizontalLayout_1() {
 		// common part: create layout
-		horizontalLayout_1 = new HorizontalLayout();
-		horizontalLayout_1.setImmediate(false);
-		horizontalLayout_1.setWidth("320px");
-		horizontalLayout_1.setHeight("100px");
-		horizontalLayout_1.setMargin(false);
 
 		// HomeButton
 		HomeButton = new Button();
@@ -144,7 +133,7 @@ public class Login extends VerticalLayout implements View {
 		HomeButton.setWidth("-1px");
 		HomeButton.setHeight("-1px");
 		horizontalLayout_1.addComponent(HomeButton);
-		horizontalLayout_1.setComponentAlignment(HomeButton, new Alignment(48));
+		horizontalLayout_1.setComponentAlignment(HomeButton, Alignment.MIDDLE_LEFT);
 
 		// HelpButton
 		HelpButton = new Button();
@@ -154,9 +143,8 @@ public class Login extends VerticalLayout implements View {
 		HelpButton.setWidth("-1px");
 		HelpButton.setHeight("22px");
 		horizontalLayout_1.addComponent(HelpButton);
-		horizontalLayout_1.setComponentAlignment(HelpButton, new Alignment(48));
+		horizontalLayout_1.setComponentAlignment(HelpButton, Alignment.MIDDLE_RIGHT);
 
-		return horizontalLayout_1;
 
 	}
 
