@@ -24,7 +24,6 @@ public class Home extends VerticalLayout implements View {
         button.addClickListener(new Button.ClickListener() {
             public void buttonClick(ClickEvent event) {
                 layout.addComponent(new Label("test"));
-                NavigatorUI.getNavi().navigateTo(NavigatorUI.LOGINVIEW);
             }
         });
         layout.addComponent(button);

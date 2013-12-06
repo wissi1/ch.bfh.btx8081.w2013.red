@@ -11,7 +11,7 @@ public class Init extends VerticalLayout implements View {
 	@Override
 	public void enter(ViewChangeEvent event) 
 	{
-		NavigatorUI.getNavi().navigateTo(NavigatorUI.LOGINVIEW);	
+		NavigatorUI.navigateTo(NavigatorUI.LOGINVIEW);
 	}
 
 }

@@ -24,7 +24,7 @@ public class Login extends VerticalLayout implements View {
         button.addClickListener(new Button.ClickListener() {
             public void buttonClick(ClickEvent event) {
                 layout.addComponent(new Label("Thank you for clicking"));
-                NavigatorUI.getNavi().navigateTo(NavigatorUI.HOMEVIEW);
+                NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
                 
             }
         });
