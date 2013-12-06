@@ -78,7 +78,7 @@ public class InfoMed extends VerticalLayout implements View {
 	private void editLowerHorizontalLayout()
 	{
 		
-		Button commentLink = new Button("comment");
+		Button commentLink = new Button("comment ");
 			commentLink.setStyleName(ChameleonTheme.BUTTON_LINK);
 			commentLink.addClickListener(new Button.ClickListener() 
 			{
