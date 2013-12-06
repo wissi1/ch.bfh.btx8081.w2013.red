@@ -94,7 +94,7 @@ public class InfoDis extends VerticalLayout implements View {
 	            }
 	        });
 		
-		Button returnButton = new Button("back ");
+		Button returnButton = new Button("back");
         	returnButton.addClickListener(new Button.ClickListener() 
         	{
         		public void buttonClick(ClickEvent event) {
