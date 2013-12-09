@@ -127,6 +127,12 @@ public class Login extends VerticalLayout implements View {
 		HomeButton.setHeight("-1px");
 		horizontalLayout_1.addComponent(HomeButton);
 		horizontalLayout_1.setComponentAlignment(HomeButton, Alignment.MIDDLE_LEFT);
+		HomeButton.addClickListener(new Button.ClickListener() 
+    	{
+    		public void buttonClick(ClickEvent event) {
+    			NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
+    		}
+    	});
 
 		// HelpButton
 		HelpButton = new Button("   ?   ");

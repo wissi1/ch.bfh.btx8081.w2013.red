@@ -80,12 +80,25 @@ public class Home extends VerticalLayout implements View {
 		MedikamentenInfo.setHeight("100%");
 		verticalLayout_1.addComponent(MedikamentenInfo);
 		verticalLayout_1.setComponentAlignment(MedikamentenInfo, Alignment.MIDDLE_CENTER);
+		MedikamentenInfo.addClickListener(new Button.ClickListener() 
+    	{
+    		public void buttonClick(ClickEvent event) {
+    			NavigatorUI.navigateTo(NavigatorUI.SEARCHMEDVIEW);
+    		}
+    	});
 		
 		Krankheitsbilder = new Button("KRANKHEITSBILDER");
 		Krankheitsbilder.setWidth("100%");
 		Krankheitsbilder.setHeight("100%");
 		verticalLayout_1.addComponent(Krankheitsbilder);
 		verticalLayout_1.setComponentAlignment(MedikamentenInfo, Alignment.MIDDLE_CENTER);
+		Krankheitsbilder.addClickListener(new Button.ClickListener() 
+    	{
+    		public void buttonClick(ClickEvent event) {
+    			NavigatorUI.navigateTo(NavigatorUI.SEARCHDISVIEW);
+    		}
+    	});
+		
 		
 		Wohnungssuche = new Button("WOHNUNGSSUCHE");
 		Wohnungssuche.setWidth("100%");
@@ -111,6 +124,12 @@ public class Home extends VerticalLayout implements View {
 			HomeButton.setHeight("-1px");
 			horizontalLayout_1.addComponent(HomeButton);
 			horizontalLayout_1.setComponentAlignment(HomeButton, Alignment.MIDDLE_LEFT);
+			HomeButton.addClickListener(new Button.ClickListener() 
+        	{
+        		public void buttonClick(ClickEvent event) {
+        			NavigatorUI.navigateTo(NavigatorUI.LOGINVIEW);
+        		}
+        	});
 
 			// HelpButton
 			HelpButton = new Button("   ?   ");
