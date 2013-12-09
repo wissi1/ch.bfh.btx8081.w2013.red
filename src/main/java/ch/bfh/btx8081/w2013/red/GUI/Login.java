@@ -29,8 +29,9 @@ import com.vaadin.ui.Button.ClickEvent;
 
 /**
  * 
- * @author shabf2 allererste Version
- * Autor Faton hochgeladen von Ivan wegen gitHub conflict 
+ * @author faton shabanaj
+ * @email shabf2@bfh.ch
+ * @version.nr 1.2
  *
  */
 public class Login extends VerticalLayout implements View {
@@ -42,12 +43,11 @@ public class Login extends VerticalLayout implements View {
 	private Button HelpButton;
 	private Button HomeButton;
 	private VerticalLayout verticalLayout_1;
-	private Embedded logo;
-	private Label NamederApp;
-	private Button button_1;
 	private PasswordField passwordField_1;
 	private TextField textField_1;
 	private MhcGuidDesign design;
+	
+	
 	public Login() 
 	
 	{
@@ -75,6 +75,7 @@ public class Login extends VerticalLayout implements View {
 		// TODO Auto-generated method stub
 
 	}
+	
 
 	private VerticalLayout buildVerticalLayout_1() {
 		// common part: create layout
@@ -89,14 +90,15 @@ public class Login extends VerticalLayout implements View {
 		Embedded logo = new Embedded();
 		logo.setImmediate(false);
 		logo.setWidth("100%");
-		logo.setHeight("150px");
+		logo.setHeight("160px");
 		logo.setSource(new ThemeResource("Home.png"));
 		logo.setType(1);
 		logo.setMimeType("image/png");
 		verticalLayout_1.addComponent(logo);
 
 		// textField_1 for insert the Username
-		textField_1 = new TextField();
+		
+		textField_1 = new TextField(" Username:");
 		textField_1.setImmediate(true);
 		textField_1.setWidth("80%");
 		textField_1.setHeight("-1px");
@@ -104,31 +106,22 @@ public class Login extends VerticalLayout implements View {
 		verticalLayout_1.setComponentAlignment(textField_1, Alignment.BOTTOM_CENTER);
 
 		// passwordField_1 for insert the Password
-		passwordField_1 = new PasswordField();
+		passwordField_1 = new PasswordField("Password: ");
 		passwordField_1.setImmediate(false);
 		passwordField_1.setWidth("80%");
 		passwordField_1.setHeight("-1px");
 		verticalLayout_1.addComponent(passwordField_1);
 		verticalLayout_1.setComponentAlignment(passwordField_1, Alignment.MIDDLE_CENTER);
-		// button_1 to which start the Event 'Login' and change the LoginView
-		// with the'Home'-View.
-		button_1 = new Button();
-		button_1.setCaption("Login");
-		button_1.setImmediate(false);
-		button_1.setWidth("80%");
-		button_1.setHeight("-1px");
-		verticalLayout_1.addComponent(button_1);
-		verticalLayout_1.setComponentAlignment(button_1, Alignment.TOP_CENTER);
-
+	
+	
 		return verticalLayout_1;
 	}
 
 	private void buildHorizontalLayout_1() {
 		// common part: create layout
 
-		// HomeButton
-		HomeButton = new Button();
-		HomeButton.setCaption("Button");
+		// LoginButton
+		HomeButton = new Button("Login");
 		HomeButton.setImmediate(true);
 		HomeButton.setWidth("-1px");
 		HomeButton.setHeight("-1px");
@@ -136,10 +129,9 @@ public class Login extends VerticalLayout implements View {
 		horizontalLayout_1.setComponentAlignment(HomeButton, Alignment.MIDDLE_LEFT);
 
 		// HelpButton
-		HelpButton = new Button();
-		HelpButton.setCaption("  ?  ");
+		HelpButton = new Button("   ?   ");
 		HelpButton.setImmediate(true);
-		HelpButton.setDescription(" ? ");
+		HelpButton.setDescription(" Help-Mode ");
 		HelpButton.setWidth("-1px");
 		HelpButton.setHeight("22px");
 		horizontalLayout_1.addComponent(HelpButton);
@@ -149,3 +141,5 @@ public class Login extends VerticalLayout implements View {
 	}
 
 }
+
+
