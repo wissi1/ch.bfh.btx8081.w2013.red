@@ -39,10 +39,7 @@ public class Comment extends VerticalLayout implements View {
 	private void editMainLayout()
 	{		
 		
-		
-		
 		TextArea textInputField = new TextArea("Your Comment:");
-		textInputField.setImmediate(false);
 		textInputField.setWidth("260px");
 		textInputField.setHeight("80px");
 		textInputField.setWordwrap(true);
@@ -53,9 +50,8 @@ public class Comment extends VerticalLayout implements View {
 		
 		mainLayout.addComponent(commitButton, "top:382.0px;left:30px;");
 		
-		// Evtl. Tabel brauchen um verschiedenen kommentare anzuzeigen
+	
 		Panel displayPanel = new Panel("Comments");
-		displayPanel.setImmediate(false);
 		displayPanel.setVisible(true);
 		displayPanel.setWidth("260px");
 		displayPanel.setHeight("220px");
@@ -68,16 +64,29 @@ public class Comment extends VerticalLayout implements View {
 	{
 		design.setTitleLabel("Comments");
 	}
+	
 	private void editLowerHorizontalLayout()
 	{
 		
 	
 		Button backButton = new Button();
 		backButton.setCaption("Back");
+		backButton.addClickListener(new Button.ClickListener() 
+    	{
+    		public void buttonClick(ClickEvent event) {
+    			//NavigatorUI.navigateTo(NavigatorUI.SEARCHDISVIEW);
+    		}
+    	});
 		
 		
 		Button returnToMainButton = new Button();
 		returnToMainButton.setCaption("Main");
+		returnToMainButton.addClickListener(new Button.ClickListener() 
+    	{
+    		public void buttonClick(ClickEvent event) {
+    			//NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
+    		}
+    	});
 		
 		
         lowerHorizontalLayout.addComponent(backButton);
