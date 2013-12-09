@@ -134,15 +134,7 @@ public class Login extends VerticalLayout implements View {
     		}
     	});
 
-		// HelpButton
-		HelpButton = new Button("   ?   ");
-		HelpButton.setImmediate(true);
-		HelpButton.setDescription(" Help-Mode ");
-		HelpButton.setWidth("40px");
-		HelpButton.setHeight("22px");
-		horizontalLayout_1.addComponent(HelpButton);
-		horizontalLayout_1.setComponentAlignment(HelpButton, Alignment.MIDDLE_RIGHT);
-
+	
 
 	}
 
