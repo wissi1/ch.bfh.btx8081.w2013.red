@@ -18,8 +18,9 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
 /**
  * 
- * @author shabf2 allererste Version
- * Autor Faton hochgeladen von Ivan wegen gitHub conflict 
+ * @author faton shabanaj
+ * @email shabf2@bfh.ch
+ * @version.nr 1.2
  *
  */
 public class Home extends VerticalLayout implements View {
@@ -35,41 +36,28 @@ public class Home extends VerticalLayout implements View {
 	private Button HelpButton;
 	private Button HomeButton;
 	private VerticalLayout verticalLayout_1;
-	private VerticalLayout verticalLayout_2;
-
-
+	private MhcGuidDesign design;
+	private VerticalLayout upperVerticalLayout;
 	
-	final GridLayout grid = new GridLayout(1, 3);
-
 	
-
-	public Home() {
-		this.layout = this;
+	public Home()
+	
+	{
+		design = new MhcGuidDesign(this);
+		layout = design.getLayout();
+		mainLayout = design.getMainLayout();
+		horizontalLayout_1 = design.getLowerHorizontalLayout();
+		upperVerticalLayout = design.getUpperVerticalLayout();
+		buildHorizontalLayout_1();
 		createLayout();
 	}
 
+
 	private void createLayout() {
-
-		mainLayout = new AbsoluteLayout();
-		mainLayout.setImmediate(false);
-		mainLayout.setWidth("320px");
-		mainLayout.setHeight("480px");
-
-		// top-level component properties
-		setWidth("320px");
-		setHeight("480px");
-
+		design.setTitleLabel("Home");
 		// verticalLayout_1
 		verticalLayout_1 = buildVerticalLayout_1();
-		mainLayout.addComponent(verticalLayout_1, "top:60.0px;left:30.0px;");
-		
-
-
-		// horizontalLayout_1
-		horizontalLayout_1 = buildHorizontalLayout_1();
-		mainLayout.addComponent(horizontalLayout_1, "top:380.0px;left:0.0px;");
-
-		layout.addComponent(mainLayout);
+		mainLayout.addComponent(verticalLayout_1, "top:120.0px;left:30.0px;");
 	}
 	
 	@Override
@@ -82,95 +70,59 @@ public class Home extends VerticalLayout implements View {
 	private VerticalLayout buildVerticalLayout_1() {
 		// common part: create layout
 		verticalLayout_1 = new VerticalLayout();
-		verticalLayout_1.setImmediate(false);
 		verticalLayout_1.setWidth("260px");
-		verticalLayout_1.setHeight("360px");
-		verticalLayout_1.setMargin(false);
+		verticalLayout_1.setHeight("260px");
 	
-		verticalLayout_2 = new VerticalLayout();
-		verticalLayout_2.setImmediate(false);
-		verticalLayout_2.setWidth("100%");
-		verticalLayout_2.setHeight("200px");
-		verticalLayout_2.setMargin(true);
-		
-
 		// button_1 to which start the Event 'Login' and change the LoginView
 		// with the'Home'-View.
-		MedikamentenInfo = new Button();
-		MedikamentenInfo.setCaption("MEDIKAMENTENINFO");
-		MedikamentenInfo.setImmediate(false);
+		MedikamentenInfo = new Button("MEDIKAMENTENINFO");
 		MedikamentenInfo.setWidth("100%");
-		MedikamentenInfo.setHeight("-1px");
-		verticalLayout_2.addComponent(MedikamentenInfo);
-		verticalLayout_2.setComponentAlignment(MedikamentenInfo, new Alignment(20));
+		MedikamentenInfo.setHeight("100%");
+		verticalLayout_1.addComponent(MedikamentenInfo);
+		verticalLayout_1.setComponentAlignment(MedikamentenInfo, Alignment.MIDDLE_CENTER);
 		
-		Krankheitsbilder = new Button();
-		Krankheitsbilder.setCaption("KRANKHEITSBILDER");
-		Krankheitsbilder.setImmediate(false);
+		Krankheitsbilder = new Button("KRANKHEITSBILDER");
 		Krankheitsbilder.setWidth("100%");
-		Krankheitsbilder.setHeight("-1px");
-		verticalLayout_2.addComponent(Krankheitsbilder);
-		verticalLayout_2.setComponentAlignment(MedikamentenInfo, new Alignment(20));
+		Krankheitsbilder.setHeight("100%");
+		verticalLayout_1.addComponent(Krankheitsbilder);
+		verticalLayout_1.setComponentAlignment(MedikamentenInfo, Alignment.MIDDLE_CENTER);
 		
-		Wohnungssuche = new Button();
-		Wohnungssuche.setCaption("WOHNUNGSSUCHE");
-		Wohnungssuche.setImmediate(false);
+		Wohnungssuche = new Button("WOHNUNGSSUCHE");
 		Wohnungssuche.setWidth("100%");
-		Wohnungssuche.setHeight("-1px");
-		verticalLayout_2.addComponent(Wohnungssuche);
-		verticalLayout_2.setComponentAlignment(MedikamentenInfo, new Alignment(20));
+		Wohnungssuche.setHeight("100%");
+		verticalLayout_1.addComponent(Wohnungssuche);
+		verticalLayout_1.setComponentAlignment(MedikamentenInfo, Alignment.MIDDLE_CENTER);
 		
-		Finanzen = new Button();
-		Finanzen.setCaption("FINANZEN");
-		Finanzen.setImmediate(false);
+		Finanzen = new Button("FINANZEN");
 		Finanzen.setWidth("100%");
-		Finanzen.setHeight("-1px");
-		verticalLayout_2.addComponent(Finanzen);
-		verticalLayout_2.setComponentAlignment(MedikamentenInfo, new Alignment(20));
-		
-		
-		verticalLayout_1.addComponent(verticalLayout_2 );
-		
+		Finanzen.setHeight("100%");
+		verticalLayout_1.addComponent(Finanzen);
+		verticalLayout_1.setComponentAlignment(MedikamentenInfo,Alignment.MIDDLE_CENTER);
+				
 		return verticalLayout_1;
 	}
 
-	private HorizontalLayout buildHorizontalLayout_1() {
-		// common part: create layout
-		horizontalLayout_1 = new HorizontalLayout();
-		horizontalLayout_1.setImmediate(false);
-		horizontalLayout_1.setWidth("320px");
-		horizontalLayout_1.setHeight("100px");
-		horizontalLayout_1.setMargin(false);
+		private void buildHorizontalLayout_1() {
+			// common part: create layout
 
-		// HomeButton
-		HomeButton = new Button();
-		HomeButton.setCaption("Button");
-		HomeButton.setImmediate(true);
-		HomeButton.setWidth("-1px");
-		HomeButton.setHeight("-1px");
-		horizontalLayout_1.addComponent(HomeButton);
-		horizontalLayout_1.setComponentAlignment(HomeButton, new Alignment(48));
+			// HomeButton
+			HomeButton = new Button("Logout");
+			HomeButton.setWidth("-1px");
+			HomeButton.setHeight("-1px");
+			horizontalLayout_1.addComponent(HomeButton);
+			horizontalLayout_1.setComponentAlignment(HomeButton, Alignment.MIDDLE_LEFT);
 
-		// HelpButton
-		HelpButton = new Button();
-		HelpButton.setCaption("Button");
-		HelpButton.setImmediate(true);
-		HelpButton.setDescription(" ? ");
-		HelpButton.setWidth("-1px");
-		HelpButton.setHeight("22px");
-		horizontalLayout_1.addComponent(HelpButton);
-		horizontalLayout_1.setComponentAlignment(HelpButton, new Alignment(48));
+			// HelpButton
+			HelpButton = new Button("   ?   ");
+			HelpButton.setDescription(" Help-Mode ");
+			HelpButton.setWidth("-1px");
+			HelpButton.setHeight("22px");
+			horizontalLayout_1.addComponent(HelpButton);
+			horizontalLayout_1.setComponentAlignment(HelpButton, Alignment.MIDDLE_RIGHT);
 
-		return horizontalLayout_1;
 
 	}
 
 }
 
-/*
- * layout.setMargin(true); layout.addComponent(new Label("Home")); Button button
- * = new Button("Go to Login"); button.addClickListener(new
- * Button.ClickListener() { public void buttonClick(ClickEvent event) {
- * layout.addComponent(new Label("test"));
- * NavigatorUI.getNavi().navigateTo(NavigatorUI.LOGINVIEW);
- */
+
