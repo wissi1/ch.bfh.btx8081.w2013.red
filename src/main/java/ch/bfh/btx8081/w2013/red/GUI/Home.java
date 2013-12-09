@@ -28,13 +28,13 @@ public class Home extends VerticalLayout implements View {
 	final VerticalLayout layout;
 	private AbsoluteLayout mainLayout;
 	private HorizontalLayout horizontalLayout_1;
-	private Button MedicationInfo;
-	private Button Disease;
-	private Button ApartmentSearch;
-	private Button Finances;
+	private Button medicationInfo;
+	private Button disease;
+	private Button apartmentSearch;
+	private Button finances;
 	
-	private Button HelpButton;
-	private Button HomeButton;
+	private Button helpButton;
+	private Button homeButton;
 	private VerticalLayout verticalLayout_1;
 	private MhcGuidDesign design;
 	private VerticalLayout upperVerticalLayout;
@@ -75,24 +75,24 @@ public class Home extends VerticalLayout implements View {
 	
 		// button_1 to which start the Event 'Login' and change the LoginView
 		// with the'Home'-View.
-		MedicationInfo = new Button("Medication info");
-		MedicationInfo.setWidth("100%");
-		MedicationInfo.setHeight("100%");
-		verticalLayout_1.addComponent(MedicationInfo);
-		verticalLayout_1.setComponentAlignment(MedicationInfo, Alignment.MIDDLE_CENTER);
-		MedicationInfo.addClickListener(new Button.ClickListener() 
+		medicationInfo = new Button("Medication info");
+		medicationInfo.setWidth("100%");
+		medicationInfo.setHeight("100%");
+		verticalLayout_1.addComponent(medicationInfo);
+		verticalLayout_1.setComponentAlignment(medicationInfo, Alignment.MIDDLE_CENTER);
+		medicationInfo.addClickListener(new Button.ClickListener() 
     	{
     		public void buttonClick(ClickEvent event) {
     			NavigatorUI.navigateTo(NavigatorUI.SEARCHMEDVIEW);
     		}
     	});
 		
-		Disease = new Button("Disease");
-		Disease.setWidth("100%");
-		Disease.setHeight("100%");
-		verticalLayout_1.addComponent(Disease);
-		verticalLayout_1.setComponentAlignment(MedicationInfo, Alignment.MIDDLE_CENTER);
-		Disease.addClickListener(new Button.ClickListener() 
+		disease = new Button("Disease");
+		disease.setWidth("100%");
+		disease.setHeight("100%");
+		verticalLayout_1.addComponent(disease);
+		verticalLayout_1.setComponentAlignment(medicationInfo, Alignment.MIDDLE_CENTER);
+		disease.addClickListener(new Button.ClickListener() 
     	{
     		public void buttonClick(ClickEvent event) {
     			NavigatorUI.navigateTo(NavigatorUI.SEARCHDISVIEW);
@@ -100,17 +100,17 @@ public class Home extends VerticalLayout implements View {
     	});
 		
 		
-		ApartmentSearch = new Button("Apartment search");
-		ApartmentSearch.setWidth("100%");
-		ApartmentSearch.setHeight("100%");
-		verticalLayout_1.addComponent(ApartmentSearch);
-		verticalLayout_1.setComponentAlignment(MedicationInfo, Alignment.MIDDLE_CENTER);
+		apartmentSearch = new Button("Apartment search");
+		apartmentSearch.setWidth("100%");
+		apartmentSearch.setHeight("100%");
+		verticalLayout_1.addComponent(apartmentSearch);
+		verticalLayout_1.setComponentAlignment(medicationInfo, Alignment.MIDDLE_CENTER);
 		
-		Finances = new Button("Finances");
-		Finances.setWidth("100%");
-		Finances.setHeight("100%");
-		verticalLayout_1.addComponent(Finances);
-		verticalLayout_1.setComponentAlignment(MedicationInfo,Alignment.MIDDLE_CENTER);
+		finances = new Button("Finances");
+		finances.setWidth("100%");
+		finances.setHeight("100%");
+		verticalLayout_1.addComponent(finances);
+		verticalLayout_1.setComponentAlignment(medicationInfo,Alignment.MIDDLE_CENTER);
 				
 		return verticalLayout_1;
 	}
@@ -119,12 +119,12 @@ public class Home extends VerticalLayout implements View {
 			// common part: create layout
 
 			// HomeButton
-			HomeButton = new Button("Logout");
-			HomeButton.setWidth("80px");
-			HomeButton.setHeight("-1px");
-			horizontalLayout_1.addComponent(HomeButton);
-			horizontalLayout_1.setComponentAlignment(HomeButton, Alignment.MIDDLE_LEFT);
-			HomeButton.addClickListener(new Button.ClickListener() 
+			homeButton = new Button("Logout");
+			homeButton.setWidth("80px");
+			homeButton.setHeight("-1px");
+			horizontalLayout_1.addComponent(homeButton);
+			horizontalLayout_1.setComponentAlignment(homeButton, Alignment.MIDDLE_LEFT);
+			homeButton.addClickListener(new Button.ClickListener() 
         	{
         		public void buttonClick(ClickEvent event) {
         			NavigatorUI.navigateTo(NavigatorUI.LOGINVIEW);
