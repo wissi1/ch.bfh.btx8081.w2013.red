@@ -120,7 +120,7 @@ public class Home extends VerticalLayout implements View {
 
 			// HomeButton
 			HomeButton = new Button("Logout");
-			HomeButton.setWidth("-1px");
+			HomeButton.setWidth("80px");
 			HomeButton.setHeight("-1px");
 			horizontalLayout_1.addComponent(HomeButton);
 			horizontalLayout_1.setComponentAlignment(HomeButton, Alignment.MIDDLE_LEFT);
@@ -134,7 +134,7 @@ public class Home extends VerticalLayout implements View {
 			// HelpButton
 			HelpButton = new Button("   ?   ");
 			HelpButton.setDescription(" Help-Mode ");
-			HelpButton.setWidth("-1px");
+			HelpButton.setWidth("40px");
 			HelpButton.setHeight("22px");
 			horizontalLayout_1.addComponent(HelpButton);
 			horizontalLayout_1.setComponentAlignment(HelpButton, Alignment.MIDDLE_RIGHT);
