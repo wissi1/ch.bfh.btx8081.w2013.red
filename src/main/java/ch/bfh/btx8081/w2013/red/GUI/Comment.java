@@ -1,19 +1,16 @@
 package ch.bfh.btx8081.w2013.red.GUI;
-
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
-
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.themes.ChameleonTheme;
+
 
 public class Comment extends VerticalLayout implements View {
 	
@@ -71,6 +68,7 @@ public class Comment extends VerticalLayout implements View {
 	
 		Button backButton = new Button();
 		backButton.setCaption("Back");
+		backButton.setWidth("80px");
 		backButton.addClickListener(new Button.ClickListener() 
     	{
     		public void buttonClick(ClickEvent event) {
@@ -81,10 +79,11 @@ public class Comment extends VerticalLayout implements View {
 		
 		Button returnToMainButton = new Button();
 		returnToMainButton.setCaption("Main");
+		returnToMainButton.setWidth("80px");
 		returnToMainButton.addClickListener(new Button.ClickListener() 
     	{
     		public void buttonClick(ClickEvent event) {
-    			//NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
+    			NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
     		}
     	});
 		
