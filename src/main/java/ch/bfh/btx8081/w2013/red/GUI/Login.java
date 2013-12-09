@@ -62,7 +62,7 @@ public class Login extends VerticalLayout implements View {
 
 	private void createLayout() {
 
-		design.setTitleLabel("Login");
+		design.setTitleLabel("MHC-GUIDE");
 		// verticalLayout_1
 		verticalLayout_1 = buildVerticalLayout_1();
 		mainLayout.addComponent(verticalLayout_1, "top:60.0px;left:30.0px;");
