@@ -1,5 +1,6 @@
 package ch.bfh.btx8081.w2013.red.GUI;
 
+import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
 
 import com.vaadin.navigator.View;
@@ -15,7 +16,7 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.themes.ChameleonTheme;
 import com.vaadin.ui.themes.Reindeer;
 
-public class InfoMed extends VerticalLayout implements View {
+public class InfoMed extends VerticalLayout implements View, IState {
 	final VerticalLayout layout;
 	private AbsoluteLayout mainLayout;
 	private VerticalLayout upperVerticalLayout;
@@ -83,7 +84,7 @@ public class InfoMed extends VerticalLayout implements View {
 			commentLink.addClickListener(new Button.ClickListener() 
 			{
 	            public void buttonClick(ClickEvent event) {
-	            	NavigatorUI.navigateTo(NavigatorUI.COMMENTVIEW);
+	            	handleB1();
 	            }
 	        });
 		
@@ -91,18 +92,31 @@ public class InfoMed extends VerticalLayout implements View {
         	returnButton.addClickListener(new Button.ClickListener() 
         	{
         		public void buttonClick(ClickEvent event) {
-        			NavigatorUI.navigateTo(NavigatorUI.SEARCHMEDVIEW);
+        			handleB2();
         		}
         	});
 		
 		
-        lowerHorizontalLayout.addComponent(commentLink);
-        lowerHorizontalLayout.setComponentAlignment(commentLink, Alignment.MIDDLE_LEFT);
-        lowerHorizontalLayout.addComponent(returnButton);
-        lowerHorizontalLayout.setComponentAlignment(returnButton, Alignment.MIDDLE_RIGHT);
+        	lowerHorizontalLayout.addComponent(commentLink);
+            lowerHorizontalLayout.setComponentAlignment(commentLink, Alignment.MIDDLE_LEFT);
+            lowerHorizontalLayout.addComponent(returnButton);
+            lowerHorizontalLayout.setComponentAlignment(returnButton, Alignment.MIDDLE_RIGHT);
 	}
 	@Override
 	public void enter(ViewChangeEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void handleB1() {
+		NavigatorUI.navigateTo(NavigatorUI.COMMENTVIEW);
+	}
+	@Override
+	public void handleB2() {
+		NavigatorUI.navigateTo(NavigatorUI.SEARCHMEDVIEW);
+	}
+	@Override
+	public void handleB3() {
 		// TODO Auto-generated method stub
 		
 	}

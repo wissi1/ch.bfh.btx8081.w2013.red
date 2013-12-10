@@ -13,7 +13,10 @@ import com.vaadin.ui.Layout;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
+
+import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
+
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.Button;
@@ -28,7 +31,7 @@ import com.vaadin.ui.Button.ClickEvent;
  * @version.nr 1.2
  *
  */
-public class Login extends VerticalLayout implements View {
+public class Login extends VerticalLayout implements View, IState {
 
 	final VerticalLayout layout;
 	private AbsoluteLayout mainLayout;
@@ -124,12 +127,29 @@ public class Login extends VerticalLayout implements View {
 		homeButton.addClickListener(new Button.ClickListener() 
     	{
     		public void buttonClick(ClickEvent event) {
-    			NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
+    			handleB1();
     		}
     	});
 
 	
 
+	}
+
+	@Override
+	public void handleB1() {
+		NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
+	}
+
+	@Override
+	public void handleB2() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void handleB3() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

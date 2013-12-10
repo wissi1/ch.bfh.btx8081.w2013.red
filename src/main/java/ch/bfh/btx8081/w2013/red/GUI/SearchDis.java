@@ -1,5 +1,6 @@
 package ch.bfh.btx8081.w2013.red.GUI;
 
+import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
 
 import com.vaadin.navigator.View;
@@ -15,7 +16,7 @@ import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
 
-public class SearchDis extends VerticalLayout implements View {
+public class SearchDis extends VerticalLayout implements View, IState {
 	
 	final VerticalLayout layout;
 	private AbsoluteLayout mainLayout;
@@ -70,7 +71,7 @@ public class SearchDis extends VerticalLayout implements View {
 		backButton.addClickListener(new Button.ClickListener() 
     	{
     		public void buttonClick(ClickEvent event) {
-    			NavigatorUI.navigateTo(NavigatorUI.INFODISVIEW);
+    			handleB2();
     		}
     	});
 		
@@ -81,7 +82,7 @@ public class SearchDis extends VerticalLayout implements View {
 		returnToMainButton.addClickListener(new Button.ClickListener() 
     	{
     		public void buttonClick(ClickEvent event) {
-    			NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
+    			handleB1();
     		}
     	});
 		
@@ -94,6 +95,22 @@ public class SearchDis extends VerticalLayout implements View {
 	
 	@Override
 	public void enter(ViewChangeEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void handleB1() {
+		NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
+	}
+
+	@Override
+	public void handleB2() {
+		NavigatorUI.navigateTo(NavigatorUI.INFODISVIEW);
+	}
+
+	@Override
+	public void handleB3() {
 		// TODO Auto-generated method stub
 		
 	}

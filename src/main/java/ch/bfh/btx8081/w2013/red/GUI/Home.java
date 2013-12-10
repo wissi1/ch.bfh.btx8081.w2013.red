@@ -1,19 +1,14 @@
 package ch.bfh.btx8081.w2013.red.GUI;
 
+import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Embedded;
-import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.PasswordField;
-import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
 /**
@@ -23,7 +18,7 @@ import com.vaadin.ui.Button.ClickEvent;
  * @version.nr 1.2
  *
  */
-public class Home extends VerticalLayout implements View {
+public class Home extends VerticalLayout implements View, IState {
 
 	final VerticalLayout layout;
 	private AbsoluteLayout mainLayout;
@@ -33,7 +28,6 @@ public class Home extends VerticalLayout implements View {
 	private Button apartmentSearch;
 	private Button finances;
 	
-	private Button helpButton;
 	private Button homeButton;
 	private VerticalLayout verticalLayout_1;
 	private MhcGuidDesign design;
@@ -83,7 +77,7 @@ public class Home extends VerticalLayout implements View {
 		medicationInfo.addClickListener(new Button.ClickListener() 
     	{
     		public void buttonClick(ClickEvent event) {
-    			NavigatorUI.navigateTo(NavigatorUI.SEARCHMEDVIEW);
+    			handleB1();
     		}
     	});
 		
@@ -95,7 +89,7 @@ public class Home extends VerticalLayout implements View {
 		disease.addClickListener(new Button.ClickListener() 
     	{
     		public void buttonClick(ClickEvent event) {
-    			NavigatorUI.navigateTo(NavigatorUI.SEARCHDISVIEW);
+    			handleB2();
     		}
     	});
 		
@@ -127,13 +121,26 @@ public class Home extends VerticalLayout implements View {
 			homeButton.addClickListener(new Button.ClickListener() 
         	{
         		public void buttonClick(ClickEvent event) {
-        			NavigatorUI.navigateTo(NavigatorUI.LOGINVIEW);
+        			handleB3();
         		}
         	});
-
-			
-
 	}
+		@Override
+		public void handleB1() {
+			NavigatorUI.navigateTo(NavigatorUI.SEARCHMEDVIEW);
+		}
+
+
+		@Override
+		public void handleB2() {
+			NavigatorUI.navigateTo(NavigatorUI.SEARCHDISVIEW);
+		}
+
+
+		@Override
+		public void handleB3() {
+			NavigatorUI.navigateTo(NavigatorUI.LOGINVIEW);
+		}
 
 }
 

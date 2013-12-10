@@ -36,6 +36,7 @@ public class NavigatorUI extends UI
 	public static final String SEARCHDISVIEW = "searchDis";
 	public static final String SEARCHMEDVIEW = "searchMed";
 	private static Navigator navigator;
+	private static String previousView;
     @WebServlet(value = "/*", asyncSupported = true)
     @VaadinServletConfiguration(productionMode = false, ui = NavigatorUI.class, widgetset = "ch.bfh.btx8081.w2013.red.AppWidgetSet")
     public static class Servlet extends VaadinServlet {
@@ -56,7 +57,12 @@ public class NavigatorUI extends UI
     }
     public static void navigateTo(String view)
     {
-    	navigator.navigateTo(view);
+    previousView = navigator.getState();
+    navigator.navigateTo(view);
+    }
+    public static String getPreviousView()
+    {
+		return previousView;
     }
     
 
