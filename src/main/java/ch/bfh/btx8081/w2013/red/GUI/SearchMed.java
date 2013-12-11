@@ -61,7 +61,7 @@ public class SearchMed extends VerticalLayout implements View, IState {
     		mainLayout.addComponent(comboBox_MediName, "top:140.0px;left:30.0px;");
     		
     		label_MediArt = new Label();
-    		label_MediArt.setValue("Type of medication");
+    		label_MediArt.setValue("Type of medication ");
     		mainLayout.addComponent(label_MediArt, "top:170.0px;left:30.0px;");
     		
     		comboBox_MediArt= new ComboBox();
