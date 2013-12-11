@@ -16,6 +16,12 @@ import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
 
+/**
+ * 
+ * @author pzehnder
+ *
+ */
+
 public class SearchDis extends VerticalLayout implements View, IState {
 	
 	final VerticalLayout layout;
