@@ -50,40 +50,42 @@ public class SearchMed extends VerticalLayout implements View, IState {
     		design.setTitleLabel("Medication");
     	}
    
-  //      
+       
     	private void editMainLayout()
     	{		
     		label_MediName = new Label();
     		label_MediName.setValue("Medication / Active substance");
-    		mainLayout.addComponent(label_MediName, "top:120.0px;left:30.0px;");
+    		mainLayout.addComponent(label_MediName, "top:100.0px;left:30.0px;");
     		
     		comboBox_MediName = new ComboBox();
-    		mainLayout.addComponent(comboBox_MediName, "top:140.0px;left:30.0px;");
+    		mainLayout.addComponent(comboBox_MediName, "top:120.0px;left:30.0px;");
     		
     		label_MediArt = new Label();
     		label_MediArt.setValue("Type of medication ");
-    		mainLayout.addComponent(label_MediArt, "top:170.0px;left:30.0px;");
+    		mainLayout.addComponent(label_MediArt, "top:160.0px;left:30.0px;");
     		
     		comboBox_MediArt= new ComboBox();
-    		mainLayout.addComponent(comboBox_MediArt, "top:190.0px;left:30.0px;");
+    		mainLayout.addComponent(comboBox_MediArt, "top:180.0px;left:30.0px;");
     	
     	}
         
         private void editLowerHorizontalLayout()
         {
-                Button searchButton = new Button("serach");
+                Button searchButton = new Button("Search");
+                searchButton.setWidth("80px");
                 searchButton.addClickListener(new Button.ClickListener()
                 {
             public void buttonClick(ClickEvent event) {
-                    handleB1();
+                    handleB2();
             }
         });
                 
-                Button mainButton = new Button("main");
+                Button mainButton = new Button("Main");
+                mainButton.setWidth("80px");
                 mainButton.addClickListener(new Button.ClickListener()
                 {
             public void buttonClick(ClickEvent event) {
-                    handleB2();
+                    handleB1();
             }
         });
                 
@@ -100,11 +102,11 @@ public class SearchMed extends VerticalLayout implements View, IState {
         }
         @Override
         public void handleB1() {
-                NavigatorUI.navigateTo(NavigatorUI.INFOMEDVIEW);
+                NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
         }
         @Override
         public void handleB2() {
-                NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);        
+                NavigatorUI.navigateTo(NavigatorUI.INFOMEDVIEW);        
         }
         @Override
         public void handleB3() {
