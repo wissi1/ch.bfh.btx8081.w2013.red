@@ -16,6 +16,7 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Link;
 import com.vaadin.ui.Panel;
+import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
@@ -42,72 +43,61 @@ public class InfoDis extends VerticalLayout implements View , IState {
 	
 	private void editMainLayout()
 	{		
-		VerticalLayout midLayout = new VerticalLayout();
-			midLayout.setHeight("300px");
-			midLayout.setWidth("260px");
-			
-		VerticalLayout areaLayout = new VerticalLayout();
-			areaLayout.setHeight("270px");
-			areaLayout.setWidth("260px");
-			
 		
-		HorizontalLayout tabLayout = new HorizontalLayout();
-			tabLayout.setHeight("30px");
-			tabLayout.setWidth("260px");
-			
-			midLayout.addComponent(areaLayout);
-			midLayout.addComponent(tabLayout);
-			midLayout.setComponentAlignment(tabLayout, Alignment.BOTTOM_CENTER);
-			
-		TextArea area = new TextArea("Krankheitsbild");
-		area.setHeight("100%");
-		area.setWidth("260px");
+		TabSheet tabSheetDis = new TabSheet();
+		tabSheetDis.setWidth("260px");
+		tabSheetDis.setHeight("300px");
+		tabSheetDis.addTab(new Label("test"), "Symptoms");
+		tabSheetDis.addTab(new Label("test1"), "Cause");
+		tabSheetDis.addTab(new Label("test2"), "Treatment");
 		
-			areaLayout.addComponent(area);
-			
-		Button b1 = new Button("tab1");
-		b1.setSizeFull();
-		Button b2 = new Button("tab2");
-		b2.setSizeFull();
-		Button b3 = new Button("tab3");
-		b3.setSizeFull();
 		
-		tabLayout.addComponent(b1);
-		tabLayout.addComponent(b2);
-		tabLayout.addComponent(b3);
+		mainLayout.addComponent(tabSheetDis, "top:90px;left:30px");
 		
-		mainLayout.addComponent(midLayout, "top:90px;left:30px");
+		Button commentLink = new Button("comment");
+		commentLink.setStyleName(ChameleonTheme.BUTTON_LINK);
+			commentLink.addClickListener(new Button.ClickListener() 
+			{
+	            public void buttonClick(ClickEvent event) {
+	            	handleB3();
+	            }
+	        });
+		
+		mainLayout.addComponent(commentLink, "top:395px;left:45px");
 		
 	}
+	
 	private void editUpperVerticalLayout()
 	{
 		design.setTitleLabel("Disease");
 	}
+	
 	private void editLowerHorizontalLayout()
 	{
 		
-		Button commentLink = new Button("comment");
-			commentLink.setStyleName(ChameleonTheme.BUTTON_LINK);
-			commentLink.addClickListener(new Button.ClickListener() 
+		Button backButton = new Button("Back");
+		backButton.setWidth("80px");
+			backButton.addClickListener(new Button.ClickListener() 
 			{
 	            public void buttonClick(ClickEvent event) {
-	            	handleB1();
+	            	handleB2();
 	            }
 	        });
 		
-		Button returnButton = new Button("back ");
-        	returnButton.addClickListener(new Button.ClickListener() 
+		Button mainButton = new Button("Main");
+		mainButton.setWidth("80px");
+        	mainButton.addClickListener(new Button.ClickListener() 
         	{
         		public void buttonClick(ClickEvent event) {
-        			handleB2();
+        			handleB1();
         		}
         	});
 		
 		
-        	lowerHorizontalLayout.addComponent(commentLink);
-            lowerHorizontalLayout.setComponentAlignment(commentLink, Alignment.MIDDLE_LEFT);
-            lowerHorizontalLayout.addComponent(returnButton);
-            lowerHorizontalLayout.setComponentAlignment(returnButton, Alignment.MIDDLE_RIGHT);
+        	lowerHorizontalLayout.addComponent(backButton);
+            lowerHorizontalLayout.setComponentAlignment(backButton, Alignment.MIDDLE_LEFT);
+            lowerHorizontalLayout.addComponent(mainButton);
+            lowerHorizontalLayout.setComponentAlignment(mainButton, Alignment.MIDDLE_RIGHT);
 	}
 	@Override
 	public void enter(ViewChangeEvent event) {
@@ -117,7 +107,7 @@ public class InfoDis extends VerticalLayout implements View , IState {
 
 	@Override
 	public void handleB1() {
-		NavigatorUI.navigateTo(NavigatorUI.COMMENTVIEW);
+		NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
 	}
 
 	@Override
@@ -127,7 +117,7 @@ public class InfoDis extends VerticalLayout implements View , IState {
 
 	@Override
 	public void handleB3() {
-		// TODO Auto-generated method stub
+		NavigatorUI.navigateTo(NavigatorUI.COMMENTVIEW);
 		
 	}
 
