@@ -1,5 +1,8 @@
 package ch.bfh.btx8081.w2013.red.GUI;
 
+/**
+ * import all required packages
+ */
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
 
@@ -19,17 +22,23 @@ import com.vaadin.ui.Button.ClickEvent;
 /**
  * 
  * @author pzehnder
- *
+ * @version 1.2.
  */
 
 public class SearchDis extends VerticalLayout implements View, IState {
-	
+
+	/**
+	 * define variables
+	 */
 	final VerticalLayout layout;
 	private AbsoluteLayout mainLayout;
 	private VerticalLayout upperVerticalLayout;
 	private HorizontalLayout lowerHorizontalLayout;
 	MhcGuidDesign design;
 	
+	/**
+	 * define layoutdesign
+	 */
 	public SearchDis()
 	{
 		design = new MhcGuidDesign(this);
@@ -42,6 +51,9 @@ public class SearchDis extends VerticalLayout implements View, IState {
 		editLowerHorizontalLayout();
 	}
 	
+	/**
+	 * define main-layout (middle); create comboBoxes; add components to main-Layout
+	 */
 	private void editMainLayout()
 	{		
 		
@@ -62,15 +74,24 @@ public class SearchDis extends VerticalLayout implements View, IState {
 		mainLayout.addComponent(comboBox_4, "top:300.0px;left:30.0px;");
 	
 	}
+	
+	/**
+	 * define upper-layout; set title 
+	 */
 	private void editUpperVerticalLayout()
 	{
 		design.setTitleLabel("Diseases");
 	}
 	
+	/**
+	 * define lower-layout
+	 */
 	private void editLowerHorizontalLayout()
 	{
 		
-	
+		/**
+		 * create "Search"-Button with ClickListener
+		 */
 		Button backButton = new Button();
 		backButton.setCaption("Search");
 		backButton.setWidth("80px");
@@ -81,7 +102,9 @@ public class SearchDis extends VerticalLayout implements View, IState {
     		}
     	});
 		
-		
+		/**
+		 * create "Main"-Button with ClickListener
+		 */
 		Button returnToMainButton = new Button();
 		returnToMainButton.setCaption("Main");
 		returnToMainButton.setWidth("80px");
@@ -93,6 +116,9 @@ public class SearchDis extends VerticalLayout implements View, IState {
     	});
 		
 		
+		/**
+		 * add components to low-layout
+		 */
         lowerHorizontalLayout.addComponent(backButton);
         lowerHorizontalLayout.setComponentAlignment(backButton, Alignment.MIDDLE_LEFT);
         lowerHorizontalLayout.addComponent(returnToMainButton);
