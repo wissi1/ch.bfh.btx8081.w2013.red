@@ -13,7 +13,18 @@ import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
 
+/**
+ * The comment class creates a view in which a user can read and write 
+ * comments to a chosen theme. It provides a display panel to show the
+ * existing comments, a TextArea to write a new comment and a button 
+ * to commit the written comment. It also provides two buttons to 
+ * navigate back to the last view or to the HOMEVIEW.
+ * 
+ * @author heebm2
+ * @version V11.12.2013
+ */
 
+@SuppressWarnings("serial")
 public class Comment extends VerticalLayout implements View, IState {
 	
 	
@@ -23,6 +34,26 @@ public class Comment extends VerticalLayout implements View, IState {
 	private HorizontalLayout lowerHorizontalLayout;
 	MhcGuidDesign design;
 	
+	
+	/**
+	 * Constructs a COMMENTVIEW on the base of different parameters.
+	 * 
+	 * @param design
+	 * 			basic design of the view based on the class MhcGuidDesign
+	 *
+	 * @param layout
+	 * 			basic layout of the view
+	 * 
+	 * @param mainLayout
+	 * 			main part of the layout
+	 * 
+	 * @param upperVerticalLayout
+	 * 			upper part of the layout
+	 * 
+	 * @param lowerHorizontalLayout
+	 * 			lower part of the layout
+	 * 
+	 */
 	public Comment()
 	{
 		design = new MhcGuidDesign(this);
@@ -35,6 +66,11 @@ public class Comment extends VerticalLayout implements View, IState {
 		editLowerHorizontalLayout();
 	}
 	
+	
+	/**
+	 * Edits the mainLayout by adding a TextArea for the user input, a button
+	 * to commit the input and a panel to display existing comments.
+	 */
 	private void editMainLayout()
 	{		
 		
@@ -55,15 +91,21 @@ public class Comment extends VerticalLayout implements View, IState {
 		displayPanel.setWidth("260px");
 		displayPanel.setHeight("220px");
 		
-		mainLayout.addComponent(displayPanel, "top:60.0px;left:30.0px;");
-		
-		
+		mainLayout.addComponent(displayPanel, "top:60.0px;left:30.0px;");	
 	}
+	
+	/**
+	 * Edits the upperVerticalLayout by setting the TitleLabel.
+	 */
 	private void editUpperVerticalLayout()
 	{
 		design.setTitleLabel("Comments");
 	}
 	
+	/**
+	 * Edits the lowerHorizontalLayout by adding a button to navigate back to
+	 * the last view and a button to navigate to the HOMEVIEW.
+	 */
 	private void editLowerHorizontalLayout()
 	{
 		
@@ -96,26 +138,32 @@ public class Comment extends VerticalLayout implements View, IState {
         lowerHorizontalLayout.setComponentAlignment(returnToMainButton, Alignment.MIDDLE_RIGHT);
 	}
 	
-	@Override
+	/**
+	 * Not overridden method of the interface view.
+	 */
 	public void enter(ViewChangeEvent event) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	/**
+	 * Navigates back the the last view using methods of the NavigatorUI class.
+	 */
 	public void handleB1() {
 		NavigatorUI.navigateTo(NavigatorUI.getPreviousView());
 	}
 
-	@Override
+	/**
+	 * Navigates back to the HOMEVIEW using methods of the NavigatorUI class.
+	 */
 	public void handleB2() {
 		NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
 	}
 
-	@Override
-	public void handleB3() {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * Not overridden method of the interface IState.
+	 */
+	public void handleB3() {	
 	}
 
 }
