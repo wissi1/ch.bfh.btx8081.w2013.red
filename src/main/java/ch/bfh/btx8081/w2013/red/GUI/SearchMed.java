@@ -135,7 +135,7 @@ public class SearchMed extends VerticalLayout implements View, IState {
 	public void handleB1() {
 		NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
 	}
-
+	
 	/**
 	 *  Navigates back to the HOMEVIEW using methods of the NavigatorUI class.
 	 */
