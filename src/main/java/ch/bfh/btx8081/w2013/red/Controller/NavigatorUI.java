@@ -55,11 +55,20 @@ public class NavigatorUI extends UI
         navigator.addView(SEARCHMEDVIEW, new SearchMed());
         
     }
+    /**
+     * 
+     * @param view
+     * 
+     */
     public static void navigateTo(String view)
     {
     previousView = navigator.getState();
     navigator.navigateTo(view);
     }
+    /**
+     * 
+     * @return
+     */
     public static String getPreviousView()
     {
 		return previousView;

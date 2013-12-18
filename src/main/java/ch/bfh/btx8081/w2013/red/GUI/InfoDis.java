@@ -1,28 +1,24 @@
 package ch.bfh.btx8081.w2013.red.GUI;
 
-import java.beans.DesignMode;
-
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.AbsoluteLayout;
-import com.vaadin.ui.AbstractLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.Link;
-import com.vaadin.ui.Panel;
 import com.vaadin.ui.TabSheet;
-import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.themes.ChameleonTheme;
-import com.vaadin.ui.themes.Reindeer;
-
+/**
+ * 
+ * @author Ivan
+ *
+ */
 public class InfoDis extends VerticalLayout implements View , IState {
 	final VerticalLayout layout;
 	private AbsoluteLayout mainLayout;

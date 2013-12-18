@@ -23,13 +23,18 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
-
 /**
+ * 
+ * The Login class creates a view in which a user can write his username
+ * and hsi password in the textareas.  one of four main
+ * views and navigate through the application. It also provides a login button to log in and to
+ * navigate to the next view, in this case it would be the HOMEVIEW.
+ * 
  * 
  * @author faton shabanaj
  * @email shabf2@bfh.ch
- * @version.nr 1.2
- *
+ * @version.nr V11.12.2013
+ * 
  */
 public class Login extends VerticalLayout implements View, IState {
 
@@ -44,6 +49,25 @@ public class Login extends VerticalLayout implements View, IState {
 	private TextField textField_1;
 	private MhcGuidDesign design;
 	
+	/**
+	 * Constructs a LOGINVIEW on the base of different parameters.
+	 * 
+	 * @param design
+	 *            basic design of the view based on the class MhcGuidDesign
+	 * 
+	 * @param layout
+	 *            basic layout of the view
+	 * 
+	 * @param mainLayout
+	 *            main part of the layout
+	 * 
+	 * @param verticalLayout
+	 *            upper part of the layout
+	 * 
+	 * @param horizontalLayout
+	 *            lower part of the layout
+	 * 
+	 */
 	
 	public Login() 
 	
@@ -57,6 +81,11 @@ public class Login extends VerticalLayout implements View, IState {
 		createLayout();
 	}
 
+	/**
+	 * create a layout and add this new layout at the mainLayout. the title 
+	 * of this layout will be defined.
+	 */
+
 	private void createLayout() {
 
 		design.setTitleLabel("MHC-GUIDE");
@@ -66,14 +95,20 @@ public class Login extends VerticalLayout implements View, IState {
 
 
 	}
-
+	/**
+	 * overridden method of the interface view.
+	 */
 	@Override
 	public void enter(ViewChangeEvent event) {
 		// TODO Auto-generated method stub
 
 	}
 	
-
+	/**
+	 * Builds the verticallayout and defines the size.
+	 * Edits the verticallayout by adding the application logo,
+	 * textfield and a passwordfield.
+	 */
 	private VerticalLayout buildVerticalLayout_1() {
 		// common part: create layout
 		verticalLayout = new VerticalLayout();
@@ -114,10 +149,14 @@ public class Login extends VerticalLayout implements View, IState {
 		return verticalLayout;
 	}
 
+	
+	/**
+	 * Builds the HorizontalLayout and defines the size.
+	 * Edits the HorizontalLayout by adding a button to log in. 
+	 * The button navitagets to the HOMEVIEW.
+	 */
 	private void buildHorizontalLayout_1() {
-		// common part: create layout
-
-		// LoginButton
+	
 		homeButton = new Button("Login");
 		homeButton.setImmediate(true);
 		homeButton.setWidth("80px");
@@ -134,18 +173,27 @@ public class Login extends VerticalLayout implements View, IState {
 	
 
 	}
+	/**
+	 * overridden method which navigates to the HOMEVIEW using methods of
+	 * the NavigatorUI class.
+	 */
 
 	@Override
 	public void handleB1() {
 		NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
 	}
+	/**
+	 *overridden method of the interface IState.
+	 */
 
 	@Override
 	public void handleB2() {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**
+	 *overridden method of the interface IState.
+	 */
 	@Override
 	public void handleB3() {
 		// TODO Auto-generated method stub
