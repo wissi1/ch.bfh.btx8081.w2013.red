@@ -74,8 +74,8 @@ public class SearchMed extends VerticalLayout implements View, IState {
 	}
 
 	/**
-	 * Here are elements to select. Two combobox for Medication selection  of name (or active substance)
-	 *  and of type
+	 * Adds two comboboxes, one for Medication selection by the name or active substance
+	 * and another one by type of medication.
 	 * 
 	 * */     
 	private void editMainLayout()
@@ -90,8 +90,8 @@ public class SearchMed extends VerticalLayout implements View, IState {
 	}
 
 	/**
-	 * Edits the lowerHorizontalLayout by search a button to navigate to class 
-	 * InfoMed and a button "Main" to navigate to the HOMEVIEW.
+	 * Edits the lowerHorizontalLayout by adding a button "Search" to navigate 
+	 * to the class InfoMed and a button "Main" to navigate to the HOMEVIEW.
 	 * 
 	 * */
 
@@ -129,7 +129,7 @@ public class SearchMed extends VerticalLayout implements View, IState {
 	}
 
 	/**
-	 * Navigates back the the last view using methods of the NavigatorUI class.
+	 *  Navigates back to the HOMEVIEW using methods of the NavigatorUI class.
 	 */
 
 	public void handleB1() {
@@ -137,7 +137,7 @@ public class SearchMed extends VerticalLayout implements View, IState {
 	}
 	
 	/**
-	 *  Navigates back to the HOMEVIEW using methods of the NavigatorUI class.
+	 *  Navigates back to the INFOMEDVIEW using methods of the NavigatorUI class.
 	 */
 	public void handleB2() {
 		NavigatorUI.navigateTo(NavigatorUI.INFOMEDVIEW);        
