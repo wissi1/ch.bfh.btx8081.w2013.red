@@ -7,7 +7,12 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.Layout;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.Reindeer;
-
+/**
+ * 
+ * @author Ivan
+ * The MhcGuideDesign contains a standart design for the Views
+ * 
+ */
 public class MhcGuidDesign  {
 	
 	final VerticalLayout layout;

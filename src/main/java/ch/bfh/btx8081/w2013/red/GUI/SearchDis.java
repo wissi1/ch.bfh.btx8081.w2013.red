@@ -20,9 +20,13 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
 
 /**
+ * The SearchDis class creates a view in which a user can search for diseases
+ * and/or symptoms of diseases.
+ * It provides a display panel with comboboxes to choose diseases or symptoms.
+ * There are two buttons; one for searching and the other one to go back to the main menue. 
  * 
- * @author pzehnder
- * @version 1.2.
+ * @author zehnp1
+ * @version 12.12.2013
  */
 
 public class SearchDis extends VerticalLayout implements View, IState {
@@ -37,8 +41,26 @@ public class SearchDis extends VerticalLayout implements View, IState {
 	MhcGuidDesign design;
 	
 	/**
-	 * define layoutdesign
+	 * Constructs a SearchDisView on the base of different parameters.
+	 * 
+	 * @param design
+	 * 			basic design of the view based on the class MhcGuidDesign
+	 *
+	 * @param layout
+	 * 			basic layout of the view
+	 * 
+	 * @param mainLayout
+	 * 			main part of the layout
+	 * 
+	 * @param upperVerticalLayout
+	 * 			upper part of the layout
+	 * 
+	 * @param lowerHorizontalLayout
+	 * 			lower part of the layout
+	 * 
 	 */
+	
+	
 	public SearchDis()
 	{
 		design = new MhcGuidDesign(this);
@@ -53,6 +75,12 @@ public class SearchDis extends VerticalLayout implements View, IState {
 	
 	/**
 	 * define main-layout (middle); create comboBoxes; add components to main-Layout
+	 */
+	
+
+	/**
+	 * Edits the mainLayout by adding ComboBoxes for the user to choose diseases
+	 * or symptoms.
 	 */
 	private void editMainLayout()
 	{		
@@ -76,8 +104,9 @@ public class SearchDis extends VerticalLayout implements View, IState {
 	}
 	
 	/**
-	 * define upper-layout; set title 
+	 * define upperVerticalLayout; set title 
 	 */
+	
 	private void editUpperVerticalLayout()
 	{
 		design.setTitleLabel("Diseases");
@@ -86,11 +115,16 @@ public class SearchDis extends VerticalLayout implements View, IState {
 	/**
 	 * define lower-layout
 	 */
+	
+	/**
+	 * Define the LowerHorizontalLayout by adding a button to navigate back to
+	 * the home view and a button to search for the chosen diseases or symptoms.
+	 */
 	private void editLowerHorizontalLayout()
 	{
 		
 		/**
-		 * create "Search"-Button with ClickListener
+		 * create "Search"-Button
 		 */
 		Button backButton = new Button();
 		backButton.setCaption("Search");
@@ -103,7 +137,7 @@ public class SearchDis extends VerticalLayout implements View, IState {
     	});
 		
 		/**
-		 * create "Main"-Button with ClickListener
+		 * create "Main"-Button
 		 */
 		Button returnToMainButton = new Button();
 		returnToMainButton.setCaption("Main");
@@ -117,7 +151,7 @@ public class SearchDis extends VerticalLayout implements View, IState {
 		
 		
 		/**
-		 * add components to low-layout
+		 * Add and define buttons to LowerHorizontalLayout
 		 */
         lowerHorizontalLayout.addComponent(backButton);
         lowerHorizontalLayout.setComponentAlignment(backButton, Alignment.MIDDLE_LEFT);
@@ -125,22 +159,37 @@ public class SearchDis extends VerticalLayout implements View, IState {
         lowerHorizontalLayout.setComponentAlignment(returnToMainButton, Alignment.MIDDLE_RIGHT);
 	}
 	
+	
+	/**
+	 * Not overridden method of the interface view.
+	 */
 	@Override
 	public void enter(ViewChangeEvent event) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	/**
+	 * Navigates back to the home view after clicking the "main"-button
+	 * using methods of the NavigatorUI class.
+	 */
 	@Override
 	public void handleB1() {
 		NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
 	}
 
+	/**
+	 * Navigates to the InfoDis view after clicking the "search"-Button
+	 * using methods of the NavigatorUI class.
+	 */
 	@Override
 	public void handleB2() {
 		NavigatorUI.navigateTo(NavigatorUI.INFODISVIEW);
 	}
 
+	/**
+	 * Not overridden method of the interface IState.
+	 */
 	@Override
 	public void handleB3() {
 		// TODO Auto-generated method stub
