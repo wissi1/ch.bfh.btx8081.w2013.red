@@ -17,12 +17,43 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.themes.ChameleonTheme;
 import com.vaadin.ui.themes.Reindeer;
 
+/**
+ * The InfoMed class creates a view in which a user can read indication, effects 
+ * and side effects of different medicines. It provides a display panel to show the existing documentation about the medicine,
+ * providing three button to select each content. It also provides two buttons to 
+ * navigate back to the last view or to the HOMEVIEW.
+ * 
+ * @author kalar1
+ * @version V13.12.2013
+ */
+
 public class InfoMed extends VerticalLayout implements View, IState {
 	final VerticalLayout layout;
 	private AbsoluteLayout mainLayout;
 	private VerticalLayout upperVerticalLayout;
 	private HorizontalLayout lowerHorizontalLayout;
 	private MhcGuidDesign design;
+
+	/**
+	 * Constructs a InfoMed View on the base of different parameters.
+	 * 
+	 * @param design
+	 * 			basic design of the view based on the class MhcGuidDesign
+	 *
+	 * @param layout
+	 * 			basic layout of the view
+	 * 
+	 * @param mainLayout
+	 * 			main part of the layout
+	 * 
+	 * @param upperVerticalLayout
+	 * 			upper part of the layout
+	 * 
+	 * @param lowerHorizontalLayout
+	 * 			lower part of the layout
+	 * 
+	 */
+	
 	public InfoMed()
 	{
 		design = new MhcGuidDesign(this);
@@ -34,6 +65,13 @@ public class InfoMed extends VerticalLayout implements View, IState {
 		editUpperVerticalLayout();
 		editLowerHorizontalLayout();
 	}
+	
+	/**
+	 * Edits the mainLayout by adding a Tabsheet to display Indication, effect 
+	 * and side effect. It also adds buttons to switch through each displays.
+	 *
+	 */
+	
 	private void editMainLayout()
 	{		
 		
@@ -45,7 +83,7 @@ public class InfoMed extends VerticalLayout implements View, IState {
 		tabSheetMed.addTab(new Label("test2"), "Side effect");
 		
 		mainLayout.addComponent(tabSheetMed, "top:90px;left:30px");
-		
+	
 		
 		Button commentLink = new Button("comment");
 		commentLink.setStyleName(ChameleonTheme.BUTTON_LINK);
@@ -59,10 +97,20 @@ public class InfoMed extends VerticalLayout implements View, IState {
 		mainLayout.addComponent(commentLink, "top:395px;left:45px");
 		
 	}
+	
+	/**
+	 * Edits the upperVerticalLayout by setting the TitleLabel.
+	 */
 	private void editUpperVerticalLayout()
 	{
 		design.setTitleLabel("Drug");
 	}
+	
+	/**
+	 * Edits the lowerHorizontalLayout by adding a button to navigate back to
+	 * the last view and a button to navigate to the HOMEVIEW.
+	 */
+	
 	private void editLowerHorizontalLayout()
 	{
 		
@@ -90,20 +138,36 @@ public class InfoMed extends VerticalLayout implements View, IState {
             lowerHorizontalLayout.addComponent(mainButton);
             lowerHorizontalLayout.setComponentAlignment(mainButton, Alignment.MIDDLE_RIGHT);
 	}
-	@Override
+	
+	/**
+	 * Not overridden method of the interface view.
+	 */
+	
 	public void enter(ViewChangeEvent event) {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
+	
+	/**
+	 * Navigates back to the HOMEVIEW using methods of the NavigatorUI class.
+	 */
+	
 	public void handleB1() {
 		NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
 	}
-	@Override
+	
+	/**
+	 * Navigates to the SEARCHMEDVIEW using methods of the NavigatorUI class.
+	 */
+	
 	public void handleB2() {
 		NavigatorUI.navigateTo(NavigatorUI.SEARCHMEDVIEW);
 	}
-	@Override
+	
+	/**
+	 * Navigates to the COMMENTVIEW  using methods of the NavigatorUI class.
+	 */
+	
 	public void handleB3() {
 		NavigatorUI.navigateTo(NavigatorUI.COMMENTVIEW);
 		
