@@ -38,7 +38,7 @@ public class NavigatorUI extends UI
 	private static Navigator navigator;
 	private static String previousView;
     @WebServlet(value = "/*", asyncSupported = true)
-    @VaadinServletConfiguration(productionMode = false, ui = NavigatorUI.class, widgetset = "ch.bfh.btx8081.w2013.red.AppWidgetSet")
+    @VaadinServletConfiguration(productionMode = false, ui = NavigatorUI.class, widgetset = "ch.bfh.btx8081.w2013.red.GUI.AppWidgetSet")
     public static class Servlet extends VaadinServlet {
     }
     @Override
