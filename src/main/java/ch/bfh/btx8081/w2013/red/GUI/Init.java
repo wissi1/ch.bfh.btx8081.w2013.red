@@ -12,11 +12,7 @@ public class Init extends VerticalLayout implements View {
 	@Override
 	public void enter(ViewChangeEvent event) 
 	{
-		Data.loadComments();
-		Data.loadDiseases();
-		Data.loadDrugs();
-		Data.loadUsers();
-		NavigatorUI.navigateTo(NavigatorUI.INFOMEDVIEW);
+		NavigatorUI.navigateTo(NavigatorUI.LOGINVIEW);
 	}
 
 }

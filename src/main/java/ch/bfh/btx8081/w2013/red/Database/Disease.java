@@ -1,7 +1,6 @@
 package ch.bfh.btx8081.w2013.red.Database;
 
 import java.util.ArrayList;
-import java.util.TreeMap;
 
 public class Disease {
 	private String name;
