@@ -5,26 +5,23 @@ import java.util.Date;
 import java.util.TreeMap;
 
 public class Data {
-	private TreeMap<String, Comment> comments = new TreeMap<String, Comment>();
-	private TreeMap<String, Drug> drugs = new TreeMap<String, Drug>();
-	private TreeMap<String, Disease> diseases = new TreeMap<String, Disease>();
-	private TreeMap<String, User> users = new TreeMap<String, User>();
+	private static TreeMap<String, Comment> comments = new TreeMap<String, Comment>();
+	private static TreeMap<String, Drug> drugs = new TreeMap<String, Drug>();
+	private static TreeMap<String, Disease> diseases = new TreeMap<String, Disease>();
+	private static TreeMap<String, User> users = new TreeMap<String, User>();
 	
 	public Data()
 	{
-		loadComments();
-		loadDrugs();
-		loadDiseases();
-		loadUsers();
+		
 	}
-	private void loadComments()
+	public static void loadComments()
 	{
 		comments.put("c1", new Comment("1", "drug1", "text1", "owner1", "title1", new Date(), new ArrayList<Rating>()));
 		comments.get("c1").addRating(Rating.POSITIVE, "oner2");
 		comments.put("c2", new Comment("2", "disease2", "text2", "owner2", "title2", new Date(), new ArrayList<Rating>()));
 		comments.get("c2").addRating(Rating.NEGAITIVE, "oner1");
 	}
-	private void loadDrugs()
+	public static void loadDrugs()
 	{
 		ArrayList<String> types = new ArrayList<String>();
 		types.add("type1");
@@ -32,7 +29,7 @@ public class Data {
 		drugs.put("drug1", new Drug("drug1", "indication1", "effect1", "sideEffect1", types));
 		drugs.put("drug2", new Drug("drug2", "indication2", "effect2", "sideEffect2", types));
 	}
-	private void loadDiseases()
+	public static void loadDiseases()
 	{
 		ArrayList<String> drugs = new ArrayList<String>();
 		drugs.add("drug1");
@@ -40,24 +37,24 @@ public class Data {
 		diseases.put("disease1", new Disease("disease1", "cause1", "treatment1", drugs));
 		diseases.put("disease2", new Disease("disease2", "cause2", "treatment2", drugs));
 	}
-	private void loadUsers()
+	public static void loadUsers()
 	{
 		users.put("owner1", new User("owner1", "passwort1"));
 		users.put("owner2", new User("owner", "passwort2"));
 	}
-	public TreeMap<String, Comment> getComments()
+	public static TreeMap<String, Comment> getComments()
 	{
 		return comments;
 	}
-	public TreeMap<String, Drug> getDrugs()
+	public static TreeMap<String, Drug> getDrugs()
 	{
 		return drugs;
 	}
-	public TreeMap<String, Disease> getDiseases()
+	public static TreeMap<String, Disease> getDiseases()
 	{
 		return diseases;
 	}
-	public TreeMap<String, User> getUsers()
+	public static TreeMap<String, User> getUsers()
 	{
 		return users;
 	}
