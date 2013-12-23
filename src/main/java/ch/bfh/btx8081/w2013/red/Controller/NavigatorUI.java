@@ -3,6 +3,7 @@ package ch.bfh.btx8081.w2013.red.Controller;
 
 import javax.servlet.annotation.WebServlet;
 
+import ch.bfh.btx8081.w2013.red.Database.Data;
 import ch.bfh.btx8081.w2013.red.GUI.Comment;
 import ch.bfh.btx8081.w2013.red.GUI.Home;
 import ch.bfh.btx8081.w2013.red.GUI.InfoDis;
@@ -38,12 +39,16 @@ public class NavigatorUI extends UI
 	private static Navigator navigator;
 	private static String previousView;
     @WebServlet(value = "/*", asyncSupported = true)
-    @VaadinServletConfiguration(productionMode = false, ui = NavigatorUI.class, widgetset = "ch.bfh.btx8081.w2013.red.AppWidgetSet")
+    @VaadinServletConfiguration(productionMode = false, ui = NavigatorUI.class, widgetset = "ch.bfh.btx8081.w2013.red.GUI.AppWidgetSet")
     public static class Servlet extends VaadinServlet {
     }
     @Override
     protected void init(VaadinRequest request) 
     {
+    	Data.loadComments();
+		Data.loadDiseases();
+		Data.loadDrugs();
+		Data.loadUsers();
     	navigator = new Navigator(this, this);
     	navigator.addView("", new Init());
         navigator.addView(LOGINVIEW, new Login());

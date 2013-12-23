@@ -1,6 +1,7 @@
 package ch.bfh.btx8081.w2013.red.GUI;
 
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
+import ch.bfh.btx8081.w2013.red.Database.Data;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -11,7 +12,7 @@ public class Init extends VerticalLayout implements View {
 	@Override
 	public void enter(ViewChangeEvent event) 
 	{
-		NavigatorUI.navigateTo(NavigatorUI.INFOMEDVIEW);
+		NavigatorUI.navigateTo(NavigatorUI.LOGINVIEW);
 	}
 
 }

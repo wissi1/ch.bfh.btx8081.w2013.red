@@ -1,13 +1,20 @@
 package ch.bfh.btx8081.w2013.red.GUI;
+
+
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
+import ch.bfh.btx8081.w2013.red.Database.Data;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.Form;
+import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
@@ -87,6 +94,10 @@ public class Comment extends VerticalLayout implements View, IState {
 		
 	
 		Panel displayPanel = new Panel("Comments");
+		VerticalLayout layout = new VerticalLayout();
+		layout.addComponent(new Label(Data.getComments().get("c1").getText()));
+		displayPanel.setContent(layout);
+		System.out.println(Data.getComments());
 		displayPanel.setVisible(true);
 		displayPanel.setWidth("260px");
 		displayPanel.setHeight("220px");
