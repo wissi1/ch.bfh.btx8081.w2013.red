@@ -9,6 +9,8 @@ public class Data {
 	private static TreeMap<String, Drug> drugs = new TreeMap<String, Drug>();
 	private static TreeMap<String, Disease> diseases = new TreeMap<String, Disease>();
 	private static TreeMap<String, User> users = new TreeMap<String, User>();
+	private static String user = "default";
+	private static  String reference = "derfault";
 	
 	public Data()
 	{
@@ -16,9 +18,9 @@ public class Data {
 	}
 	public static void loadComments()
 	{
-		comments.put("c1", new Comment("1", "drug1", "text1", "owner1", "title1", new Date(), new ArrayList<Rating>()));
+		comments.put("c1", new Comment("c1", "drug1", "text1: Ein literaturwissenschaftlicher Kommentar (auch philologischer Kommentar, oder, in eindeutigem Zusammenhang, kurz Kommentar) ist die Sammlung von Anmerkungen zu einem literarischen Text, welche das Verständnis des Textes erleichtern beziehungsweise ermöglichen sollen.", "owner1", "title1", new Date(), new ArrayList<Rating>()));
 		comments.get("c1").addRating(Rating.POSITIVE, "oner2");
-		comments.put("c2", new Comment("2", "disease2", "text2", "owner2", "title2", new Date(), new ArrayList<Rating>()));
+		comments.put("c2", new Comment("c2", "drug1", "text2", "owner2", "title2", new Date(), new ArrayList<Rating>()));
 		comments.get("c2").addRating(Rating.NEGAITIVE, "oner1");
 	}
 	public static void loadDrugs()
@@ -57,6 +59,26 @@ public class Data {
 	public static TreeMap<String, User> getUsers()
 	{
 		return users;
+	}
+	public static void removeComment(String key)
+	{
+		comments.remove(key);
+	}
+	public static void setReference(String ref)
+	{
+		reference = ref;
+	}
+	public static void setUser(String aUser)
+	{
+		user = aUser;
+	}
+	public static String getReference()
+	{
+		return reference;
+	}
+	public static String getUser()
+	{
+		return user;
 	}
 	
 	

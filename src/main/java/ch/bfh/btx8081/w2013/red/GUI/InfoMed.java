@@ -30,7 +30,6 @@ import com.vaadin.ui.themes.Reindeer;
 public class InfoMed extends VerticalLayout implements View, IState {
 	final VerticalLayout layout;
 	private AbsoluteLayout mainLayout;
-	private VerticalLayout upperVerticalLayout;
 	private HorizontalLayout lowerHorizontalLayout;
 	private MhcGuidDesign design;
 
@@ -59,7 +58,7 @@ public class InfoMed extends VerticalLayout implements View, IState {
 		design = new MhcGuidDesign(this);
 		this.layout = design.getLayout();
 		this.mainLayout = design.getMainLayout();
-		this.upperVerticalLayout = design.getUpperVerticalLayout();
+		design.getUpperVerticalLayout();
 		this.lowerHorizontalLayout = design.getLowerHorizontalLayout();
 		editMainLayout();
 		editUpperVerticalLayout();
