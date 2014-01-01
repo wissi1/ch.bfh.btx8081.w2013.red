@@ -14,7 +14,7 @@
     font-size: 40px;
     padding-top: 10px;
     padding-bottom: 15px;
-}
+	}
 	.mylayout{
 	padding-right: 30px;
 	padding-left: 30px;
@@ -22,10 +22,17 @@
 	}
 	.v-tabsheet-tabitemcell {
     width: 33%;
-}
+	}
 
 .v-tabsheet-tabitem .v-caption {
     width: auto !important;
+	}
+
+.greentextarea{
+    background-color: #ddf169 !important;  
+}
+.bluetextarea{
+    background-color: #bceefe !important;  
 }
 }
   
