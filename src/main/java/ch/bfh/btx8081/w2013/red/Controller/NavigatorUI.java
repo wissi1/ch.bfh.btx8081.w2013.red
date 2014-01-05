@@ -3,6 +3,7 @@ package ch.bfh.btx8081.w2013.red.Controller;
 
 import javax.servlet.annotation.WebServlet;
 
+import ch.bfh.btx8081.w2013.red.Database.Data;
 import ch.bfh.btx8081.w2013.red.GUI.Comment;
 import ch.bfh.btx8081.w2013.red.GUI.Home;
 import ch.bfh.btx8081.w2013.red.GUI.InfoDis;
@@ -17,12 +18,7 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
 
 @Theme("redtheme")
 @SuppressWarnings("serial")
@@ -38,12 +34,18 @@ public class NavigatorUI extends UI
 	private static Navigator navigator;
 	private static String previousView;
     @WebServlet(value = "/*", asyncSupported = true)
-    @VaadinServletConfiguration(productionMode = false, ui = NavigatorUI.class, widgetset = "ch.bfh.btx8081.w2013.red.AppWidgetSet")
+    @VaadinServletConfiguration(productionMode = false, ui = NavigatorUI.class, widgetset = "ch.bfh.btx8081.w2013.red.GUI.AppWidgetSet")
     public static class Servlet extends VaadinServlet {
     }
     @Override
     protected void init(VaadinRequest request) 
     {
+    	Data.loadComments();
+		Data.loadDiseases();
+		Data.loadDrugs();
+		Data.loadUsers();
+		Data.setUser("owner1");
+		Data.setReference("drug1");
     	navigator = new Navigator(this, this);
     	navigator.addView("", new Init());
         navigator.addView(LOGINVIEW, new Login());
@@ -55,11 +57,20 @@ public class NavigatorUI extends UI
         navigator.addView(SEARCHMEDVIEW, new SearchMed());
         
     }
+    /**
+     * 
+     * @param view
+     * 
+     */
     public static void navigateTo(String view)
     {
     previousView = navigator.getState();
     navigator.navigateTo(view);
     }
+    /**
+     * 
+     * @return
+     */
     public static String getPreviousView()
     {
 		return previousView;

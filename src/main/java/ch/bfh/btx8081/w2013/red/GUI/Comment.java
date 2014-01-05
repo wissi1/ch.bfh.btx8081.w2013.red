@@ -1,17 +1,28 @@
 package ch.bfh.btx8081.w2013.red.GUI;
+
+
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
+import ch.bfh.btx8081.w2013.red.Database.Data;
+import ch.bfh.btx8081.w2013.red.Model.displayComment;
 
+import com.vaadin.client.ui.Icon;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.Resource;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Embedded;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextArea;
+import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.themes.Reindeer;
 
 /**
  * The comment class creates a view in which a user can read and write 
@@ -27,11 +38,11 @@ import com.vaadin.ui.Button.ClickEvent;
 @SuppressWarnings("serial")
 public class Comment extends VerticalLayout implements View, IState {
 	
-	
 	final VerticalLayout layout;
 	private AbsoluteLayout mainLayout;
 	private VerticalLayout upperVerticalLayout;
 	private HorizontalLayout lowerHorizontalLayout;
+	private VerticalLayout commentLayout = new VerticalLayout();
 	MhcGuidDesign design;
 	
 	
@@ -73,6 +84,7 @@ public class Comment extends VerticalLayout implements View, IState {
 	 */
 	private void editMainLayout()
 	{		
+		commentLayout.setWidth("240px");
 		
 		TextArea textInputField = new TextArea("Your Comment:");
 		textInputField.setWidth("260px");
@@ -87,6 +99,8 @@ public class Comment extends VerticalLayout implements View, IState {
 		
 	
 		Panel displayPanel = new Panel("Comments");
+	
+		displayPanel.setContent(commentLayout);
 		displayPanel.setVisible(true);
 		displayPanel.setWidth("260px");
 		displayPanel.setHeight("220px");
@@ -142,8 +156,17 @@ public class Comment extends VerticalLayout implements View, IState {
 	 * Not overridden method of the interface view.
 	 */
 	public void enter(ViewChangeEvent event) {
-		// TODO Auto-generated method stub
-		
+		commentLayout.removeAllComponents();
+
+		for (int i = 0; i < displayComment.display().size(); i++)
+		{
+			CommentEntry commentEntry = new CommentEntry(displayComment.display().get(i));
+			commentLayout.addComponent(commentEntry);
+			if(Data.getUser().equals(displayComment.display().get(i).getOwner()))
+			{
+				commentLayout.setComponentAlignment(commentEntry, Alignment.TOP_RIGHT);
+			}
+		}
 	}
 
 	/**

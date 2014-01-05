@@ -132,6 +132,7 @@ public class Home extends VerticalLayout implements View, IState {
 		apartmentSearch = new Button("Apartment search");
 		apartmentSearch.setWidth("100%");
 		apartmentSearch.setHeight("100%");
+		apartmentSearch.setEnabled(false);
 		verticalLayout.addComponent(apartmentSearch);
 		verticalLayout.setComponentAlignment(medicationInfo,
 				Alignment.MIDDLE_CENTER);
@@ -139,6 +140,7 @@ public class Home extends VerticalLayout implements View, IState {
 		finances = new Button("Finances");
 		finances.setWidth("100%");
 		finances.setHeight("100%");
+		finances.setEnabled(false);
 		verticalLayout.addComponent(finances);
 		verticalLayout.setComponentAlignment(medicationInfo,
 				Alignment.MIDDLE_CENTER);
