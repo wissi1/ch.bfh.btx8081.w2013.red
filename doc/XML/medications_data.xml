@@ -2,7 +2,7 @@
 
 <medications>
 	<medication name="Citalopram">
-		<type>Antidepressivum</type>
+		<type>Antidepressiva</type>
 		<indication>Depressionen, Panik-Erkrankungen, Zwangsstoerungen
 		</indication>
 		<effect>antidepressiv</effect>
@@ -16,7 +16,7 @@
 	</medication>
 
 	<medication name="Valium">
-		<type>Benzodiazepin</type>
+		<type>Benzodiazepine</type>
 		<indication>Angst-, Erregungs-, Spannungs- und Stresszustaende, Status
 			epilepticus
 		</indication>
@@ -33,7 +33,7 @@
 	</medication>
 
 	<medication name="Seroquel">
-		<type>Neuroleptikum</type>
+		<type>Antipsychotika</type>
 		<indication>Schizophrenie, bei manischen oder depressiven Episoden bei
 			bipolaren Stoerungen (auch zur Rückfallprophylaxe)
 			und zur Behandlung
@@ -66,7 +66,7 @@
 	</medication>
 
 	<medication name="Dipiperon">
-		<type>Neuroleptika</type>
+		<type>Antipsychotika</type>
 		<indication>chronische Psychosen</indication>
 		<effect>antidopaminerg, antipsychotisch, beruhigend,
 			erregungsdaempfend,
@@ -86,7 +86,7 @@
 	</medication>
 
 	<medication name="Fluanxol">
-		<type>Neuroleptika</type>
+		<type>Antipsychotika</type>
 		<indication>Schizophrenie, Psychosen</indication>
 		<effect>antipsychotisch, antidopaminerg, enthemmend, angstloesend,
 			stimmungsaufhellend
