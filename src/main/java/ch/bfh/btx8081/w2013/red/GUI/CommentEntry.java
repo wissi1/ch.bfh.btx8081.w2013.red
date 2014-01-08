@@ -12,7 +12,11 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.themes.Reindeer;
-
+/**
+ * The CommentEntry class creates a graphical form of a Comment from the database-
+ * @author Ivan
+ *
+ */
 public class CommentEntry extends VerticalLayout {
 	private boolean hidden = false;
 	private CommentEntry commentEntry;
