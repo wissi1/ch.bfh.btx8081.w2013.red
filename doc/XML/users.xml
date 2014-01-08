@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Users>
+<User>
+<Username>vgj1@bfh.ch</Username>
+    <Name>Vogel</Name> 
+    <Forname>Jürgen</Forname> 
+    <Passwort> 
+        <Hash-Value>3617656</Hash-Value> 
+    </Passwort> 
+</User>
+
+<User>
+<Username>shabf2@bfh.ch</Username>
+    <Name>Shabanaj</Name> 
+    <Forname>Faton</Forname> 
+    <Passwort> 
+        <Hash-Value>-903581630</Hash-Value> 
+    </Passwort> 
+</User>
+
+<User>
+<Username>heebm2@bfh.ch</Username>
+    <Name>Heeb</Name> 
+    <Forname>Michael</Forname> 
+    <Passwort> 
+        <Hash-Value>-1221153473</Hash-Value> 
+    </Passwort> 
+</User>
+
+<User>
+<Username>wissi1@bfh.ch</Username>
+    <Name>Wissler</Name> 
+    <Forname>Ivan</Forname> 
+    <Passwort> 
+        <Hash-Value>-787588838</Hash-Value> 
+    </Passwort> 
+</User>
+
+<User>
+<Username>kalar1@bfh.ch</Username>
+    <Name>Kalarickamakel</Name> 
+    <Forname>Ranjit</Forname> 
+    <Passwort> 
+        <Hash-Value>-1138752374</Hash-Value> 
+    </Passwort> 
+</User>
+
+<User>
+<Username>zehnp1@bfh.ch</Username>
+    <Name>Zehnder</Name> 
+    <Forname>Patrizia</Forname> 
+    <Passwort> 
+        <Hash-Value>-705727758</Hash-Value> 
+    </Passwort> 
+</User>
+
+<User>
+<Username>sians1@bfh.ch</Username>
+    <Name>Sianko</Name> 
+    <Forname>Sviatlana</Forname> 
+    <Passwort> 
+        <Hash-Value>-902646175</Hash-Value> 
+    </Passwort> 
+</User>
+</Users>
+
+
+
+
+
