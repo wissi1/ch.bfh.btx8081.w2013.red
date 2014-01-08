@@ -84,49 +84,50 @@
 	</disease>
 
 	<disease name="chronische Schmerzen">
-			<symptom>Schmerzen</symptom>
-			<symptom>helle Schmerzen</symptom>
-			<symptom>brennende Schmerzen</symptom>
-			<symptom>bohrende Schmerzen</symptom>
-			<symptom>dumpfe Schmerzen</symptom>
-			<symptom>Dauerschmerz</symptom>
-			<symptom>ploetzlicher Schmerz</symptom>
-			<cause>Begleitsymptom einer körperlichen Störung wie z.B.
-				Nervenschaedigungen, Begleitsymptom
-				einer psychischen Erkrankung wie z.B. einer Angststoerung
-			</cause>
-			<treatment>
-				<therapy>Analgetika, Opioide, Kaelteauflagen, Waermeauflagen, Baeder, koerperliche
-					Bewegung, Muskeltraining, Sport,
-					Entspannungstechniken, Ruhe, Physiotherapie, Massage, Ergotherapie, Ergonomie,
-					Chiropraktik,
-					Bandagen, Schienen, Physikalische Therapie (z.B. TENS), Akupunktur,
-					Akupressur, Wickel,
-					Umschlaege, Chirurgischer Eingriff, Psychologische Betreuung, Biofeedback,
-					Gespraeche,
-					Ablenkungsstrategien, Eskapismus, Copingstrategien
-				</therapy>
-				<medicament>Arcoxia, Ketalgin, Oxycontin, Tilur, Valoron
-				</medicament>
-			</treatment>
+		<symptom>Schmerzen</symptom>
+		<symptom>helle Schmerzen</symptom>
+		<symptom>brennende Schmerzen</symptom>
+		<symptom>bohrende Schmerzen</symptom>
+		<symptom>dumpfe Schmerzen</symptom>
+		<symptom>Dauerschmerz</symptom>
+		<symptom>ploetzlicher Schmerz</symptom>
+		<cause>Begleitsymptom einer körperlichen Störung wie z.B.
+			Nervenschaedigungen, Begleitsymptom
+			einer psychischen Erkrankung wie z.B. einer Angststoerung
+		</cause>
+		<treatment>
+			<therapy>Analgetika, Opioide, Kaelteauflagen, Waermeauflagen, Baeder,
+				koerperliche
+				Bewegung, Muskeltraining, Sport,
+				Entspannungstechniken, Ruhe, Physiotherapie, Massage, Ergotherapie, Ergonomie,
+				Chiropraktik,
+				Bandagen, Schienen, Physikalische Therapie (z.B. TENS), Akupunktur,
+				Akupressur, Wickel,
+				Umschlaege, Chirurgischer Eingriff, Psychologische Betreuung, Biofeedback,
+				Gespraeche,
+				Ablenkungsstrategien, Eskapismus, Copingstrategien
+			</therapy>
+			<medicament>Arcoxia, Ketalgin, Oxycontin, Tilur, Valoron
+			</medicament>
+		</treatment>
 	</disease>
 
-<disease name="Schizophrenie">
-	<symptom>Denkveraenderungen</symptom>
-	<symptom>Wahnvorstellungen</symptom>
-	<symptom>Halluzinationen</symptom>
-	<symptom>Affektveraenderungen</symptom>
-	<symptom>Motorikveraenderungen</symptom>
+	<disease name="Schizophrenie">
+		<symptom>Denkveraenderungen</symptom>
+		<symptom>Wahnvorstellungen</symptom>
+		<symptom>Halluzinationen</symptom>
+		<symptom>Affektveraenderungen</symptom>
+		<symptom>Motorikveraenderungen</symptom>
 
-	<cause>wahrscheinlich genetische Faktoren, Kombination von
-		biologischen,
-		seelischen sowie psychosozialen Faktoren,
-	</cause>
-	<treatment>
-		<therapy>Antipsychotika, Psychotherapie, Soziotherapie
-		</therapy>
-		<medicament>Fluanxol, Solian, Seroquel, Zyprexa</medicament>
-	</treatment>
-</disease>
+		<cause>wahrscheinlich genetische Faktoren, Kombination von
+			biologischen,
+			seelischen sowie psychosozialen Faktoren,
+		</cause>
+		<treatment>
+			<therapy>Antipsychotika, Psychotherapie, Soziotherapie
+			</therapy>
+			<medicament>Fluanxol, Solian, Seroquel, Zyprexa</medicament>
+		</treatment>
+	</disease>
 
 </diseases>
