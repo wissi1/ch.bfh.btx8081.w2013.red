@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<medications>
+	<medication name="Citalopram">
+		<type>Antidepressivum</type>
+		<indication>Depressionen, Panik-Erkrankungen, Zwangsstoerungen
+		</indication>
+		<effect>antidepressiv</effect>
+		<sideeffect>Mundtrockenheit, vermehrtes Schwitzen, Erregung,
+			verminderter Appetit,
+			Schlaflosigkeit, Muedigkeit, Schlaefrigkeit,
+			Gaehnen, Uebelkeit, Impotenz,
+			Libidoverminderung,
+			Ejakulationsstoerungen bei Maennern und Anorgasmie bei Frauen
+		</sideeffect>
+	</medication>
+
+	<medication name="Valium">
+		<type>Benzodiazepin</type>
+		<indication>Angst-, Erregungs-, Spannungs- und Stresszustaende, Status
+			epilepticus
+		</indication>
+		<effect>angstlösend, muskelentspannend, antikonvulsiv, beruhigend und
+			schlaffördernd
+		</effect>
+		<sideeffect> Muedigkeit, Benommenheit, Muskelschwaeche, Schwindel,
+			Atemdepression, Herzversagen, Hautausschläge,
+			Sprech- und
+			Bewegungsstoerungen, Unempfindlichkeit, Verlangsamung der
+			motorischen
+			Ablaeufe und Doppelsehen
+		</sideeffect>
+	</medication>
+
+	<medication name="Seroquel">
+		<type>Neuroleptikum</type>
+		<indication>Schizophrenie, bei manischen oder depressiven Episoden bei
+			bipolaren Stoerungen (auch zur Rückfallprophylaxe)
+			und zur Behandlung
+			unipolarer Depressionen. Quetiapin wird in einer
+			tiefen Dosierung
+			(z.B. - - - 25 mg) Off-Label auch
+			haeufig gegen Schlafstörungen
+			verschrieben, ist dafuer von den Behoerden aber
+			nicht zugelassen!
+		</indication>
+		<effect>antipsychotisch, antidepressiv, dämpfend </effect>
+		<sideeffect>Gewichtszunahme, Kopfschmerzen, Absetzerscheinungen nach
+			Therapieende, Schlaefrigkeit,
+			Schwindel, Bluthochdruck,
+			Mundtrockenheit, Erbrechen
+		</sideeffect>
+	</medication>
+
+	<medication name="Valoron">
+		<type>Opioide</type>
+		<indication>mittelstarke bis starke akute oder langanhaltende
+			Schmerzen
+		</indication>
+		<effect>schmerzlindernd, psychotrop</effect>
+		<sideeffect>Schwindel, Benommenheit, Schlaefrigkeit, Muedigkeit,
+			Uebelkeit, Erbrechen, Verstopfung, Bauchschmerzen,
+			Schwitzen,
+			Atemdepression bei hoher Dosis.
+		</sideeffect>
+	</medication>
+
+	<medication name="Dipiperon">
+		<type>Neuroleptika</type>
+		<indication>chronische Psychosen</indication>
+		<effect>antidopaminerg, antipsychotisch, beruhigend,
+			erregungsdaempfend,
+			schlaffoerdernd
+		</effect>
+		<sideeffect>Haeufig Uebelkeit, kann zu Erbrechen und Appetitmangel
+			fuehren, gelegentlich zentrale Stoerungen wie Muedigkeit,
+			Schlaefrigkeit (teils erwuenscht), Schwindel, Depressionen,
+			Kopfschmerzen, tiefer Blutdruck, Harnverhaltung,
+			selten bis sehr
+			selten das maligne neuroleptische Syndrom, Arrhythmien
+			(Torsade de
+			pointes), schwere Haut- und
+			Überempfindlichkeitsreaktionen,
+			Leberfunktionsstörungen
+		</sideeffect>
+	</medication>
+
+	<medication name="Fluanxol">
+		<type>Neuroleptika</type>
+		<indication>Schizophrenie, Psychosen</indication>
+		<effect>antipsychotisch, antidopaminerg, enthemmend, angstloesend,
+			stimmungsaufhellend
+		</effect>
+		<sideeffect>Sehr haeufig Zungen-Schlund-Kraempfe,
+			Kiefermuskelkraempfe, Schiefhals,
+			Rueckenmuskulaturversteifung, Blickkraempfe, Zittern, Mimikverminderung, Muskelsteifheit,
+			Bewegungsarmut, Speichelflusszunahme, Bewegungsdrang,
+			Kreislaufregulationsstoerungen,
+			Blutdruckabfall, Herzrasen, Muedigkeit; Haeufig Sehstoerungen, Mundtrockenheit,
+			Traenenflusszunahme, Gefuehl der verstopften Nase,
+			Verstopfung, Uebelkeit, Erbrechen, Durchfall, Appetitlosigkeit, Beschwerden beim
+			Wasserlassen,
+			Augeninnendruckerhoehung; gelegentlich Unruhe, Schlafstoerungen, Erregung, Benommenheit,
+			depressive Verstimmung, Schwindel, Kopfschmerzen, Schlaefrigkeit,
+			Krampfanfaelle,
+			Koerpertemperaturregulationsstoerungen, voruebergehende Leberfunktionsstoerungen, Gelbsucht,
+			Galleabflussstoerung, allergische Hautreaktionen,
+			Hautueberempfindlichkeit gegenueber UV- und Sonnenstrahlungen,
+			Augenlinsenablagerungen; selten neuroleptisches Syndrom (hohes
+			Fieber, Muskelstarre, Herzrasen,
+			Bluthochdruck, Bewusstseinseintruebung bis hin zum Koma), Wiederausbruch oder
+			Verschlechterung
+			psychischer Erkrankungen, Darmverschluss; sehr selten oder in Einzelfällen
+			Regelblutungsstoerung,
+			Gewichtszunahme, sexuelle Funktionsstoerungen, Brustvergroeßerung, Brustbildung beim
+			Mann,
+			Milcheinschuss in die Brust, Thrombosenbildung, Blutzellzahlveraenderung,
+			Zuckerstoffwechselstoerung.
+		</sideeffect>
+	</medication>
+
+</medications>
+
+
+
+
+
+
+

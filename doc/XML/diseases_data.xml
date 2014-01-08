@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<diseases>
+
+	<disease name="Depressionen">
+		<symptoms> Niedergedrueckte Stimmung, Freudlosigkeit, Traurigkeit,
+			Antriebslosigkeit,
+			Niedergeschlagenheit, Gleichgueltigkeit,
+			Suizidgedanken, Gedankenkreisen, Schuldgefuehle,
+			Niedriges
+			Selbstbewusstein; koerperliche Symptome: Appetitlosigkeit,
+			Gewichtsveraenderungen (Gewichtsverlust, Gewichtszunahme),
+			Schlafstoerungen,
+			Gastrointestinale Stoerungen
+		</symptoms>
+		<cause>genetische Ursachen; neurobiologische Ursachen z.B. Depression
+			als Ausdruck von
+			Fehlanpassung an chronischen Stress;
+			Psychologische
+			Theorien zur Depressionsentstehung:
+			Erlernte Hilflosigkeit,
+			Kognitionen als Ursache,
+			Depression im Lichte des Konzepts der
+			emotionalen Intelligenz,
+			Verstaerkerverlust, Psychodynamische
+			Ansaetze;
+			sozialwissenschaftliche Faktoren: Psychosoziale Faktoren,
+			Depression als Ausdruck einer sozialen Gratifikationskrise,
+			Depressionen bei Kindern als Folge elterlicher Depressionen,
+			Evolutionsbiologische Theorien zur Depressionsentstehung;
+			physiologische Faktoren: Krankheitserreger als Ursache,
+			Substanzinduzierte Depressionen, Hormonelle Faktoren als Ausloeser
+		</cause>
+		<treatment>
+			<therapy>Antidepressiva; nichtmedikamentoes: Psychotherapie und
+				weitere Massnahmen wie Ergotherapie und Sport
+			</therapy>
+			<medication>Citalopram, Trimipramin, Venlafaxin</medication>
+		</treatment>
+	</disease>
+
+
+	<disease name="Psychose">
+		<symptoms>Halluzinationen, Wahnvorstellungen, Antriebsarmut, sozialer
+			Rueckzug,
+			Konzentrationsmangel, Denkstoerungen, Sprach- und Denkverarmung, Depersonalisation,
+			Gedankenentzug, -ausbreitung, -eingebung,
+		</symptoms>
+		<cause>„multifaktorielle” Ursache, was bedeutet, dass verschiedene
+			Faktoren (biologische und psychosoziale)
+			zusammenwirken.
+		</cause>
+		<treatment>
+			<therapy>Antipsychotika</therapy>
+			<medicament>Abilify, Fluanxol, Seroquel, Zyprexa</medicament>
+		</treatment>
+	</disease>
+
+	<disease name="Zwangsstoerung">
+		<symptoms>sich aufdraengende Gedankeninhalte oder Handlungen,
+			Man unterscheidet Zwangsgedanken, Zwangsimpulse und Zwangshandlungen
+		</symptoms>
+		<cause>haeufig treten Zwangsstoerungen in Verbindung mit anderen
+			psychischen Erkrankungen
+			wie z.B. depressive Stoerungen, Aengste, Alkoholmissbrauch und
+			Essstoerungen auf
+		</cause>
+		<treatment>
+			<therapy>Antidepressiva, Antipsychotika, Psychotherapie</therapy>
+			<medicament>Citalopram, Lorazepam, Risperidon</medicament>
+		</treatment>
+	</disease>
+
+	<disease name="chronische Schmerzen">
+		<symptoms>Mehr als sechs Monate, manchmal ueber Jahre andauernde
+			Schmerzen unterschiedlicher Art;
+			wie stechend, brennend, hell, bohrend oder dumpf; Dauerschmerz oder
+			anfallsweise auftretender Schmerz;
+			zum Teil zusätzlich plötzlich einschießende heftige Schmerzen
+		</symptoms>
+		<cause>Begleitsymptom einer körperlichen Störung wie z.B.
+			Nervenschaedigungen, Begleitsymptom
+			einer psychischen Erkrankung wie z.B. einer Angststoerung
+		</cause>
+		<treatment>
+			<therapy>Kaelteauflagen, Waermeauflagen, Baeder, koerperliche
+				Bewegung, Muskeltraining, Sport,
+				Entspannungstechniken, Ruhe, Physiotherapie, Massage, Ergotherapie, Ergonomie,
+				Chiropraktik,
+				Bandagen, Schienen, Physikalische Therapie (z.B. TENS), Akupunktur,
+				Akupressur, Wickel,
+				Umschlaege, Chirurgischer Eingriff, Psychologische Betreuung, Biofeedback,
+				Gespraeche,
+				Ablenkungsstrategien, Eskapismus, Copingstrategien
+			</therapy>
+			<medicament>Arcoxia, Ketalgin, Oxycontin, Tilur, Valoron</medicament>
+		</treatment>
+	</disease>
+
+<disease name="Schizophrenie">
+	<symptoms>Veraenderungen im Denken, Wahnvorstellungen, Halluzinationen,
+		Veraenderungen im Bereich der Affekte und der Motorik
+	</symptoms>
+	<cause>wahrscheinlich genetische Faktoren, Kombination von
+		biologischen,
+		seelischen sowie psychosozialen Faktoren,
+	</cause>
+	<treatment>
+		<therapy>Antipsychotika, Neuroleptika, Psychotherapie, Soziotherapie
+		</therapy>
+		<medicament>Fluanxol, Solian, Seroquel, Zyprexa</medicament>
+	</treatment>
+</disease>
+
+</diseases>
