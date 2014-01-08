@@ -29,8 +29,8 @@ public class Data {
 	public static void loadComments()
 	{
 		comments.put("c1", new Comment("c1", "drug1", "text1: Ein literaturwissenschaftlicher Kommentar (auch philologischer Kommentar, oder, in eindeutigem Zusammenhang, kurz Kommentar) ist die Sammlung von Anmerkungen zu einem literarischen Text, welche das Verständnis des Textes erleichtern beziehungsweise ermöglichen sollen.", "owner1", "title1", new Date(), new ArrayList<Rating>()));
-		comments.get("c1").addRating(Rating.POSITIVE, "oner2");
-		comments.put("c2", new Comment("c2", "drug1", "text2", "owner2", "title2", new Date(), new ArrayList<Rating>()));
+		comments.get("c1").addRating(Rating.POSITIVE, "owner2");
+		comments.put("c2", new Comment("c2", "drug1", "text2", "shabf2", "title2", new Date(), new ArrayList<Rating>()));
 		comments.get("c2").addRating(Rating.NEGAITIVE, "oner1");
 	}
 	/**
@@ -60,7 +60,7 @@ public class Data {
 	 */
 	public static void loadUsers()
 	{
-		users.put("owner1", new User("owner1", "passwort1"));
+		users.put("shabf2@bfh.ch", new User("shabf2@bfh.ch", "-903581630"));
 		users.put("owner2", new User("owner", "passwort2"));
 	}
 	/**
