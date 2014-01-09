@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comments>  
+	<comment id="1">
+		<user id="AAA" />
+			<medicament id="A1A1"/>
+		<user_name> Urspeter Masche </user_name>
+		<title> verschiedenartige neuropsychiatrische Nebenwirkungen </title>
+		<text> Die australische Arzneimittelbehörde erinnert daran, dass
+			Montelukast, ein Leukotrien-Antagonist zur Behandlung von
+			Bronchialasthma und allergischer Rhinitis, verschiedenartige
+			neuropsychiatrische Nebenwirkungen verursachen kann. Aufgeführt
+			werden Suizidgedanken, Depressionen, Agitiertheit, aggressives
+			Verhalten, Halluzinationen, Schlaflosigkeit, Schlafwandeln, Alpträume
+			und Zittern. In Australien seien seit dem Jahr 2000 58 entsprechende
+			Meldungen eingegangen. Es wird betont, dass insbesondere bei Kindern
+			und Jugendlichen (die einen grossen Teil der Montelukast-Anwender und
+			-Anwenderinnen ausmachen) auf solche Nebenwirkungen zu achten sei.
+		</text>
+		<date>05.11.2013</date>
+		<rating positiv="true" />
+	</comment>
+	<comment id="2">
+		<user id="AAA" />
+			<medicament id="A1C1"/>
+		<user_name> Urspeter Masche </user_name>
+		<title> Vorsicht bei Herz-Kreislauf-Kranken </title>
+		<text> Die australische Arzneimittelbehörde erinnert daran, dass
+			Montelukast, ein Brause- und andere lösliche Tabletten können eine
+			beträchtliche Menge Natrium enthalten (zum Beispiel finden sich in
+			gewissen Paracetamol-Brausetabletten über 0,5 g Natrium) – was
+			offenbar ein erhöhtes kardiovaskuläres Risiko bedeutet. So zeigte
+			sich in einer Fall-Kontroll-Studie, dass Leute mit der Diagnose einer
+			Hypertonie oder eines nicht-tödlichen Schlaganfalls signifikant
+			häufiger Brausetabletten anstelle der entsprechenden normalen
+			Tabletten verwendet hatten; auch bei der Gesamtsterblichkeit ergab
+			sich ein signifikanter Zusammenhang.
+		</text>
+		<date>29.11.2013</date>
+		<rating positiv="true" />
+	</comment>
+</comments>

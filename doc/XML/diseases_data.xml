@@ -3,16 +3,20 @@
 <diseases>
 
 	<disease name="Depressionen">
-		<symptoms> Niedergedrueckte Stimmung, Freudlosigkeit, Traurigkeit,
-			Antriebslosigkeit,
-			Niedergeschlagenheit, Gleichgueltigkeit,
-			Suizidgedanken, Gedankenkreisen, Schuldgefuehle,
-			Niedriges
-			Selbstbewusstein; koerperliche Symptome: Appetitlosigkeit,
-			Gewichtsveraenderungen (Gewichtsverlust, Gewichtszunahme),
-			Schlafstoerungen,
-			Gastrointestinale Stoerungen
-		</symptoms>
+		<symptom>Gedrueckte Stimmung</symptom>
+		<symptom>Freudlosigkeit</symptom>
+		<symptom>Traurigkeit</symptom>
+		<symptom>Antriebslosigkeit</symptom>
+		<symptom>Niedergeschlagenheit</symptom>
+		<symptom>Gleichgueltigkeit</symptom>
+		<symptom>Suizidgedanken</symptom>
+		<symptom>Gedankenkreisen</symptom>
+		<symptom>Schuldgefuehle</symptom>
+		<symptom>Niedriges Selbstbewusstein</symptom>
+		<symptom>Appetitlosigkeit</symptom>
+		<symptom>Gewichtsveraenderungen</symptom>
+		<symptom>Schlafstoerungen</symptom>
+		<symptom>Gastrointestinale Stoerungen</symptom>
 		<cause>genetische Ursachen; neurobiologische Ursachen z.B. Depression
 			als Ausdruck von
 			Fehlanpassung an chronischen Stress;
@@ -41,11 +45,17 @@
 
 
 	<disease name="Psychose">
-		<symptoms>Halluzinationen, Wahnvorstellungen, Antriebsarmut, sozialer
-			Rueckzug,
-			Konzentrationsmangel, Denkstoerungen, Sprach- und Denkverarmung, Depersonalisation,
-			Gedankenentzug, -ausbreitung, -eingebung,
-		</symptoms>
+		<symptom>Halluzinationen</symptom>
+		<symptom>Wahnvorstellungen</symptom>
+		<symptom>Antriebsarmut</symptom>
+		<symptom>sozialer Rueckzug</symptom>
+		<symptom>Konzentrationsmangel</symptom>
+		<symptom>Denkstoerungen</symptom>
+		<symptom>Sprach- und Denkverarmung</symptom>
+		<symptom>Depersonalisation</symptom>
+		<symptom>Gedankenentzug</symptom>
+		<symptom>Gedankenausbreitung</symptom>
+		<symptom>Gedankeneingebung</symptom>
 		<cause>„multifaktorielle” Ursache, was bedeutet, dass verschiedene
 			Faktoren (biologische und psychosoziale)
 			zusammenwirken.
@@ -57,12 +67,14 @@
 	</disease>
 
 	<disease name="Zwangsstoerung">
-		<symptoms>sich aufdraengende Gedankeninhalte oder Handlungen,
-			Man unterscheidet Zwangsgedanken, Zwangsimpulse und Zwangshandlungen
-		</symptoms>
+
+		<symptom>Zwangsgedanken</symptom>
+		<symptom>Zwangsimpulse</symptom>
+		<symptom>Zwangsbehandlungen</symptom>
 		<cause>haeufig treten Zwangsstoerungen in Verbindung mit anderen
 			psychischen Erkrankungen
-			wie z.B. depressive Stoerungen, Aengste, Alkoholmissbrauch und
+			wie z.B. depressive Stoerungen, Aengste,
+			Alkoholmissbrauch und
 			Essstoerungen auf
 		</cause>
 		<treatment>
@@ -72,18 +84,20 @@
 	</disease>
 
 	<disease name="chronische Schmerzen">
-		<symptoms>Mehr als sechs Monate, manchmal ueber Jahre andauernde
-			Schmerzen unterschiedlicher Art;
-			wie stechend, brennend, hell, bohrend oder dumpf; Dauerschmerz oder
-			anfallsweise auftretender Schmerz;
-			zum Teil zusätzlich plötzlich einschießende heftige Schmerzen
-		</symptoms>
+		<symptom>Schmerzen</symptom>
+		<symptom>helle Schmerzen</symptom>
+		<symptom>brennende Schmerzen</symptom>
+		<symptom>bohrende Schmerzen</symptom>
+		<symptom>dumpfe Schmerzen</symptom>
+		<symptom>Dauerschmerz</symptom>
+		<symptom>ploetzlicher Schmerz</symptom>
 		<cause>Begleitsymptom einer körperlichen Störung wie z.B.
 			Nervenschaedigungen, Begleitsymptom
 			einer psychischen Erkrankung wie z.B. einer Angststoerung
 		</cause>
 		<treatment>
-			<therapy>Kaelteauflagen, Waermeauflagen, Baeder, koerperliche
+			<therapy>Analgetika, Opioide, Kaelteauflagen, Waermeauflagen, Baeder,
+				koerperliche
 				Bewegung, Muskeltraining, Sport,
 				Entspannungstechniken, Ruhe, Physiotherapie, Massage, Ergotherapie, Ergonomie,
 				Chiropraktik,
@@ -93,23 +107,27 @@
 				Gespraeche,
 				Ablenkungsstrategien, Eskapismus, Copingstrategien
 			</therapy>
-			<medicament>Arcoxia, Ketalgin, Oxycontin, Tilur, Valoron</medicament>
+			<medicament>Arcoxia, Ketalgin, Oxycontin, Tilur, Valoron
+			</medicament>
 		</treatment>
 	</disease>
 
-<disease name="Schizophrenie">
-	<symptoms>Veraenderungen im Denken, Wahnvorstellungen, Halluzinationen,
-		Veraenderungen im Bereich der Affekte und der Motorik
-	</symptoms>
-	<cause>wahrscheinlich genetische Faktoren, Kombination von
-		biologischen,
-		seelischen sowie psychosozialen Faktoren,
-	</cause>
-	<treatment>
-		<therapy>Antipsychotika, Neuroleptika, Psychotherapie, Soziotherapie
-		</therapy>
-		<medicament>Fluanxol, Solian, Seroquel, Zyprexa</medicament>
-	</treatment>
-</disease>
+	<disease name="Schizophrenie">
+		<symptom>Denkveraenderungen</symptom>
+		<symptom>Wahnvorstellungen</symptom>
+		<symptom>Halluzinationen</symptom>
+		<symptom>Affektveraenderungen</symptom>
+		<symptom>Motorikveraenderungen</symptom>
+
+		<cause>wahrscheinlich genetische Faktoren, Kombination von
+			biologischen,
+			seelischen sowie psychosozialen Faktoren,
+		</cause>
+		<treatment>
+			<therapy>Antipsychotika, Psychotherapie, Soziotherapie
+			</therapy>
+			<medicament>Fluanxol, Solian, Seroquel, Zyprexa</medicament>
+		</treatment>
+	</disease>
 
 </diseases>
