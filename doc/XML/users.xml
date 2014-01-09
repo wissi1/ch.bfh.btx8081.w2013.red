@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <Users>
+<User>
+<Username>administrator@bfh.ch</Username>
+    <Name>Administrator</Name> 
+    <Forname></Forname> 
+    <Passwort> 
+        <Hash-Value>92668751</Hash-Value> 
+    </Passwort> 
+</User>
 <User>
 <Username>vgj1@bfh.ch</Username>
     <Name>Vogel</Name> 
@@ -8,7 +17,6 @@
         <Hash-Value>3617656</Hash-Value> 
     </Passwort> 
 </User>
-
 <User>
 <Username>shabf2@bfh.ch</Username>
     <Name>Shabanaj</Name> 
@@ -17,7 +25,6 @@
         <Hash-Value>-903581630</Hash-Value> 
     </Passwort> 
 </User>
-
 <User>
 <Username>heebm2@bfh.ch</Username>
     <Name>Heeb</Name> 
@@ -26,7 +33,6 @@
         <Hash-Value>-1221153473</Hash-Value> 
     </Passwort> 
 </User>
-
 <User>
 <Username>wissi1@bfh.ch</Username>
     <Name>Wissler</Name> 
@@ -35,7 +41,6 @@
         <Hash-Value>-787588838</Hash-Value> 
     </Passwort> 
 </User>
-
 <User>
 <Username>kalar1@bfh.ch</Username>
     <Name>Kalarickamakel</Name> 
@@ -44,7 +49,6 @@
         <Hash-Value>-1138752374</Hash-Value> 
     </Passwort> 
 </User>
-
 <User>
 <Username>zehnp1@bfh.ch</Username>
     <Name>Zehnder</Name> 
@@ -53,7 +57,6 @@
         <Hash-Value>-705727758</Hash-Value> 
     </Passwort> 
 </User>
-
 <User>
 <Username>sians1@bfh.ch</Username>
     <Name>Sianko</Name> 
@@ -63,8 +66,3 @@
     </Passwort> 
 </User>
 </Users>
-
-
-
-
-
