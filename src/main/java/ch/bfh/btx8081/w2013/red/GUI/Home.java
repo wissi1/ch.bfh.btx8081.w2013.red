@@ -5,12 +5,15 @@ import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.themes.BaseTheme;
 
 /**
  * 
@@ -38,7 +41,7 @@ public class Home extends VerticalLayout implements View, IState {
 	private Button finances;
 
 	private Button homeButton;
-	private VerticalLayout verticalLayout;
+	private GridLayout gridLayout;
 	private MhcGuidDesign design;
 	private VerticalLayout upperVerticalLayout;
 
@@ -81,8 +84,8 @@ public class Home extends VerticalLayout implements View, IState {
 	private void createLayout() {
 		design.setTitleLabel("Home");
 		// verticalLayout_1
-		verticalLayout = buildVerticalLayout();
-		mainLayout.addComponent(verticalLayout, "top:120.0px;left:30.0px;");
+		gridLayout = buildVerticalLayout();
+		mainLayout.addComponent(gridLayout, "top:120.0px;left:30.0px;");
 	}
 
 	/**
@@ -95,57 +98,65 @@ public class Home extends VerticalLayout implements View, IState {
 	}
 
 	/**
-	 * Builds the verticallayout and defines the size.
-	 * Edits the verticallayout by adding four buttons
+	 * Builds the gridlayout and defines the size.
+	 * Edits the gridlayout by adding four icons.
 	 * to navigate to the different views (medicationInfo, disease,
 	 * appartementSearch, finances).
 	 */
-	private VerticalLayout buildVerticalLayout() {
-		verticalLayout = new VerticalLayout();
-		verticalLayout.setWidth("260px");
-		verticalLayout.setHeight("260px");
+	private GridLayout buildVerticalLayout() {
+		gridLayout = new GridLayout(1, 4);
+		gridLayout.setWidth("260px");
+		gridLayout.setHeight("260px");
 
 		medicationInfo = new Button("Medication info");
+		medicationInfo.setIcon(new ThemeResource("Medication.png"));
+		medicationInfo.setStyleName(BaseTheme.BUTTON_LINK);
 		medicationInfo.setWidth("100%");
 		medicationInfo.setHeight("100%");
-		verticalLayout.addComponent(medicationInfo);
-		verticalLayout.setComponentAlignment(medicationInfo,
-				Alignment.MIDDLE_CENTER);
+		gridLayout.addComponent(medicationInfo);
+		//gridLayout.setComponentAlignment(medicationInfo,
+			//	Alignment.TOP_LEFT);
 		medicationInfo.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				handleB1();
 			}
 		});
 
-		disease = new Button("Disease");
+		disease = new Button("Diseases");
+		disease.setIcon(new ThemeResource("Disease.png"));
+		disease.setStyleName(BaseTheme.BUTTON_LINK);
 		disease.setWidth("100%");
 		disease.setHeight("100%");
-		verticalLayout.addComponent(disease);
-		verticalLayout.setComponentAlignment(medicationInfo,
-				Alignment.MIDDLE_CENTER);
+		gridLayout.addComponent(disease);
+		//gridLayout.setComponentAlignment(medicationInfo,
+			//	Alignment.TOP_RIGHT);
 		disease.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				handleB2();
 			}
 		});
-
-		apartmentSearch = new Button("Apartment search");
+		
+		apartmentSearch = new Button("Apartment Search");
+		apartmentSearch.setIcon(new ThemeResource("Apartment.png"));
+		apartmentSearch.setStyleName(BaseTheme.BUTTON_LINK);
 		apartmentSearch.setWidth("100%");
 		apartmentSearch.setHeight("100%");
 		apartmentSearch.setEnabled(false);
-		verticalLayout.addComponent(apartmentSearch);
-		verticalLayout.setComponentAlignment(medicationInfo,
-				Alignment.MIDDLE_CENTER);
-
+		gridLayout.addComponent(apartmentSearch);
+		//gridLayout.setComponentAlignment(medicationInfo,
+			//	Alignment.BOTTOM_LEFT);
+	
 		finances = new Button("Finances");
+		finances.setIcon(new ThemeResource("Finances.png"));
+		finances.setStyleName(BaseTheme.BUTTON_LINK);
 		finances.setWidth("100%");
 		finances.setHeight("100%");
 		finances.setEnabled(false);
-		verticalLayout.addComponent(finances);
-		verticalLayout.setComponentAlignment(medicationInfo,
-				Alignment.MIDDLE_CENTER);
+		gridLayout.addComponent(finances);
+		//gridLayout.setComponentAlignment(medicationInfo,
+			//	Alignment.BOTTOM_RIGHT);
 
-		return verticalLayout;
+		return gridLayout;
 	}
 	/**
 	 * Builds the HorizontalLayout and defines the size.
