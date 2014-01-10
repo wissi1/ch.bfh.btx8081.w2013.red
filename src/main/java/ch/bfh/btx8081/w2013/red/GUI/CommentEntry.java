@@ -115,6 +115,7 @@ public class CommentEntry extends VerticalLayout {
 					@Override
 					public void buttonClick(ClickEvent event) {
 						Data.removeComment(comment.getId());
+						
 						commentEntry.removeAllComponents();
 					}
 				});

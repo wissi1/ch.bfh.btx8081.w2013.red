@@ -1,8 +1,18 @@
 package ch.bfh.btx8081.w2013.red.Database;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.TreeMap;
+
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 
 /**
  * The Data class manages (load and update) all data from the database.
@@ -17,7 +27,7 @@ public class Data {
 	private static TreeMap<String, Disease> diseases = new TreeMap<String, Disease>();
 	private static TreeMap<String, User> users = new TreeMap<String, User>();
 	private static String user = "default";
-	private static  String reference = "derfault";
+	private static  String reference = "default";
 	
 	public Data()
 	{
@@ -28,32 +38,156 @@ public class Data {
 	 */
 	public static void loadComments()
 	{
-		comments.put("c1", new Comment("c1", "drug1", "text1: Ein literaturwissenschaftlicher Kommentar (auch philologischer Kommentar, oder, in eindeutigem Zusammenhang, kurz Kommentar) ist die Sammlung von Anmerkungen zu einem literarischen Text, welche das Verständnis des Textes erleichtern beziehungsweise ermöglichen sollen.", "owner1", "title1", new Date(), new ArrayList<Rating>()));
-		comments.get("c1").addRating(Rating.POSITIVE, "owner2");
-		comments.put("c2", new Comment("c2", "drug1", "text2", "shabf2", "title2", new Date(), new ArrayList<Rating>()));
-		comments.get("c2").addRating(Rating.NEGAITIVE, "oner1");
+		String id = null;
+		String reference = null;
+		String owner = null;
+		String dateString = null;
+		GregorianCalendar date = new GregorianCalendar();
+		String title = null;
+		String text = null;
+		boolean rateValue = true;
+		ArrayList<Rating> rates = new ArrayList<Rating>();
+		try {
+			Document jdom = new SAXBuilder().build("XML/comments_data.xml");
+			Element aComment = jdom.getRootElement();
+			for(Element comment : aComment.getChildren())
+			{
+				id = comment.getAttributeValue("id");
+				reference = comment.getAttributeValue("reference");
+				owner = comment.getAttributeValue("owner");
+				dateString = comment.getAttributeValue("date");
+				date.setTimeInMillis(Long.parseLong(dateString));
+				for(Element commentData : comment.getChildren())
+				{
+					if(commentData.getName().equals("title"))
+					{
+						title = commentData.getValue();
+					}
+					if(commentData.getName().equals("text"))
+					{
+						text = commentData.getValue();
+					}
+					if(commentData.getName().equals("ratings"))
+					{
+						for(Element rating : commentData.getChildren())
+						{
+							if(rating.getAttribute("positive").equals("true"))
+							{
+								rateValue = true;
+							}
+							else
+							{
+								rateValue = false;
+							}
+							rates.add(new Rating(rateValue, rating.getAttributeValue("rateowner")));
+						}
+					}
+					
+				}
+				comments.put(id, new Comment(id, reference, text, owner, title, date, rates));
+			}
+		}
+		catch (Exception e) {
+			System.out.println("no connection to medications data possible");
+		}
 	}
 	/**
 	 * loadDrugs loads the drugs from the database into the TreeMap drugs.
+	 * @throws IOException 
+	 * @throws JDOMException 
 	 */
 	public static void loadDrugs()
 	{
-		ArrayList<String> types = new ArrayList<String>();
-		types.add("type1");
-		types.add("type2");
-		drugs.put("drug1", new Drug("drug1", "indication1", "effect1", "sideEffect1", types));
-		drugs.put("drug2", new Drug("drug2", "indication2", "effect2", "sideEffect2", types));
+		String name = null;
+		String type = null;
+		String indication = null;
+		String effect = null;
+		String sideeffect = null;
+		
+		try {
+			Document jdom = new SAXBuilder().build("XML/medications_data.xml");
+			Element medications = jdom.getRootElement();
+			for(Element medication: medications.getChildren())
+			{
+				name = medication.getAttributeValue("name");
+				for(Element mediData : medication.getChildren())
+				{
+					if(mediData.getName().equals("type"))
+					{
+						type = mediData.getValue();
+					}
+					if(mediData.getName().equals("indication"))
+					{
+						type = mediData.getValue();
+					}
+					if(mediData.getName().equals("effect"))
+					{
+						type = mediData.getValue();
+					}
+					if(mediData.getName().equals("sideffect"))
+					{
+						type = mediData.getValue();
+					}
+				}
+				drugs.put(name, new Drug(name, indication, effect, sideeffect, type));
+			}
+		} catch (Exception e) {
+			System.out.println("no connection to medications data possible");
+		}
 	}
 	/**
 	 * loadDiseases loads the disease from the database into the TreeMap diseases.
 	 */
 	public static void loadDiseases()
 	{
-		ArrayList<String> drugs = new ArrayList<String>();
-		drugs.add("drug1");
-		drugs.add("drug2");
-		diseases.put("disease1", new Disease("disease1", "cause1", "treatment1", drugs));
-		diseases.put("disease2", new Disease("disease2", "cause2", "treatment2", drugs));
+		String name = null;
+		ArrayList<String> symptoms = new ArrayList<String>();
+		String cause = null;
+		String therapy = null;
+		ArrayList<String> medications = new ArrayList<String>();
+		
+		try {
+			Document jdom = new SAXBuilder().build("XML/diseases_data.xml");
+			Element disease = jdom.getRootElement();
+			for(Element aDisease : disease.getChildren())
+			{
+				name = aDisease.getAttributeValue("name");
+				for(Element diseaseData: aDisease.getChildren())
+				{
+					if(diseaseData.getName().equals("symptoms"))
+					{
+						for(Element symptom : diseaseData.getChildren())
+						{
+							symptoms.add(symptom.getValue());
+						}
+					}
+					if(diseaseData.getName().equals("cause"))
+					{
+						cause = diseaseData.getValue();
+					}
+					if(diseaseData.getName().equals("treatment"))
+					{
+						for(Element treatment : diseaseData.getChildren())
+						{
+							if(treatment.getName().equals("therapy"))
+							{
+								therapy = treatment.getValue();
+							}
+							if(treatment.getName().equals("medications"))
+							{
+								for(Element medication : treatment.getChildren())
+								{
+									medications.add(medication.getValue());
+								}
+							}
+						}
+					}
+				}
+				diseases.put(name, new Disease(name, cause, therapy, medications, symptoms));
+			}
+		} catch (Exception e) {
+			System.out.println("no connection to diseases data possible");
+		}
 	}
 	/**
 	 * loadUsers loads the users from the database into the TreeMap users;
@@ -63,6 +197,38 @@ public class Data {
 		users.put("shabf2@bfh.ch", new User("shabf2@bfh.ch", "-903581630"));
 		users.put("owner2", new User("owner", "passwort2"));
 	}
+	
+	public static void updateComment()
+	{
+		try {
+			XMLOutputter outputter = new XMLOutputter();
+			Document jdom = new SAXBuilder().build("XML/comments_data.xml");
+			Element commentRoot = jdom.getRootElement();
+			System.out.println(commentRoot.getName());
+			comments.remove("c2");
+			for(Element c: commentRoot.getChildren())
+			{
+				System.out.println(c.getAttributeValue("id"));
+				String key = c.getAttributeValue("id").toString();
+				if(!comments.containsKey(key))
+				{
+					c.detach();
+				}
+			}
+			
+			outputter.setFormat(Format.getPrettyFormat());
+			outputter.output(jdom, new FileWriter("XML/test.xml"));
+			System.out.println("File Saved!");
+		
+		} catch (JDOMException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * Retrurns the TreeMap comments
 	 * @return comments

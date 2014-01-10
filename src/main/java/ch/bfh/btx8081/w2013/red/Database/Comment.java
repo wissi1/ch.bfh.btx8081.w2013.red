@@ -1,7 +1,7 @@
 package ch.bfh.btx8081.w2013.red.Database;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Comment {
 	private String id;
@@ -9,10 +9,10 @@ public class Comment {
 	private String text;
 	private String owner;
 	private String title;
-	private Date date;
+	private GregorianCalendar date;
 	private ArrayList<Rating> ratings  = new ArrayList<Rating>();
 	
-	public Comment(String id, String reference, String text, String owner, String title, Date date, ArrayList<Rating> raitings)
+	public Comment(String id, String reference, String text, String owner, String title, GregorianCalendar date, ArrayList<Rating> raitings)
 	{
 		this.id = id;
 		this.reference = reference;
@@ -48,7 +48,7 @@ public class Comment {
 	{
 		return title;
 	}
-	public Date getDate()
+	public GregorianCalendar getDate()
 	{
 		return date;
 	}

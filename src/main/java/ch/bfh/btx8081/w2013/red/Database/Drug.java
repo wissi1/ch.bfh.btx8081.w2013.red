@@ -7,15 +7,15 @@ private String name;
 private String indication;
 private String effect;
 private String sideEffect;
-private ArrayList<String> types;
+private String type;
 
-public Drug(String name, String indication, String effect, String sideEffect, ArrayList<String> types)
+public Drug(String name, String indication, String effect, String sideEffect, String type)
 {
 	this.name = name;
 	this.indication = indication;
 	this.effect = effect;
 	this.sideEffect = sideEffect;
-	this.types = types;
+	this.type = type;
 }
 public String getName()
 {
@@ -33,8 +33,8 @@ public String getSideEffect()
 {
 	return sideEffect;
 }
-public ArrayList<String> getTypes()
+public String getTypes()
 {
-	return types;
+	return type;
 }
 }
