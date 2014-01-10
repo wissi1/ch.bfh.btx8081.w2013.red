@@ -13,6 +13,8 @@ import ch.bfh.btx8081.w2013.red.Database.Rating;
 import ch.bfh.btx8081.w2013.red.Model.displayComment;
 
 import com.vaadin.client.ui.Icon;
+import com.vaadin.event.FieldEvents;
+import com.vaadin.event.FieldEvents.FocusEvent;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.Resource;
@@ -96,6 +98,12 @@ public class Comment extends VerticalLayout implements View, IState {
 		title.setValue("enter title");
 		title.setWidth("260px");
 		title.setHeight("30px");
+		title.addFocusListener(new FieldEvents.FocusListener() {
+			@Override
+			public void focus(FocusEvent event) {
+				title.setValue("");
+			}
+		});
 		final TextArea textInputField = new TextArea();
 		textInputField.setWidth("260px");
 		textInputField.setHeight("80px");
@@ -112,6 +120,8 @@ public class Comment extends VerticalLayout implements View, IState {
     		public void buttonClick(ClickEvent event) {
     			String id = "c" + Data.getComments().size()+2;
     			Data.getComments().put(id, new ch.bfh.btx8081.w2013.red.Database.Comment(id, Data.getReference(), textInputField.getValue(), Data.getUser(), title.getValue(), new GregorianCalendar(), new ArrayList<Rating>()));
+    			title.setValue("Enter Comment");
+    			textInputField.setValue("");
     		}
     	});
 		
