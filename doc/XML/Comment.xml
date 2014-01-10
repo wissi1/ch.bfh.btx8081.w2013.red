@@ -1,39 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<comments>  
+<comments>
 	<comment id="1">
-		<user id="AAA" />
-			<medicament id="A1A1"/>
-		<user_name> Urspeter Masche </user_name>
-		<title> verschiedenartige neuropsychiatrische Nebenwirkungen </title>
-		<text> Die australische Arzneimittelbehörde erinnert daran, dass
-			Montelukast, ein Leukotrien-Antagonist zur Behandlung von
-			Bronchialasthma und allergischer Rhinitis, verschiedenartige
-			neuropsychiatrische Nebenwirkungen verursachen kann. Aufgeführt
-			werden Suizidgedanken, Depressionen, Agitiertheit, aggressives
-			Verhalten, Halluzinationen, Schlaflosigkeit, Schlafwandeln, Alpträume
-			und Zittern. In Australien seien seit dem Jahr 2000 58 entsprechende
-			Meldungen eingegangen. Es wird betont, dass insbesondere bei Kindern
-			und Jugendlichen (die einen grossen Teil der Montelukast-Anwender und
-			-Anwenderinnen ausmachen) auf solche Nebenwirkungen zu achten sei.
+		<user id="wissi1@bfh.ch" />
+		<medicament id="Citalopram" />
+		<Username> wissi1@bfh.ch </Username>
+		<title> verschiedenartige Nebenwirkungen </title>
+		<text> Antipdepressiva wirkt ( in der regel ) schlechend und
+			unterbewusst. Es hemmt chemiche reaktionen im gehirn, aber so schwach
+			dass der Person weder beim denken noch bei etwas anderem
+			beeinträchtig wird.
+			Solche medikamente bekommen nur schidzophrene,
+			pädofile usw.
+			Das einzigste was man merken muss, dass Person etwas
+			ausgeglichener
+			wird, einen "klaren" kopf bewharen kann und nicht mehr
+			so
+			emotional reagiert. ( das soll nicht heißen, dass es abstumpft oder
+			etwas dergleichen! ).
+			Selbst wenn Person komplett gesund ist, merkt er
+			gar nichts von der Wirkung,
+			deswegen braucht man keine angst haben.
 		</text>
 		<date>05.11.2013</date>
 		<rating positiv="true" />
 	</comment>
+
 	<comment id="2">
-		<user id="AAA" />
-			<medicament id="A1C1"/>
-		<user_name> Urspeter Masche </user_name>
-		<title> Vorsicht bei Herz-Kreislauf-Kranken </title>
-		<text> Die australische Arzneimittelbehörde erinnert daran, dass
-			Montelukast, ein Brause- und andere lösliche Tabletten können eine
-			beträchtliche Menge Natrium enthalten (zum Beispiel finden sich in
-			gewissen Paracetamol-Brausetabletten über 0,5 g Natrium) – was
-			offenbar ein erhöhtes kardiovaskuläres Risiko bedeutet. So zeigte
-			sich in einer Fall-Kontroll-Studie, dass Leute mit der Diagnose einer
-			Hypertonie oder eines nicht-tödlichen Schlaganfalls signifikant
-			häufiger Brausetabletten anstelle der entsprechenden normalen
-			Tabletten verwendet hatten; auch bei der Gesamtsterblichkeit ergab
-			sich ein signifikanter Zusammenhang.
+		<user id="zehnp1@bfh.ch" />
+		<medicament id="Citalopram" />
+		<Username> zehnp1@bfh.ch </Username>
+		<title> Nebenwirkungen </title>
+		<text> citalopram ist eines der schwächsten "Antidepressiva" die es
+			auf dem Markt gibt. "Antidepressiva" in Anführungszeichen, da es nur
+			aus der Familie der antidepressiva
+			stammt.
+			Nebenwirkungen können
+			generell bei jedem auftreten, allerdings treten bei
+			Antidepressiva im
+			regelfall kaum nebenwirkungen auf.
+			Citalopram braucht man ca. 1-2
+			Wochen bis es seine ganze Wirkung "zeigt" und die
+			kommt i.d.R. auch
+			nicht so, dass man es bewusst wahrnimmst. Irgendwann
+			merkt man
+			einfach, dass es ihm besser geht.
+		</text>
+		<date>12.11.2013</date>
+		<rating positiv="true" />
+	</comment>
+
+	<comment id="3">
+		<user id="sians1@bfh.ch" />
+		<medicament id="Valium" />
+		<Username>sians1@bfh.ch</Username>
+		<title> Gefährliche Beruhigungsmittel </title>
+		<text> Bei über 60-Jährigen treten Nebenwirkungen durch Benzodiazepine
+			(Valium)
+			im Schnitt viermal so oft auf wie bei jungen Menschen.Die
+			Dosis von Valium bei über 65-Jährigen auf ein Drittel oder
+			Viertel der
+			üblichen Dosis herabzusetzen sollte. Einer der Gründe für die
+			vermehrten Nebenwirkungen ist, dass viele Medikamente im Körper
+			älterer Menschen deutlich langsamer abgebaut werden als bei jungen
+			Menschen.
 		</text>
 		<date>29.11.2013</date>
 		<rating positiv="true" />
