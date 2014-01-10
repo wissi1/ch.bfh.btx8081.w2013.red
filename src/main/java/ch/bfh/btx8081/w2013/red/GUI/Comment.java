@@ -1,9 +1,15 @@
 package ch.bfh.btx8081.w2013.red.GUI;
 
 
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
+import java.util.Set;
+
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
 import ch.bfh.btx8081.w2013.red.Database.Data;
+import ch.bfh.btx8081.w2013.red.Database.Rating;
 import ch.bfh.btx8081.w2013.red.Model.displayComment;
 
 import com.vaadin.client.ui.Icon;
@@ -86,16 +92,30 @@ public class Comment extends VerticalLayout implements View, IState {
 	{		
 		commentLayout.setWidth("240px");
 		
-		TextArea textInputField = new TextArea("Your Comment:");
+		final TextField title = new TextField("Yout Comment:");
+		title.setValue("enter title");
+		title.setWidth("260px");
+		title.setHeight("30px");
+		final TextArea textInputField = new TextArea();
 		textInputField.setWidth("260px");
 		textInputField.setHeight("80px");
 		textInputField.setWordwrap(true);
+		mainLayout.addComponent(title, "top:270.0px;left:30.0px");
 		mainLayout.addComponent(textInputField, "top:300.0px;left:30.0px;");
 		
 		Button commitButton = new Button("Commit");
 		commitButton.setWidth("260px");
 		
 		mainLayout.addComponent(commitButton, "top:382.0px;left:30px;");
+		commitButton.addClickListener(new Button.ClickListener() 
+    	{
+    		public void buttonClick(ClickEvent event) {
+    			String id = "c" + Data.getComments().size()+2;
+    			Data.getComments().put(id, new ch.bfh.btx8081.w2013.red.Database.Comment(id, Data.getReference(), textInputField.getValue(), Data.getUser(), title.getValue(), new GregorianCalendar(), new ArrayList<Rating>()));
+    		}
+    	});
+		
+		
 		
 	
 		Panel displayPanel = new Panel("Comments");
@@ -103,7 +123,7 @@ public class Comment extends VerticalLayout implements View, IState {
 		displayPanel.setContent(commentLayout);
 		displayPanel.setVisible(true);
 		displayPanel.setWidth("260px");
-		displayPanel.setHeight("220px");
+		displayPanel.setHeight("190px");
 		
 		mainLayout.addComponent(displayPanel, "top:60.0px;left:30.0px;");	
 	}
