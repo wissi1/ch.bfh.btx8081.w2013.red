@@ -83,6 +83,7 @@ public class MhcGuidDesign  {
 		this.title = new Label(title);
 		this.title.setSizeUndefined();
 		this.title.setStyleName("mylabel");
+		upperVerticalLayout.removeAllComponents();
 		upperVerticalLayout.addComponent(this.title);
 		upperVerticalLayout.setComponentAlignment(this.title, Alignment.MIDDLE_CENTER);
 	}

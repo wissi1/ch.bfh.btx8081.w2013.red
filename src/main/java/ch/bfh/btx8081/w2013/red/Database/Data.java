@@ -122,15 +122,15 @@ public class Data {
 					}
 					if(mediData.getName().equals("indication"))
 					{
-						type = mediData.getValue();
+						indication = mediData.getValue();
 					}
 					if(mediData.getName().equals("effect"))
 					{
-						type = mediData.getValue();
+						effect = mediData.getValue();
 					}
 					if(mediData.getName().equals("sideffect"))
 					{
-						type = mediData.getValue();
+						sideeffect = mediData.getValue();
 					}
 				}
 				drugs.put(name, new Drug(name, indication, effect, sideeffect, type));
