@@ -45,7 +45,6 @@ public class NavigatorUI extends UI
 		Data.loadDrugs();
 		Data.loadUsers();
 		Data.setReference("Seroquel");
-		Data.updateComment();
     	navigator = new Navigator(this, this);
     	navigator.addView("", new Init());
         navigator.addView(LOGINVIEW, new Login());

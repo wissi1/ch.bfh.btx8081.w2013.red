@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<diseases>
+
+	<disease name="Depressionen">
+		<symptoms>
+			<symptom>Gedrueckte Stimmung</symptom>
+			<symptom>Freudlosigkeit</symptom>
+			<symptom>Traurigkeit</symptom>
+			<symptom>Antriebslosigkeit</symptom>
+			<symptom>Niedergeschlagenheit</symptom>
+			<symptom>Gleichgueltigkeit</symptom>
+			<symptom>Suizidgedanken</symptom>
+			<symptom>Gedankenkreisen</symptom>
+			<symptom>Schuldgefuehle</symptom>
+			<symptom>Niedriges Selbstbewusstein</symptom>
+			<symptom>Appetitlosigkeit</symptom>
+			<symptom>Gewichtsveraenderungen</symptom>
+			<symptom>Schlafstoerungen</symptom>
+			<symptom>Gastrointestinale Stoerungen</symptom>
+		</symptoms>
+		<cause>genetische Ursachen; neurobiologische Ursachen z.B. Depression
+			als Ausdruck von
+			Fehlanpassung an chronischen Stress;
+			Psychologische
+			Theorien zur Depressionsentstehung:
+			Erlernte Hilflosigkeit,
+			Kognitionen als Ursache,
+			Depression im Lichte des Konzepts der
+			emotionalen Intelligenz,
+			Verstaerkerverlust, Psychodynamische
+			Ansaetze;
+			sozialwissenschaftliche Faktoren: Psychosoziale Faktoren,
+			Depression als Ausdruck einer sozialen Gratifikationskrise,
+			Depressionen bei Kindern als Folge elterlicher Depressionen,
+			Evolutionsbiologische Theorien zur Depressionsentstehung;
+			physiologische Faktoren: Krankheitserreger als Ursache,
+			Substanzinduzierte Depressionen, Hormonelle Faktoren als Ausloeser
+		</cause>
+		<treatment>
+			<therapy>Antidepressiva; nichtmedikamentoes: Psychotherapie und
+				weitere Massnahmen wie Ergotherapie und Sport
+			</therapy>
+			<medicaments>
+				<medicament>Citalopram</medicament>
+				<medicament>Trimipramin</medicament>
+				<medicament>Venlafaxin</medicament>
+			</medicaments>
+		</treatment>
+	</disease>
+
+
+	<disease name="Psychose">
+		<symptoms>
+			<symptom>Halluzinationen</symptom>
+			<symptom>Wahnvorstellungen</symptom>
+			<symptom>Antriebsarmut</symptom>
+			<symptom>sozialer Rueckzug</symptom>
+			<symptom>Konzentrationsmangel</symptom>
+			<symptom>Denkstoerungen</symptom>
+			<symptom>Sprach- und Denkverarmung</symptom>
+			<symptom>Depersonalisation</symptom>
+			<symptom>Gedankenentzug</symptom>
+			<symptom>Gedankenausbreitung</symptom>
+			<symptom>Gedankeneingebung</symptom>
+		</symptoms>
+		<cause>„multifaktorielle” Ursache, was bedeutet, dass verschiedene
+			Faktoren (biologische und psychosoziale)
+			zusammenwirken.
+		</cause>
+		<treatment>
+			<therapy>Antipsychotika</therapy>
+			<medicaments>
+				<medicament>Abilify</medicament>
+				<medicament>Fluanxol</medicament>
+				<medicament>Seroquel</medicament>
+				<medicament>Zyprexa</medicament>
+			</medicaments>
+		</treatment>
+	</disease>
+
+	<disease name="Zwangsstoerung">
+		<symptoms>
+			<symptom>Zwangsgedanken</symptom>
+			<symptom>Zwangsimpulse</symptom>
+			<symptom>Zwangsbehandlungen</symptom>
+		</symptoms>
+		<cause>haeufig treten Zwangsstoerungen in Verbindung mit anderen
+			psychischen Erkrankungen
+			wie z.B. depressive Stoerungen, Aengste,
+			Alkoholmissbrauch und
+			Essstoerungen auf
+		</cause>
+		<treatment>
+			<therapy>Antidepressiva, Antipsychotika, Psychotherapie</therapy>
+			<medicaments>
+				<medicament>Citalopram</medicament>
+				<medicament>Lorazepam</medicament>
+				<medicament>Risperidon</medicament>
+			</medicaments>
+		</treatment>
+	</disease>
+
+	<disease name="chronische Schmerzen">
+		<symptoms>
+			<symptom>Schmerzen</symptom>
+			<symptom>helle Schmerzen</symptom>
+			<symptom>brennende Schmerzen</symptom>
+			<symptom>bohrende Schmerzen</symptom>
+			<symptom>dumpfe Schmerzen</symptom>
+			<symptom>Dauerschmerz</symptom>
+			<symptom>ploetzlicher Schmerz</symptom>
+			</symptoms>
+		<cause>Begleitsymptom einer körperlichen Störung wie z.B.
+			Nervenschaedigungen, Begleitsymptom
+			einer psychischen Erkrankung wie z.B. einer Angststoerung
+		</cause>
+		<treatment>
+			<therapy>Analgetika, Opioide, Kaelteauflagen, Waermeauflagen, Baeder,
+				koerperliche
+				Bewegung, Muskeltraining, Sport,
+				Entspannungstechniken, Ruhe, Physiotherapie, Massage, Ergotherapie, Ergonomie,
+				Chiropraktik,
+				Bandagen, Schienen, Physikalische Therapie (z.B. TENS), Akupunktur,
+				Akupressur, Wickel,
+				Umschlaege, Chirurgischer Eingriff, Psychologische Betreuung, Biofeedback,
+				Gespraeche,
+				Ablenkungsstrategien, Eskapismus, Copingstrategien
+			</therapy>
+			<medicaments>
+				<medicament>Arcoxia</medicament>
+				<medicament>Ketalgin</medicament>
+				<medicament>Oxycontin</medicament>
+				<medicament>Tilur</medicament>
+				<medicament>Valoron</medicament>
+			</medicaments>
+		</treatment>
+	</disease>
+
+	<disease name="Schizophrenie">
+	<symptoms>
+		<symptom>Denkveraenderungen</symptom>
+		<symptom>Wahnvorstellungen</symptom>
+		<symptom>Halluzinationen</symptom>
+		<symptom>Affektveraenderungen</symptom>
+		<symptom>Motorikveraenderungen</symptom>
+	</symptoms>
+		<cause>wahrscheinlich genetische Faktoren, Kombination von
+			biologischen,
+			seelischen sowie psychosozialen Faktoren,
+		</cause>
+		<treatment>
+			<therapy>Antipsychotika, Psychotherapie, Soziotherapie
+			</therapy>
+			<medicaments>
+				<medicament>Fluanxol</medicament>
+				<medicament>Solian</medicament>
+				<medicament>Seroquel</medicament>
+				<medicament>Zyprexa</medicament>
+			</medicaments>
+		</treatment>
+	</disease>
+
+</diseases>

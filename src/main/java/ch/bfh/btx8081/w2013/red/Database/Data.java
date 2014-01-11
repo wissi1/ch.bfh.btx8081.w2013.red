@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 
+import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -27,7 +29,7 @@ public class Data {
 	private static TreeMap<String, Disease> diseases = new TreeMap<String, Disease>();
 	private static TreeMap<String, User> users = new TreeMap<String, User>();
 	private static String user = "default";
-	private static  String reference = "default";
+	private static String reference = "default";
 	
 	public Data()
 	{
@@ -38,6 +40,7 @@ public class Data {
 	 */
 	public static void loadComments()
 	{
+		comments = new TreeMap<String, Comment>();
 		String id = null;
 		String reference = null;
 		String owner = null;
@@ -46,12 +49,12 @@ public class Data {
 		String title = null;
 		String text = null;
 		boolean rateValue = true;
-		ArrayList<Rating> rates = new ArrayList<Rating>();
 		try {
 			Document jdom = new SAXBuilder().build("XML/comments_data.xml");
 			Element aComment = jdom.getRootElement();
 			for(Element comment : aComment.getChildren())
 			{
+				ArrayList<Rating> rates = new ArrayList<Rating>();
 				id = comment.getAttributeValue("id");
 				reference = comment.getAttributeValue("reference");
 				owner = comment.getAttributeValue("owner");
@@ -71,7 +74,7 @@ public class Data {
 					{
 						for(Element rating : commentData.getChildren())
 						{
-							if(rating.getAttribute("positive").equals("true"))
+							if(rating.getAttribute("positive").getValue().equals("true"))
 							{
 								rateValue = true;
 							}
@@ -98,6 +101,7 @@ public class Data {
 	 */
 	public static void loadDrugs()
 	{
+		drugs = new TreeMap<String, Drug>();
 		String name = null;
 		String type = null;
 		String indication = null;
@@ -140,6 +144,7 @@ public class Data {
 	 */
 	public static void loadDiseases()
 	{
+		diseases = new TreeMap<String, Disease>();
 		String name = null;
 		ArrayList<String> symptoms = new ArrayList<String>();
 		String cause = null;
@@ -205,21 +210,57 @@ public class Data {
 			Document jdom = new SAXBuilder().build("XML/comments_data.xml");
 			Element commentRoot = jdom.getRootElement();
 			System.out.println(commentRoot.getName());
-			comments.remove("c2");
-			for(Element c: commentRoot.getChildren())
+			for(int i = 0; i < commentRoot.getChildren().size(); i++)
 			{
-				System.out.println(c.getAttributeValue("id"));
-				String key = c.getAttributeValue("id").toString();
+				System.out.println(commentRoot.getChildren().get(i).getAttributeValue("id"));
+				String key = commentRoot.getChildren().get(i).getAttributeValue("id").toString();
 				if(!comments.containsKey(key))
 				{
-					c.detach();
+					commentRoot.getChildren().get(i).detach();
+				}
+				else
+				{
+					if(commentRoot.getChildren().get(i).getChild("ratings").getChildren().size() < comments.get(key).getRatings().size())
+					{
+						Element rate = new Element("rate");
+							rate.setAttribute(new Attribute("positive", "" + comments.get(key).getRatings().get(comments.get(key).getRatings().size()-1).getRate()));
+							rate.setAttribute(new Attribute("rateowner", "" + comments.get(key).getRatings().get(comments.get(key).getRatings().size()-1).getRateOwner()));
+						commentRoot.getChildren().get(i).getChild("ratings").addContent(rate);
+					}
+				}
+			}
+			
+			for(Entry<String, Comment> aComment: comments.entrySet())
+			{
+				boolean commentExists = false;
+				for(Element comment : commentRoot.getChildren())
+				{
+					
+					if(comment.getAttributeValue("id").equals(aComment.getValue().getId()))
+					{
+						commentExists = true;
+					}
+				}
+				if(commentExists == false)
+				{
+					Element newComment = new Element("comment");
+					
+						newComment.setAttribute(new Attribute("id", aComment.getValue().getId()));
+						newComment.setAttribute(new Attribute("reference", aComment.getValue().getReferene()));
+						newComment.setAttribute(new Attribute("owner", aComment.getValue().getOwner()));
+						newComment.setAttribute(new Attribute("date", "" + aComment.getValue().getDate().getTimeInMillis()));
+					
+					newComment.addContent(new Element("title").setText(aComment.getValue().getTitle()));
+					newComment.addContent(new Element("text").setText(aComment.getValue().getText()));
+					newComment.addContent(new Element("ratings"));
+					
+					commentRoot.addContent(newComment);
 				}
 			}
 			
 			outputter.setFormat(Format.getPrettyFormat());
 			outputter.output(jdom, new FileWriter("XML/test.xml"));
 			System.out.println("File Saved!");
-		
 		} catch (JDOMException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

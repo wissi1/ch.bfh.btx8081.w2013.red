@@ -34,7 +34,7 @@ public class CommentEntry extends VerticalLayout {
 	private void createTitle()
 	{
 		Label commentTitle = new Label(comment.getTitle() + " by: " + comment.getOwner());
-		commentTitle.setWidth("220px");
+		commentTitle.setWidth("240px");
 		this.addComponent(commentTitle);
 	}
 	private void createText()
@@ -48,14 +48,14 @@ public class CommentEntry extends VerticalLayout {
 		{
 			commentText.addStyleName("greentextarea");
 		}
-		commentText.setWidth("220px");
+		commentText.setWidth("240px");
 		this.addComponent(commentText);
 	}
 	private void createRateBar()
 	{
 		
 		final HorizontalLayout rateLayout = new HorizontalLayout();
-			rateLayout.setWidth("220px");
+			rateLayout.setWidth("240px");
 		
 		final VerticalLayout gap20px = new VerticalLayout();
 			gap20px.setHeight("20px");
@@ -72,6 +72,7 @@ public class CommentEntry extends VerticalLayout {
 						commentEntry.removeComponent(gap20px);
 						commentEntry.removeComponent(rateLayout);
 						commentEntry.createRateBar();
+						Data.updateComment();
 					}
 				});
 				
@@ -84,6 +85,7 @@ public class CommentEntry extends VerticalLayout {
 						commentEntry.removeComponent(gap20px);
 						commentEntry.removeComponent(rateLayout);
 						commentEntry.createRateBar();
+						Data.updateComment();
 					}
 				});
 				
@@ -115,8 +117,8 @@ public class CommentEntry extends VerticalLayout {
 					@Override
 					public void buttonClick(ClickEvent event) {
 						Data.removeComment(comment.getId());
-						
 						commentEntry.removeAllComponents();
+						Data.updateComment();
 					}
 				});
 				

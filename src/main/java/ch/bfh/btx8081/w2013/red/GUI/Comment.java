@@ -1,28 +1,27 @@
 package ch.bfh.btx8081.w2013.red.GUI;
 
 
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
 import ch.bfh.btx8081.w2013.red.Database.Data;
+import ch.bfh.btx8081.w2013.red.Database.Rating;
 import ch.bfh.btx8081.w2013.red.Model.displayComment;
 
-import com.vaadin.client.ui.Icon;
+import com.vaadin.event.FieldEvents;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
-import com.vaadin.server.Resource;
-import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Embedded;
 import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
-import com.vaadin.ui.themes.Reindeer;
 
 /**
  * The comment class creates a view in which a user can read and write 
@@ -85,15 +84,41 @@ public class Comment extends VerticalLayout implements View, IState {
 	private void editMainLayout()
 	{		
 		commentLayout.setWidth("240px");
-		
-		TextArea textInputField = new TextArea("Your Comment:");
+		final TextField title = new TextField("Yout Comment:");
+        title.setValue("enter title");
+        title.setWidth("260px");
+        title.setHeight("25px");
+        title.addFocusListener(new FieldEvents.FocusListener() {
+			
+			@Override
+			public void focus(com.vaadin.event.FieldEvents.FocusEvent event) {
+				// TODO Auto-generated method stub
+				 title.setValue("");
+			}
+		});
+        final TextArea textInputField = new TextArea();
 		textInputField.setWidth("260px");
-		textInputField.setHeight("80px");
+		textInputField.setHeight("70px");
 		textInputField.setWordwrap(true);
-		mainLayout.addComponent(textInputField, "top:300.0px;left:30.0px;");
+		mainLayout.addComponent(title, "top:290.0px;left:30.0px");
+		mainLayout.addComponent(textInputField, "top:315.0px;left:30.0px;");
 		
 		Button commitButton = new Button("Commit");
 		commitButton.setWidth("260px");
+		commitButton.addClickListener(new Button.ClickListener() 
+    	{
+    		public void buttonClick(ClickEvent event) {
+    			  GregorianCalendar date = new GregorianCalendar();
+    			  String id = "c" + date.getTimeInMillis();
+    			  ch.bfh.btx8081.w2013.red.Database.Comment com =  new ch.bfh.btx8081.w2013.red.Database.Comment(id, Data.getReference(), textInputField.getValue(), Data.getUser(), title.getValue(), date, new ArrayList<Rating>());
+                  Data.getComments().put(id, com);
+                  CommentEntry commentEntry = new CommentEntry(com);
+                  commentLayout.addComponent(commentEntry);
+                  title.setValue("Enter Comment");
+                  textInputField.setValue("");
+                  Data.updateComment();
+    		}
+    	});
 		
 		mainLayout.addComponent(commitButton, "top:382.0px;left:30px;");
 		
@@ -103,7 +128,7 @@ public class Comment extends VerticalLayout implements View, IState {
 		displayPanel.setContent(commentLayout);
 		displayPanel.setVisible(true);
 		displayPanel.setWidth("260px");
-		displayPanel.setHeight("220px");
+		displayPanel.setHeight("210px");
 		
 		mainLayout.addComponent(displayPanel, "top:60.0px;left:30.0px;");	
 	}
@@ -162,10 +187,6 @@ public class Comment extends VerticalLayout implements View, IState {
 		{
 			CommentEntry commentEntry = new CommentEntry(displayComment.display().get(i));
 			commentLayout.addComponent(commentEntry);
-			if(Data.getUser().equals(displayComment.display().get(i).getOwner()))
-			{
-				commentLayout.setComponentAlignment(commentEntry, Alignment.TOP_RIGHT);
-			}
 		}
 	}
 
