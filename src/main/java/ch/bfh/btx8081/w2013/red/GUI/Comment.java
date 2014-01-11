@@ -182,9 +182,10 @@ public class Comment extends VerticalLayout implements View, IState {
 	 */
 	public void enter(ViewChangeEvent event) {
 		commentLayout.removeAllComponents();
-
+		Data.loadComments();
 		for (int i = 0; i < displayComment.display().size(); i++)
 		{
+			design.setTitleLabel(Data.getReference());
 			CommentEntry commentEntry = new CommentEntry(displayComment.display().get(i));
 			commentLayout.addComponent(commentEntry);
 		}

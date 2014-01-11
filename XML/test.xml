@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <comments>
-  <comment id="1389268411252" reference="Seroquel" owner="shabf2@bfh.ch" date="1389268411252">
-    <title>verschiedenartige neuropsychiatrische Nebenwirkungen</title>
-    <text>Kommentar1</text>
-    <ratings>
-      <rate positive="true" rateowner="wissi1@bfh.ch" />
-      <rate positive="true" rateowner="zehnp1@bfh.ch" />
-    </ratings>
-  </comment>
-  <comment id="c1" reference="Seroquel" owner="wissi1@bfh.ch" date="1389268411252">
-    <title>title2</title>
-    <text>Kommentar2</text>
-    <ratings>
-      <rate positive="false" rateowner="zehnp1@bfh.ch" />
-    </ratings>
-  </comment>
-  <comment id="c1389453942991" reference="Fluanxol" owner="shabf2@bfh.ch" date="1389453942991">
+  <comment id="c1389463020396" reference="Seroquel" owner="wissi1@bfh.ch" date="1389463020396">
     <title>hallo</title>
-    <text>ha</text>
+    <text>neuer kommentar</text>
+    <ratings>
+      <rate positive="false" rateowner="shabf2@bfh.ch" />
+    </ratings>
+  </comment>
+  <comment id="c1389463183528" reference="Zwangsstoerung" owner="shabf2@bfh.ch" date="1389463183528">
+    <title>yo dude</title>
+    <text>adf</text>
+    <ratings />
+  </comment>
+  <comment id="c1389469203560" reference="Fluanxol" owner="wissi1@bfh.ch" date="1389469203560">
+    <title>neuer kommentar</title>
+    <text>der Kommentar</text>
+    <ratings>
+      <rate positive="true" rateowner="shabf2@bfh.ch" />
+    </ratings>
+  </comment>
+  <comment id="c1389469272054" reference="Fluanxol" owner="shabf2@bfh.ch" date="1389469272054">
+    <title>h</title>
+    <text>hallo</text>
     <ratings />
   </comment>
 </comments>
