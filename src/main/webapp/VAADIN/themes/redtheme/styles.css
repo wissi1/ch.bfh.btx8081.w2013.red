@@ -7027,3 +7027,11 @@ body .redtheme.v-app .v-app-loading {
 .redtheme .v-tabsheet-tabitem .v-caption {
 	width: auto !important;
 }
+
+.redtheme .greentextarea {
+	background-color: #ddf169 !important;
+}
+
+.redtheme .bluetextarea {
+	background-color: #bceefe !important;
+}

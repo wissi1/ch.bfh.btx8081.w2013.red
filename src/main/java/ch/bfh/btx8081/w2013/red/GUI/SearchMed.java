@@ -11,9 +11,15 @@
 
 package ch.bfh.btx8081.w2013.red.GUI;
 
+import java.util.ArrayList;
+
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
+import ch.bfh.btx8081.w2013.red.Database.Data;
+import ch.bfh.btx8081.w2013.red.Model.DisplayMedicaments;
 
+import com.vaadin.data.Property.ValueChangeEvent;
+import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
@@ -34,8 +40,8 @@ public class SearchMed extends VerticalLayout implements View, IState {
 	private AbsoluteLayout mainLayout;
 	private VerticalLayout upperVerticalLayout;
 	private HorizontalLayout lowerHorizontalLayout;
-	private ComboBox comboBox_MediName;
-	private ComboBox comboBox_MediArt;
+	private ComboBox comboBox_MediName = new ComboBox();
+	private ComboBox comboBox_MediArt = new ComboBox();
 	MhcGuidDesign design;
 
 	/**
@@ -81,10 +87,43 @@ public class SearchMed extends VerticalLayout implements View, IState {
 	private void editMainLayout()
 	{		
 
-		comboBox_MediName = new ComboBox("Medication / Active substance");
+		comboBox_MediName.setCaption("Medication / Active substance");
+		
+		ArrayList<String> medication = DisplayMedicaments.displayMedication();
+		
+		for(String medications : medication)
+		{
+			comboBox_MediName.addItem(medications);
+		}
+		
+		comboBox_MediName.addValueChangeListener(new ValueChangeListener() {
+			
+			
+			public void valueChange(ValueChangeEvent event) {
+				if(comboBox_MediName.getValue() != null)
+				{
+					comboBox_MediArt.setEnabled(false);
+					
+				}
+				else if(comboBox_MediName.getValue() == null)
+				{
+					comboBox_MediArt.setEnabled(true);
+				}
+			}
+		});
+		
 		mainLayout.addComponent(comboBox_MediName, "top:120.0px;left:30.0px;");
 
-		comboBox_MediArt= new ComboBox("Type of medication ");
+		comboBox_MediArt.setCaption("Type of medication ");
+		
+		ArrayList<String> type = DisplayMedicaments.displayType();
+		
+		for(String types : type)
+		{
+			comboBox_MediArt.addItem(types);
+		}
+
+		
 		mainLayout.addComponent(comboBox_MediArt, "top:170.0px;left:30.0px;");
 
 	}
@@ -102,6 +141,7 @@ public class SearchMed extends VerticalLayout implements View, IState {
 		searchButton.addClickListener(new Button.ClickListener()
 		{
 			public void buttonClick(ClickEvent event) {
+				Data.setReference(comboBox_MediName.getValue().toString());
 				handleB2();
 			}
 		});

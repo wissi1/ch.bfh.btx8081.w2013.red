@@ -3,9 +3,15 @@ package ch.bfh.btx8081.w2013.red.GUI;
 /**
  * import all required packages
  */
+import java.util.ArrayList;
+
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
+import ch.bfh.btx8081.w2013.red.Database.Data;
+import ch.bfh.btx8081.w2013.red.Model.DisplayDiseases;
 
+import com.vaadin.data.Property.ValueChangeEvent;
+import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.ui.AbsoluteLayout;
@@ -39,6 +45,10 @@ public class SearchDis extends VerticalLayout implements View, IState {
 	private VerticalLayout upperVerticalLayout;
 	private HorizontalLayout lowerHorizontalLayout;
 	MhcGuidDesign design;
+	ComboBox comboBox_1 = new ComboBox();
+	ComboBox comboBox_2 = new ComboBox();
+	ComboBox comboBox_3 = new ComboBox();
+	ComboBox comboBox_4 = new ComboBox();
 	
 	/**
 	 * Constructs a SearchDisView on the base of different parameters.
@@ -85,21 +95,58 @@ public class SearchDis extends VerticalLayout implements View, IState {
 	private void editMainLayout()
 	{		
 		
-		ComboBox comboBox_1 = new ComboBox("Disease");
+		comboBox_1.setCaption("Disease");
+		comboBox_1.setInputPrompt("Bitte Auswählen");
+		
+		ArrayList<String> disease = DisplayDiseases.displayDiseases();
+		
+		for(String diseases : disease)
+		{
+			comboBox_1.addItem(diseases);
+		}
+		
+		comboBox_1.addValueChangeListener(new ValueChangeListener() {
+			
+			@Override
+			public void valueChange(ValueChangeEvent event) {
+				if(comboBox_1.getValue() != null)
+				{
+					comboBox_2.setEnabled(false);
+					comboBox_3.setEnabled(false);
+					comboBox_4.setEnabled(false);
+					
+				}
+				else if(comboBox_1.getValue() == null)
+				{
+					comboBox_2.setEnabled(true);
+					comboBox_3.setEnabled(true);
+					comboBox_4.setEnabled(true);
+				}
+			}
+		});
 		
 		mainLayout.addComponent(comboBox_1, "top:120.0px;left:30.0px;");
 		
-		ComboBox comboBox_2 = new ComboBox("Symptom 1");
+		comboBox_2.setCaption("Symptom 1");
 		
 		mainLayout.addComponent(comboBox_2, "top:180.0px;left:30.0px;");
 		
-		ComboBox comboBox_3 = new ComboBox("Symptom 2");
+		comboBox_3.setCaption("Symptom 2");
 		
 		mainLayout.addComponent(comboBox_3, "top:240.0px;left:30.0px;");
 		
-		ComboBox comboBox_4 = new ComboBox("Symptom 3");
+		comboBox_4.setCaption("Symptom 3");
 		
 		mainLayout.addComponent(comboBox_4, "top:300.0px;left:30.0px;");
+		
+		ArrayList<String> symptom = DisplayDiseases.displaySymptoms();
+		
+		for(String symptoms : symptom)
+		{
+			comboBox_2.addItem(symptoms);
+			comboBox_3.addItem(symptoms);
+			comboBox_4.addItem(symptoms);
+		}
 	
 	}
 	
@@ -132,6 +179,7 @@ public class SearchDis extends VerticalLayout implements View, IState {
 		backButton.addClickListener(new Button.ClickListener() 
     	{
     		public void buttonClick(ClickEvent event) {
+    			Data.setReference(comboBox_1.getValue().toString());
     			handleB2();
     		}
     	});

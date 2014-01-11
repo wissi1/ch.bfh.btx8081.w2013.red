@@ -2,6 +2,7 @@ package ch.bfh.btx8081.w2013.red.GUI;
 
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
+import ch.bfh.btx8081.w2013.red.Database.Data;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -32,6 +33,7 @@ public class InfoMed extends VerticalLayout implements View, IState {
 	private AbsoluteLayout mainLayout;
 	private HorizontalLayout lowerHorizontalLayout;
 	private MhcGuidDesign design;
+	TabSheet tabSheetMed = new TabSheet();
 
 	/**
 	 * Constructs a InfoMed View on the base of different parameters.
@@ -74,12 +76,10 @@ public class InfoMed extends VerticalLayout implements View, IState {
 	private void editMainLayout()
 	{		
 		
-		TabSheet tabSheetMed = new TabSheet();
+		
 		tabSheetMed.setWidth("260px");
 		tabSheetMed.setHeight("300px");
-		tabSheetMed.addTab(new Label("test"), "Indication");
-		tabSheetMed.addTab(new Label("test1"), "Effect");
-		tabSheetMed.addTab(new Label("test2"), "Side effect");
+		
 		
 		mainLayout.addComponent(tabSheetMed, "top:90px;left:30px");
 	
@@ -102,7 +102,7 @@ public class InfoMed extends VerticalLayout implements View, IState {
 	 */
 	private void editUpperVerticalLayout()
 	{
-		design.setTitleLabel("Drug");
+		
 	}
 	
 	/**
@@ -143,7 +143,11 @@ public class InfoMed extends VerticalLayout implements View, IState {
 	 */
 	
 	public void enter(ViewChangeEvent event) {
-		// TODO Auto-generated method stub
+		design.setTitleLabel(Data.getReference());
+		tabSheetMed.removeAllComponents();
+		tabSheetMed.addTab(new Label((Data.getDrugs().get(Data.getReference())).getIndication()), "Indication");
+		tabSheetMed.addTab(new Label((Data.getDrugs().get(Data.getReference())).getEffcet()), "Effect");
+		tabSheetMed.addTab(new Label((Data.getDrugs().get(Data.getReference())).getSideEffect()), "Side Effect");
 		
 	}
 	

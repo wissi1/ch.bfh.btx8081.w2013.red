@@ -2,6 +2,7 @@ package ch.bfh.btx8081.w2013.red.GUI;
 
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
+import ch.bfh.btx8081.w2013.red.Database.Data;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
@@ -30,6 +31,7 @@ public class InfoDis extends VerticalLayout implements View , IState {
 	private VerticalLayout upperVerticalLayout;
 	private HorizontalLayout lowerHorizontalLayout;
 	private MhcGuidDesign design;
+	TabSheet tabSheetDis = new TabSheet();
 	/**
 	 * Constructs a InfoDis View on the base of different parameters.
 	 * 
@@ -67,14 +69,8 @@ public class InfoDis extends VerticalLayout implements View , IState {
 	 */
 	private void editMainLayout()
 	{		
-		
-		TabSheet tabSheetDis = new TabSheet();
 		tabSheetDis.setWidth("260px");
 		tabSheetDis.setHeight("300px");
-		tabSheetDis.addTab(new Label("test"), "Symptoms");
-		tabSheetDis.addTab(new Label("test1"), "Cause");
-		tabSheetDis.addTab(new Label("test2"), "Treatment");
-		
 		
 		mainLayout.addComponent(tabSheetDis, "top:90px;left:30px");
 		
@@ -91,11 +87,11 @@ public class InfoDis extends VerticalLayout implements View , IState {
 		
 	}
 	/**
-	 * Edits the upperVerticalLayout by setting the TitleLabel.
+	 * Edits the upperVerticalLayout, does nothing.
 	 */
 	private void editUpperVerticalLayout()
 	{
-		design.setTitleLabel("Disease");
+		
 	}
 	/**
 	 * Edits the lowerHorizontalLayout by adding a button to navigate back to
@@ -133,8 +129,11 @@ public class InfoDis extends VerticalLayout implements View , IState {
 	 * Not overridden method of the interface view.
 	 */
 	public void enter(ViewChangeEvent event) {
-		// TODO Auto-generated method stub
-		
+		design.setTitleLabel(Data.getReference());
+		tabSheetDis.removeAllComponents();
+		tabSheetDis.addTab(new Label(), "Symptoms");
+		tabSheetDis.addTab(new Label((Data.getDiseases().get(Data.getReference())).getCause()), "Cause");
+		tabSheetDis.addTab(new Label((Data.getDiseases().get(Data.getReference())).getTreatment()), "Treatment");
 	}
 
 	/**
