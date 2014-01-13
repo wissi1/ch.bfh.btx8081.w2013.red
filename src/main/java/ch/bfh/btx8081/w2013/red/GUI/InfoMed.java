@@ -126,7 +126,7 @@ public class InfoMed extends VerticalLayout implements View, IState {
 	            }
 	        });
 		
-		Button mainButton = new Button("Main");
+		Button mainButton = new Button("Home");
 		mainButton.setIcon(new ThemeResource("Main.png"));
 		mainButton.setStyleName(BaseTheme.BUTTON_LINK);
 		mainButton.setWidth("80px");

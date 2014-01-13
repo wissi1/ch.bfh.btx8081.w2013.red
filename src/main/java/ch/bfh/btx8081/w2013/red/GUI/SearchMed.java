@@ -150,7 +150,7 @@ public class SearchMed extends VerticalLayout implements View, IState {
 			}
 		});
 
-		Button mainButton = new Button("Main");
+		Button mainButton = new Button("Home");
 		mainButton.setIcon(new ThemeResource("Main.png"));
 		mainButton.setStyleName(BaseTheme.BUTTON_LINK);
 		mainButton.setWidth("80px");
@@ -171,6 +171,9 @@ public class SearchMed extends VerticalLayout implements View, IState {
 	 * Not overridden method of the interface view.
 	 */
 	public void enter(ViewChangeEvent event) {
+		
+		comboBox_MediName.setValue(null);
+		comboBox_MediName.setInputPrompt("Select please");
 
 	}
 

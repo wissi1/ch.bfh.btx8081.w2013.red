@@ -47,12 +47,7 @@ public class NavigatorUI extends UI
     	navigator = new Navigator(this, this);
     	navigator.addView("", new Init());
         navigator.addView(LOGINVIEW, new Login());
-        navigator.addView(HOMEVIEW, new Home());
-        navigator.addView(COMMENTVIEW, new Comment());
-        navigator.addView(INFODISVIEW, new InfoDis());
-        navigator.addView(INFOMEDVIEW, new InfoMed());
-        navigator.addView(SEARCHDISVIEW, new SearchDis());
-        navigator.addView(SEARCHMEDVIEW, new SearchMed());
+        
         
     }
     /**
@@ -65,6 +60,33 @@ public class NavigatorUI extends UI
     previousView = navigator.getState();
     navigator.navigateTo(view);
     }
+    
+    public static void navigateToHome(String view)
+    { 
+    	navigator.addView(HOMEVIEW, new Home());
+        navigator.addView(COMMENTVIEW, new Comment());
+        navigator.addView(INFODISVIEW, new InfoDis());
+        navigator.addView(INFOMEDVIEW, new InfoMed());
+        navigator.addView(SEARCHDISVIEW, new SearchDis());
+        navigator.addView(SEARCHMEDVIEW, new SearchMed());
+    	previousView = navigator.getState();
+        navigator.navigateTo(view);
+       
+    }
+    
+    public static void navigateLogout(String view)
+    {
+    	previousView = navigator.getState();
+        navigator.navigateTo(view);
+        navigator.removeView(HOMEVIEW);
+        navigator.removeView(COMMENTVIEW);
+        navigator.removeView(INFODISVIEW);
+        navigator.removeView(INFOMEDVIEW);
+        navigator.removeView(SEARCHDISVIEW);
+        navigator.removeView(SEARCHMEDVIEW);
+    }
+    
+    
     /**
      * 
      * @return

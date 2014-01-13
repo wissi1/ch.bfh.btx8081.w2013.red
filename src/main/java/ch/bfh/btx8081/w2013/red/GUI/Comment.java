@@ -86,7 +86,7 @@ public class Comment extends VerticalLayout implements View, IState {
 	private void editMainLayout()
 	{		
 		commentLayout.setWidth("240px");
-		final TextField title = new TextField("Yout Comment:");
+		final TextField title = new TextField("Your Comment:");
         title.setValue("enter title");
         title.setWidth("260px");
         title.setHeight("25px");
@@ -165,7 +165,7 @@ public class Comment extends VerticalLayout implements View, IState {
 		
 		
 		Button returnToMainButton = new Button();
-		returnToMainButton.setCaption("Main");
+		returnToMainButton.setCaption("Home");
 		returnToMainButton.setIcon(new ThemeResource("Main.png"));
 		returnToMainButton.setStyleName(BaseTheme.BUTTON_LINK);
 		returnToMainButton.setWidth("80px");

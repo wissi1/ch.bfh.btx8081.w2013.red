@@ -98,7 +98,6 @@ public class SearchDis extends VerticalLayout implements View, IState {
 	{		
 		
 		comboBox_1.setCaption("Disease");
-		comboBox_1.setInputPrompt("Bitte Auswählen");
 		
 		ArrayList<String> disease = DisplayDiseases.displayDiseases();
 		
@@ -192,7 +191,7 @@ public class SearchDis extends VerticalLayout implements View, IState {
 		 * create "Main"-Button
 		 */
 		Button returnToMainButton = new Button();
-		returnToMainButton.setCaption("Main");
+		returnToMainButton.setCaption("Home");
 		returnToMainButton.setIcon(new ThemeResource("Main.png"));
 		returnToMainButton.setStyleName(BaseTheme.BUTTON_LINK);
 		returnToMainButton.setWidth("80px");
@@ -219,7 +218,9 @@ public class SearchDis extends VerticalLayout implements View, IState {
 	 */
 	@Override
 	public void enter(ViewChangeEvent event) {
-		// TODO Auto-generated method stub
+		
+		comboBox_1.setValue(null);
+		comboBox_1.setInputPrompt("Select please");
 		
 	}
 

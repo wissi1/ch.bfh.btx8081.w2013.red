@@ -204,7 +204,7 @@ public class Home extends VerticalLayout implements View, IState {
 	 */
 	@Override
 	public void handleB3() {
-		NavigatorUI.navigateTo(NavigatorUI.LOGINVIEW);
+		NavigatorUI.navigateLogout(NavigatorUI.LOGINVIEW);
 	}
 
 }

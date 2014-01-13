@@ -110,7 +110,8 @@ public class Login extends VerticalLayout implements View, IState {
 	 */
 	@Override
 	public void enter(ViewChangeEvent event) {
-		// TODO Auto-generated method stub
+		userField.setInputPrompt("Your username (eg. name@bfh.ch)");
+		passwordField.setValue(null);
 
 	}
 	
@@ -145,7 +146,6 @@ public class Login extends VerticalLayout implements View, IState {
 		userField.setRequired(true);
 		userField.setWidth("80%");
 		userField.setHeight("-1px");
-		userField.setInputPrompt("Your username (eg. name@bfh.ch)");
 	    userField.addValidator(new EmailValidator("Username must be an email address"));
 	    userField.setInvalidAllowed(false);
 		verticalLayout.addComponent(userField);
@@ -215,7 +215,7 @@ public class Login extends VerticalLayout implements View, IState {
 
 	@Override
 	public void handleB1() {
-		NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
+		NavigatorUI.navigateToHome(NavigatorUI.HOMEVIEW);
 	}
 	/**
 	 *overridden method of the interface IState.
