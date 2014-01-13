@@ -13,6 +13,7 @@ import ch.bfh.btx8081.w2013.red.Model.displayComment;
 import com.vaadin.event.FieldEvents;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -22,6 +23,7 @@ import com.vaadin.ui.TextArea;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.themes.BaseTheme;
 
 /**
  * The comment class creates a view in which a user can read and write 
@@ -151,6 +153,8 @@ public class Comment extends VerticalLayout implements View, IState {
 	
 		Button backButton = new Button();
 		backButton.setCaption("Back");
+		backButton.setIcon(new ThemeResource("Back.png"));
+		backButton.setStyleName(BaseTheme.BUTTON_LINK);
 		backButton.setWidth("80px");
 		backButton.addClickListener(new Button.ClickListener() 
     	{
@@ -162,6 +166,8 @@ public class Comment extends VerticalLayout implements View, IState {
 		
 		Button returnToMainButton = new Button();
 		returnToMainButton.setCaption("Main");
+		returnToMainButton.setIcon(new ThemeResource("Main.png"));
+		returnToMainButton.setStyleName(BaseTheme.BUTTON_LINK);
 		returnToMainButton.setWidth("80px");
 		returnToMainButton.addClickListener(new Button.ClickListener() 
     	{

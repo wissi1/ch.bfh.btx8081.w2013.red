@@ -24,4 +24,14 @@
     <text>hallo</text>
     <ratings />
   </comment>
+  <comment id="c1389618596627" reference="Citalopram" owner="shabf2@bfh.ch" date="1389618596627">
+    <title />
+    <text />
+    <ratings />
+  </comment>
+  <comment id="c1389618650760" reference="Citalopram" owner="shabf2@bfh.ch" date="1389618650760">
+    <title>Dafalgan wirkt!</title>
+    <text>Dafalgan hilft bei h?ufigem Kopfschmerzen</text>
+    <ratings />
+  </comment>
 </comments>

@@ -32,6 +32,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.themes.BaseTheme;
 /**
  * 
  * The Login class creates a view in which a user can write his username
@@ -174,6 +175,8 @@ public class Login extends VerticalLayout implements View, IState {
 	private void buildHorizontalLayout_1() {
 	
 		homeButton = new Button("Login");
+		homeButton.setIcon(new ThemeResource("Login.png"));
+		homeButton.setStyleName(BaseTheme.BUTTON_LINK);
 		homeButton.setImmediate(true);
 		homeButton.setWidth("80px");
 		homeButton.setHeight("-1px");

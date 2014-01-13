@@ -14,6 +14,7 @@ import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -24,6 +25,7 @@ import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.themes.BaseTheme;
 
 /**
  * The SearchDis class creates a view in which a user can search for diseases
@@ -175,6 +177,8 @@ public class SearchDis extends VerticalLayout implements View, IState {
 		 */
 		Button backButton = new Button();
 		backButton.setCaption("Search");
+		backButton.setIcon(new ThemeResource("Search.png"));
+		backButton.setStyleName(BaseTheme.BUTTON_LINK);
 		backButton.setWidth("80px");
 		backButton.addClickListener(new Button.ClickListener() 
     	{
@@ -189,6 +193,8 @@ public class SearchDis extends VerticalLayout implements View, IState {
 		 */
 		Button returnToMainButton = new Button();
 		returnToMainButton.setCaption("Main");
+		returnToMainButton.setIcon(new ThemeResource("Main.png"));
+		returnToMainButton.setStyleName(BaseTheme.BUTTON_LINK);
 		returnToMainButton.setWidth("80px");
 		returnToMainButton.addClickListener(new Button.ClickListener() 
     	{

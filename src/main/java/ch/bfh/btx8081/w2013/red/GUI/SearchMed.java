@@ -22,6 +22,7 @@ import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -30,6 +31,7 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.themes.BaseTheme;
 import com.vaadin.ui.themes.ChameleonTheme;
 
 @SuppressWarnings("serial")
@@ -137,6 +139,8 @@ public class SearchMed extends VerticalLayout implements View, IState {
 	private void editLowerHorizontalLayout()
 	{
 		Button searchButton = new Button("Search");
+		searchButton.setIcon(new ThemeResource("Search.png"));
+		searchButton.setStyleName(BaseTheme.BUTTON_LINK);
 		searchButton.setWidth("80px");
 		searchButton.addClickListener(new Button.ClickListener()
 		{
@@ -147,6 +151,8 @@ public class SearchMed extends VerticalLayout implements View, IState {
 		});
 
 		Button mainButton = new Button("Main");
+		mainButton.setIcon(new ThemeResource("Main.png"));
+		mainButton.setStyleName(BaseTheme.BUTTON_LINK);
 		mainButton.setWidth("80px");
 		mainButton.addClickListener(new Button.ClickListener()
 		{

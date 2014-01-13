@@ -11,6 +11,7 @@ import ch.bfh.btx8081.w2013.red.Database.Drug;
 import com.vaadin.client.ui.VTabsheet.Tab;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -19,6 +20,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.themes.BaseTheme;
 import com.vaadin.ui.themes.ChameleonTheme;
 import com.vaadin.ui.themes.Reindeer;
 /**
@@ -113,6 +115,8 @@ public class InfoDis extends VerticalLayout implements View , IState {
 	{
 		
 		Button backButton = new Button("Back");
+		backButton.setIcon(new ThemeResource("Back.png"));
+		backButton.setStyleName(BaseTheme.BUTTON_LINK);
 		backButton.setWidth("80px");
 			backButton.addClickListener(new Button.ClickListener() 
 			{
@@ -122,6 +126,8 @@ public class InfoDis extends VerticalLayout implements View , IState {
 	        });
 		
 		Button mainButton = new Button("Main");
+		mainButton.setIcon(new ThemeResource("Main.png"));
+		mainButton.setStyleName(BaseTheme.BUTTON_LINK);
 		mainButton.setWidth("80px");
         	mainButton.addClickListener(new Button.ClickListener() 
         	{
