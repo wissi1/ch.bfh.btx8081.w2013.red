@@ -11,11 +11,17 @@
 
 package ch.bfh.btx8081.w2013.red.GUI;
 
+import java.awt.Component;
 import java.util.ArrayList;
+import java.util.Map.Entry;
+
+import javax.swing.JOptionPane;
 
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
 import ch.bfh.btx8081.w2013.red.Database.Data;
+import ch.bfh.btx8081.w2013.red.Database.Disease;
+import ch.bfh.btx8081.w2013.red.Database.Drug;
 import ch.bfh.btx8081.w2013.red.Model.DisplayMedicaments;
 
 import com.vaadin.data.Property.ValueChangeEvent;
@@ -124,6 +130,34 @@ public class SearchMed extends VerticalLayout implements View, IState {
 		{
 			comboBox_MediArt.addItem(types);
 		}
+		
+		comboBox_MediArt.addValueChangeListener(new ValueChangeListener() {
+			
+			
+			public void valueChange(ValueChangeEvent event) {
+				if(comboBox_MediArt.getValue() != null)
+				{
+					comboBox_MediName.removeAllItems();
+					for(Entry<String, Drug> drug : Data.getDrugs().entrySet())
+					{
+						if(drug.getValue().getTypes().equals(comboBox_MediArt.getValue()))
+						{
+							comboBox_MediName.addItem(drug.getValue().getName());
+						}
+					}
+					
+				}
+				else 
+				{
+					ArrayList<String> medication = DisplayMedicaments.displayMedication();
+					
+					for(String medications : medication)
+					{
+						comboBox_MediName.addItem(medications);
+					}
+				}
+			}
+		});
 
 		
 		mainLayout.addComponent(comboBox_MediArt, "top:170.0px;left:30.0px;");
@@ -145,8 +179,18 @@ public class SearchMed extends VerticalLayout implements View, IState {
 		searchButton.addClickListener(new Button.ClickListener()
 		{
 			public void buttonClick(ClickEvent event) {
-				Data.setReference(comboBox_MediName.getValue().toString());
-				handleB2();
+				try{
+					Data.setReference(comboBox_MediName.getValue().toString());
+					handleB2();
+				}
+				catch (Exception e)
+				{
+					Component controllingFrame = null;
+					JOptionPane.showMessageDialog(controllingFrame,
+	                        "Please select Medication.",
+	                        "Error Message",
+	                        JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 

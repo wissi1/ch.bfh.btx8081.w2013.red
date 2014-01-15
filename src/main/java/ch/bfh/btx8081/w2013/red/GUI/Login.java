@@ -187,21 +187,31 @@ public class Login extends VerticalLayout implements View, IState {
     		private Component controllingFrame;
 
 			public void buttonClick(ClickEvent event) {
-    			
-    		User user =	Data.getUsers().get(userField.getValue());
-    		String password = HashValueGenerator1.getHash(passwordField.getValue());
-    		if(password.equals(user.getPasswort()))
-    		{
-    			Data.setUser(user.getName());
-    			handleB1();
+    		
+    		try{
+    			User user =	Data.getUsers().get(userField.getValue());
+        		String password = HashValueGenerator1.getHash(passwordField.getValue());
+    			if(password.equals(user.getPasswort()))
+    			{
+    				Data.setUser(user.getName());
+    				handleB1();
+    			}
+    			else
+    			{
+    				JOptionPane.showMessageDialog(controllingFrame,
+                    "Invalid password or username, please try again.",
+                    "Error Message",
+                    JOptionPane.ERROR_MESSAGE);
+    			}
     		}
-    		else {
-	            
-					JOptionPane.showMessageDialog(controllingFrame,
-	                        "Invalid password, please try again.",
-	                        "Error Message",
-	                        JOptionPane.ERROR_MESSAGE);
-			}
+    		catch( NullPointerException e)
+    		{
+    			JOptionPane.showMessageDialog(controllingFrame,
+                        "Invalid password or username, please try again.",
+                        "Error Message",
+                        JOptionPane.ERROR_MESSAGE);
+    		}
+    				
     		}
     	});
 
