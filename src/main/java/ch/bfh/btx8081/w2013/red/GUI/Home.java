@@ -166,6 +166,8 @@ public class Home extends VerticalLayout implements View, IState {
 	private void buildHorizontalLayout() {
 
 		homeButton = new Button("Logout");
+		homeButton.setIcon(new ThemeResource("Logout.png"));
+		homeButton.setStyleName(BaseTheme.BUTTON_LINK);
 		homeButton.setWidth("80px");
 		homeButton.setHeight("-1px");
 		horizontalLayout_1.addComponent(homeButton);
@@ -202,7 +204,7 @@ public class Home extends VerticalLayout implements View, IState {
 	 */
 	@Override
 	public void handleB3() {
-		NavigatorUI.navigateTo(NavigatorUI.LOGINVIEW);
+		NavigatorUI.navigateLogout(NavigatorUI.LOGINVIEW);
 	}
 
 }

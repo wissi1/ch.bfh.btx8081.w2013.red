@@ -4,6 +4,7 @@
 
 	<disease name="Depressionen">
 		<symptoms>
+			<symptom>Denkstoerungen</symptom>
 			<symptom>Gedrueckte Stimmung</symptom>
 			<symptom>Freudlosigkeit</symptom>
 			<symptom>Traurigkeit</symptom>

@@ -16,8 +16,11 @@ import ch.bfh.btx8081.w2013.red.GUI.SearchMed;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.navigator.Navigator;
+import com.vaadin.server.Page.UriFragmentChangedListener;
+import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
+import com.vaadin.server.Page.UriFragmentChangedEvent;
 import com.vaadin.ui.UI;
 
 @Theme("redtheme")
@@ -44,17 +47,9 @@ public class NavigatorUI extends UI
 		Data.loadDiseases();
 		Data.loadDrugs();
 		Data.loadUsers();
-		Data.setReference("Seroquel");
     	navigator = new Navigator(this, this);
     	navigator.addView("", new Init());
         navigator.addView(LOGINVIEW, new Login());
-        navigator.addView(HOMEVIEW, new Home());
-        navigator.addView(COMMENTVIEW, new Comment());
-        navigator.addView(INFODISVIEW, new InfoDis());
-        navigator.addView(INFOMEDVIEW, new InfoMed());
-        navigator.addView(SEARCHDISVIEW, new SearchDis());
-        navigator.addView(SEARCHMEDVIEW, new SearchMed());
-        
     }
     /**
      * 
@@ -66,6 +61,33 @@ public class NavigatorUI extends UI
     previousView = navigator.getState();
     navigator.navigateTo(view);
     }
+    
+    public static void navigateToHome(String view)
+    { 
+    	navigator.addView(HOMEVIEW, new Home());
+        navigator.addView(COMMENTVIEW, new Comment());
+        navigator.addView(INFODISVIEW, new InfoDis());
+        navigator.addView(INFOMEDVIEW, new InfoMed());
+        navigator.addView(SEARCHDISVIEW, new SearchDis());
+        navigator.addView(SEARCHMEDVIEW, new SearchMed());
+    	previousView = navigator.getState();
+        navigator.navigateTo(view);
+       
+    }
+    
+    public static void navigateLogout(String view)
+    {
+    	previousView = navigator.getState();
+        navigator.navigateTo(view);
+        navigator.removeView(HOMEVIEW);
+        navigator.removeView(COMMENTVIEW);
+        navigator.removeView(INFODISVIEW);
+        navigator.removeView(INFOMEDVIEW);
+        navigator.removeView(SEARCHDISVIEW);
+        navigator.removeView(SEARCHMEDVIEW);
+    }
+    
+    
     /**
      * 
      * @return

@@ -45,6 +45,7 @@
 
 
 	<disease name="Psychose">
+		<symptom>Wahnvorstellungen</symptom>
 		<symptom>Halluzinationen</symptom>
 		<symptom>Wahnvorstellungen</symptom>
 		<symptom>Antriebsarmut</symptom>
@@ -67,7 +68,8 @@
 	</disease>
 
 	<disease name="Zwangsstoerung">
-
+		<symptom>Denkveraenderungen</symptom>
+		<symptom>Wahnvorstellungen</symptom>
 		<symptom>Zwangsgedanken</symptom>
 		<symptom>Zwangsimpulse</symptom>
 		<symptom>Zwangsbehandlungen</symptom>

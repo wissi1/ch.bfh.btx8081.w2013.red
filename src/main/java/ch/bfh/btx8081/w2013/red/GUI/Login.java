@@ -32,6 +32,7 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.themes.BaseTheme;
 /**
  * 
  * The Login class creates a view in which a user can write his username
@@ -109,7 +110,8 @@ public class Login extends VerticalLayout implements View, IState {
 	 */
 	@Override
 	public void enter(ViewChangeEvent event) {
-		// TODO Auto-generated method stub
+		userField.setInputPrompt("Your username (eg. name@bfh.ch)");
+		passwordField.setValue(null);
 
 	}
 	
@@ -144,7 +146,6 @@ public class Login extends VerticalLayout implements View, IState {
 		userField.setRequired(true);
 		userField.setWidth("80%");
 		userField.setHeight("-1px");
-		userField.setInputPrompt("Your username (eg. name@bfh.ch)");
 	    userField.addValidator(new EmailValidator("Username must be an email address"));
 	    userField.setInvalidAllowed(false);
 		verticalLayout.addComponent(userField);
@@ -174,6 +175,8 @@ public class Login extends VerticalLayout implements View, IState {
 	private void buildHorizontalLayout_1() {
 	
 		homeButton = new Button("Login");
+		homeButton.setIcon(new ThemeResource("Login.png"));
+		homeButton.setStyleName(BaseTheme.BUTTON_LINK);
 		homeButton.setImmediate(true);
 		homeButton.setWidth("80px");
 		homeButton.setHeight("-1px");
@@ -184,21 +187,31 @@ public class Login extends VerticalLayout implements View, IState {
     		private Component controllingFrame;
 
 			public void buttonClick(ClickEvent event) {
-    			
-    		User user =	Data.getUsers().get(userField.getValue());
-    		String password = HashValueGenerator1.getHash(passwordField.getValue());
-    		if(password.equals(user.getPasswort()))
-    		{
-    			Data.setUser(user.getName());
-    			handleB1();
+    		
+    		try{
+    			User user =	Data.getUsers().get(userField.getValue());
+        		String password = HashValueGenerator1.getHash(passwordField.getValue());
+    			if(password.equals(user.getPasswort()))
+    			{
+    				Data.setUser(user.getName());
+    				handleB1();
+    			}
+    			else
+    			{
+    				JOptionPane.showMessageDialog(controllingFrame,
+                    "Invalid password or username, please try again.",
+                    "Error Message",
+                    JOptionPane.ERROR_MESSAGE);
+    			}
     		}
-    		else {
-	            
-					JOptionPane.showMessageDialog(controllingFrame,
-	                        "Invalid password, please try again.",
-	                        "Error Message",
-	                        JOptionPane.ERROR_MESSAGE);
-			}
+    		catch( NullPointerException e)
+    		{
+    			JOptionPane.showMessageDialog(controllingFrame,
+                        "Invalid password or username, please try again.",
+                        "Error Message",
+                        JOptionPane.ERROR_MESSAGE);
+    		}
+    				
     		}
     	});
 
@@ -212,7 +225,7 @@ public class Login extends VerticalLayout implements View, IState {
 
 	@Override
 	public void handleB1() {
-		NavigatorUI.navigateTo(NavigatorUI.HOMEVIEW);
+		NavigatorUI.navigateToHome(NavigatorUI.HOMEVIEW);
 	}
 	/**
 	 *overridden method of the interface IState.

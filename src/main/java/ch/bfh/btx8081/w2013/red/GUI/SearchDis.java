@@ -3,17 +3,24 @@ package ch.bfh.btx8081.w2013.red.GUI;
 /**
  * import all required packages
  */
+import java.awt.Component;
 import java.util.ArrayList;
+import java.util.Map.Entry;
+
+import javax.swing.JOptionPane;
 
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
 import ch.bfh.btx8081.w2013.red.Database.Data;
+import ch.bfh.btx8081.w2013.red.Database.Disease;
 import ch.bfh.btx8081.w2013.red.Model.DisplayDiseases;
 
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.ThemeResource;
+import com.vaadin.server.VaadinPortlet.VaadinGateinRequest;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -24,6 +31,7 @@ import com.vaadin.ui.Panel;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.themes.BaseTheme;
 
 /**
  * The SearchDis class creates a view in which a user can search for diseases
@@ -96,7 +104,6 @@ public class SearchDis extends VerticalLayout implements View, IState {
 	{		
 		
 		comboBox_1.setCaption("Disease");
-		comboBox_1.setInputPrompt("Bitte Auswählen");
 		
 		ArrayList<String> disease = DisplayDiseases.displayDiseases();
 		
@@ -139,6 +146,70 @@ public class SearchDis extends VerticalLayout implements View, IState {
 		
 		mainLayout.addComponent(comboBox_4, "top:300.0px;left:30.0px;");
 		
+		ValueChangeListener symptomListener = new ValueChangeListener() {
+			
+			@Override
+			public void valueChange(ValueChangeEvent event) {
+				if(comboBox_2.getValue() != null || comboBox_3.getValue() != null || comboBox_4.getValue() != null)
+				{
+					comboBox_1.removeAllItems();
+						for(Entry<String, Disease> disease : Data.getDiseases().entrySet())
+						{
+							boolean cb2 = false;
+							if(comboBox_2.getValue() == null)
+							{
+								cb2 = true;
+							}
+							boolean cb3 = false;
+							if(comboBox_3.getValue() == null)
+							{
+								cb3 = true;
+							}
+							boolean cb4 = false;
+							if(comboBox_4.getValue() == null)
+							{
+								cb4 = true;
+							}
+							for(int i = 0 ; i< disease.getValue().getSymtoms().size(); i++)
+							{
+								if(disease.getValue().getSymtoms().get(i).equals(comboBox_2.getValue()))
+								{
+									cb2 = true;
+								}
+								if(disease.getValue().getSymtoms().get(i).equals(comboBox_3.getValue()))
+								{
+									cb3 = true;
+								}
+								if(disease.getValue().getSymtoms().get(i).equals(comboBox_4.getValue()))
+								{
+									cb4 = true;
+								}
+							}
+							
+							if(cb2 == true && cb3 == true && cb4 == true)
+							{
+								System.out.println(cb2);
+								System.out.println(cb3);
+								System.out.println(cb4);
+								comboBox_1.addItem(disease.getValue().getName());
+							}
+						}
+					}
+					else
+					{
+						ArrayList<String> disease = DisplayDiseases.displayDiseases();
+						for(String diseases : disease)
+						{
+							comboBox_1.addItem(diseases);
+						}
+					}
+				}	
+		};
+		
+		comboBox_2.addValueChangeListener(symptomListener);
+		comboBox_3.addValueChangeListener(symptomListener);
+		comboBox_4.addValueChangeListener(symptomListener);
+		
 		ArrayList<String> symptom = DisplayDiseases.displaySymptoms();
 		
 		for(String symptoms : symptom)
@@ -175,12 +246,26 @@ public class SearchDis extends VerticalLayout implements View, IState {
 		 */
 		Button backButton = new Button();
 		backButton.setCaption("Search");
+		backButton.setIcon(new ThemeResource("Search.png"));
+		backButton.setStyleName(BaseTheme.BUTTON_LINK);
 		backButton.setWidth("80px");
 		backButton.addClickListener(new Button.ClickListener() 
     	{
     		public void buttonClick(ClickEvent event) {
+    			
+    			try
+    			{
     			Data.setReference(comboBox_1.getValue().toString());
     			handleB2();
+    			}
+    			catch(Exception e)
+    			{
+    				Component controllingFrame = null;
+					JOptionPane.showMessageDialog(controllingFrame,
+	                        "Please select Disease.",
+	                        "Error Message",
+	                        JOptionPane.ERROR_MESSAGE);
+    			}
     		}
     	});
 		
@@ -188,7 +273,9 @@ public class SearchDis extends VerticalLayout implements View, IState {
 		 * create "Main"-Button
 		 */
 		Button returnToMainButton = new Button();
-		returnToMainButton.setCaption("Main");
+		returnToMainButton.setCaption("Home");
+		returnToMainButton.setIcon(new ThemeResource("Main.png"));
+		returnToMainButton.setStyleName(BaseTheme.BUTTON_LINK);
 		returnToMainButton.setWidth("80px");
 		returnToMainButton.addClickListener(new Button.ClickListener() 
     	{
@@ -213,7 +300,9 @@ public class SearchDis extends VerticalLayout implements View, IState {
 	 */
 	@Override
 	public void enter(ViewChangeEvent event) {
-		// TODO Auto-generated method stub
+		
+		comboBox_1.setValue(null);
+		comboBox_1.setInputPrompt("Select please");
 		
 	}
 

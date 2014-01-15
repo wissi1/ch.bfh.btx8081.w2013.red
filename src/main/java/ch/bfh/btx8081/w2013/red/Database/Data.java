@@ -50,7 +50,7 @@ public class Data {
 		String text = null;
 		boolean rateValue = true;
 		try {
-			Document jdom = new SAXBuilder().build("XML/comments_data.xml");
+			Document jdom = new SAXBuilder().build("XML/test.xml");
 			Element aComment = jdom.getRootElement();
 			for(Element comment : aComment.getChildren())
 			{
@@ -89,9 +89,13 @@ public class Data {
 				}
 				comments.put(id, new Comment(id, reference, text, owner, title, date, rates));
 			}
+			for(Entry<String, Comment> c : comments.entrySet())
+			{
+				System.out.println(c.getValue().getTitle());
+			}
 		}
 		catch (Exception e) {
-			System.out.println("no connection to medications data possible");
+			System.out.println("no connection to comments data possible");
 		}
 	}
 	/**
@@ -128,7 +132,7 @@ public class Data {
 					{
 						effect = mediData.getValue();
 					}
-					if(mediData.getName().equals("sideffect"))
+					if(mediData.getName().equals("sideeffect"))
 					{
 						sideeffect = mediData.getValue();
 					}
@@ -161,6 +165,7 @@ public class Data {
 				{
 					if(diseaseData.getName().equals("symptoms"))
 					{
+						symptoms = new ArrayList<String>();
 						for(Element symptom : diseaseData.getChildren())
 						{
 							symptoms.add(symptom.getValue());
@@ -178,8 +183,9 @@ public class Data {
 							{
 								therapy = treatment.getValue();
 							}
-							if(treatment.getName().equals("medications"))
+							if(treatment.getName().equals("medicaments"))
 							{
+								medications = new ArrayList<String>();
 								for(Element medication : treatment.getChildren())
 								{
 									medications.add(medication.getValue());
@@ -199,15 +205,32 @@ public class Data {
 	 */
 	public static void loadUsers()
 	{
-		users.put("shabf2@bfh.ch", new User("shabf2@bfh.ch", "-903581630"));
-		users.put("owner2", new User("owner", "passwort2"));
+		try {
+			String username = null;
+			String password = null;
+			Document jdom = new SAXBuilder().build("XML/users_data.xml");
+			Element usersRoot = jdom.getRootElement();
+			for(Element user : usersRoot.getChildren())
+			{
+				username = user.getChild("Username").getValue();
+				password = user.getChild("Passwort").getValue();
+				users.put(username, new User(username, password));
+				System.out.println(username);
+				System.out.println(password);
+			}
+		}
+		catch (Exception e) {
+			System.out.println("no connection to user data possible");
+		}
+//		users.put("shabf2@bfh.ch", new User("shabf2@bfh.ch", "-903581630"));
+//		users.put("owner2", new User("owner", "passwort2"));
 	}
 	
 	public static void updateComment()
 	{
 		try {
 			XMLOutputter outputter = new XMLOutputter();
-			Document jdom = new SAXBuilder().build("XML/comments_data.xml");
+			Document jdom = new SAXBuilder().build("XML/test.xml");
 			Element commentRoot = jdom.getRootElement();
 			System.out.println(commentRoot.getName());
 			for(int i = 0; i < commentRoot.getChildren().size(); i++)
@@ -222,6 +245,8 @@ public class Data {
 				{
 					if(commentRoot.getChildren().get(i).getChild("ratings").getChildren().size() < comments.get(key).getRatings().size())
 					{
+						System.out.println(commentRoot.getChildren().get(i).getChild("ratings").getChildren().size());
+						System.out.println( comments.get(key).getRatings().size());
 						Element rate = new Element("rate");
 							rate.setAttribute(new Attribute("positive", "" + comments.get(key).getRatings().get(comments.get(key).getRatings().size()-1).getRate()));
 							rate.setAttribute(new Attribute("rateowner", "" + comments.get(key).getRatings().get(comments.get(key).getRatings().size()-1).getRateOwner()));

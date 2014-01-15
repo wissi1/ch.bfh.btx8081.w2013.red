@@ -1,11 +1,17 @@
 package ch.bfh.btx8081.w2013.red.GUI;
 
+import java.util.Map.Entry;
+
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
 import ch.bfh.btx8081.w2013.red.Database.Data;
+import ch.bfh.btx8081.w2013.red.Database.Disease;
+import ch.bfh.btx8081.w2013.red.Database.Drug;
 
+import com.vaadin.client.ui.VTabsheet.Tab;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -14,7 +20,9 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.TabSheet;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.themes.BaseTheme;
 import com.vaadin.ui.themes.ChameleonTheme;
+import com.vaadin.ui.themes.Reindeer;
 /**
  * The InfoDis class creates a view in which a user can read symptoms, causes 
  * and treatments of different diseases. It provides a display panel to show the existing documentation about the medicine,
@@ -31,6 +39,9 @@ public class InfoDis extends VerticalLayout implements View , IState {
 	private VerticalLayout upperVerticalLayout;
 	private HorizontalLayout lowerHorizontalLayout;
 	private MhcGuidDesign design;
+	private VerticalLayout symptomsLayout = new VerticalLayout();
+	private VerticalLayout causeLayout = new VerticalLayout();
+	private VerticalLayout treatmentLayout = new VerticalLayout();
 	TabSheet tabSheetDis = new TabSheet();
 	/**
 	 * Constructs a InfoDis View on the base of different parameters.
@@ -71,7 +82,9 @@ public class InfoDis extends VerticalLayout implements View , IState {
 	{		
 		tabSheetDis.setWidth("260px");
 		tabSheetDis.setHeight("300px");
-		
+		tabSheetDis.addTab(symptomsLayout, "Symptoms");
+		tabSheetDis.addTab(causeLayout, "Cause");
+		tabSheetDis.addTab(treatmentLayout, "Treatment");
 		mainLayout.addComponent(tabSheetDis, "top:90px;left:30px");
 		
 		Button commentLink = new Button("comment");
@@ -102,6 +115,8 @@ public class InfoDis extends VerticalLayout implements View , IState {
 	{
 		
 		Button backButton = new Button("Back");
+		backButton.setIcon(new ThemeResource("Back.png"));
+		backButton.setStyleName(BaseTheme.BUTTON_LINK);
 		backButton.setWidth("80px");
 			backButton.addClickListener(new Button.ClickListener() 
 			{
@@ -110,7 +125,9 @@ public class InfoDis extends VerticalLayout implements View , IState {
 	            }
 	        });
 		
-		Button mainButton = new Button("Main");
+		Button mainButton = new Button("Home");
+		mainButton.setIcon(new ThemeResource("Main.png"));
+		mainButton.setStyleName(BaseTheme.BUTTON_LINK);
 		mainButton.setWidth("80px");
         	mainButton.addClickListener(new Button.ClickListener() 
         	{
@@ -130,10 +147,38 @@ public class InfoDis extends VerticalLayout implements View , IState {
 	 */
 	public void enter(ViewChangeEvent event) {
 		design.setTitleLabel(Data.getReference());
-		tabSheetDis.removeAllComponents();
-		tabSheetDis.addTab(new Label(), "Symptoms");
-		tabSheetDis.addTab(new Label((Data.getDiseases().get(Data.getReference())).getCause()), "Cause");
-		tabSheetDis.addTab(new Label((Data.getDiseases().get(Data.getReference())).getTreatment()), "Treatment");
+		symptomsLayout.removeAllComponents();
+		for(String symp : Data.getDiseases().get(Data.getReference()).getSymtoms())
+		{
+			symptomsLayout.addComponent(new Label(symp));
+		}
+		causeLayout.removeAllComponents();
+		causeLayout.addComponent(new Label((Data.getDiseases().get(Data.getReference())).getCause()));
+		treatmentLayout.removeAllComponents();
+		treatmentLayout.addComponent(new Label("Therapy:"));
+		treatmentLayout.addComponent(new Label((" -" + Data.getDiseases().get(Data.getReference()).getTreatment())));
+		treatmentLayout.addComponent(new Label("Medication:"));
+		for(final String med : Data.getDiseases().get(Data.getReference()).getDrugs())
+		{
+			if(Data.getDrugs().containsKey(med))
+			{
+				Button medButton = new Button(" -" + med);
+				medButton.setStyleName(Reindeer.BUTTON_LINK);
+				medButton.addClickListener(new Button.ClickListener() {
+					@Override
+					public void buttonClick(ClickEvent event) {
+						Data.setReference(med);
+						NavigatorUI.navigateTo(NavigatorUI.INFOMEDVIEW);
+					}
+				});;
+				treatmentLayout.addComponent(medButton);
+			}
+			else
+			{
+				treatmentLayout.addComponent(new Label(" -" + med));
+			}
+		}
+			
 	}
 
 	/**

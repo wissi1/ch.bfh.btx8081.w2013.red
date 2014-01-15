@@ -11,17 +11,24 @@
 
 package ch.bfh.btx8081.w2013.red.GUI;
 
+import java.awt.Component;
 import java.util.ArrayList;
+import java.util.Map.Entry;
+
+import javax.swing.JOptionPane;
 
 import ch.bfh.btx8081.w2013.red.Controller.IState;
 import ch.bfh.btx8081.w2013.red.Controller.NavigatorUI;
 import ch.bfh.btx8081.w2013.red.Database.Data;
+import ch.bfh.btx8081.w2013.red.Database.Disease;
+import ch.bfh.btx8081.w2013.red.Database.Drug;
 import ch.bfh.btx8081.w2013.red.Model.DisplayMedicaments;
 
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -30,6 +37,7 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.themes.BaseTheme;
 import com.vaadin.ui.themes.ChameleonTheme;
 
 @SuppressWarnings("serial")
@@ -122,6 +130,34 @@ public class SearchMed extends VerticalLayout implements View, IState {
 		{
 			comboBox_MediArt.addItem(types);
 		}
+		
+		comboBox_MediArt.addValueChangeListener(new ValueChangeListener() {
+			
+			
+			public void valueChange(ValueChangeEvent event) {
+				if(comboBox_MediArt.getValue() != null)
+				{
+					comboBox_MediName.removeAllItems();
+					for(Entry<String, Drug> drug : Data.getDrugs().entrySet())
+					{
+						if(drug.getValue().getTypes().equals(comboBox_MediArt.getValue()))
+						{
+							comboBox_MediName.addItem(drug.getValue().getName());
+						}
+					}
+					
+				}
+				else 
+				{
+					ArrayList<String> medication = DisplayMedicaments.displayMedication();
+					
+					for(String medications : medication)
+					{
+						comboBox_MediName.addItem(medications);
+					}
+				}
+			}
+		});
 
 		
 		mainLayout.addComponent(comboBox_MediArt, "top:170.0px;left:30.0px;");
@@ -137,16 +173,30 @@ public class SearchMed extends VerticalLayout implements View, IState {
 	private void editLowerHorizontalLayout()
 	{
 		Button searchButton = new Button("Search");
+		searchButton.setIcon(new ThemeResource("Search.png"));
+		searchButton.setStyleName(BaseTheme.BUTTON_LINK);
 		searchButton.setWidth("80px");
 		searchButton.addClickListener(new Button.ClickListener()
 		{
 			public void buttonClick(ClickEvent event) {
-				Data.setReference(comboBox_MediName.getValue().toString());
-				handleB2();
+				try{
+					Data.setReference(comboBox_MediName.getValue().toString());
+					handleB2();
+				}
+				catch (Exception e)
+				{
+					Component controllingFrame = null;
+					JOptionPane.showMessageDialog(controllingFrame,
+	                        "Please select Medication.",
+	                        "Error Message",
+	                        JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 
-		Button mainButton = new Button("Main");
+		Button mainButton = new Button("Home");
+		mainButton.setIcon(new ThemeResource("Main.png"));
+		mainButton.setStyleName(BaseTheme.BUTTON_LINK);
 		mainButton.setWidth("80px");
 		mainButton.addClickListener(new Button.ClickListener()
 		{
@@ -165,6 +215,9 @@ public class SearchMed extends VerticalLayout implements View, IState {
 	 * Not overridden method of the interface view.
 	 */
 	public void enter(ViewChangeEvent event) {
+		
+		comboBox_MediName.setValue(null);
+		comboBox_MediName.setInputPrompt("Select please");
 
 	}
 
