@@ -1,3 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <comments>
+  <comment id="c1389794353140" reference="Seroquel" owner="shabf2@bfh.ch" date="1389794353140">
+    <title>Regelm?ssig Einnehmen!</title>
+    <text>Medikament wirkt nur richtig wenn der Spiegel hochgehalten wird.</text>
+    <ratings>
+      <rate positive="true" rateowner="wissi1@bfh.ch" />
+      <rate positive="true" rateowner="heebm2@bfh.ch" />
+    </ratings>
+  </comment>
+  <comment id="c1389794468598" reference="Seroquel" owner="wissi1@bfh.ch" date="1389794468598">
+    <title>Vorsicht!</title>
+    <text>Medikament macht sehr m?de und aphatisch.</text>
+    <ratings>
+      <rate positive="false" rateowner="heebm2@bfh.ch" />
+    </ratings>
+  </comment>
 </comments>
